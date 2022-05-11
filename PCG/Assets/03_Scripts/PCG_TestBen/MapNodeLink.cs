@@ -4,5 +4,6 @@ using UnityEngine;
 
 public class MapNodeLink : MonoBehaviour
 {
-    
+    public MapNode firstMapNode;
+    public MapNode secondMapNode;
 }
