@@ -9,8 +9,8 @@ public class PcgCreateRoom : MonoBehaviour
   [SerializeField] private Vector2Int _canvaSize;
   [Tooltip("Min size of a room, this define the minimal size possible room")]
   [SerializeField] private Vector2Int _minSizeRoom = new Vector2Int(10,10);
-  [Tooltip("this ratio is the ratio that divide each room, if 1 each divided room is in equal ration, if 0 each room is drastically different")]
-  [SerializeField] [Range(0, 1)] private float _dividRatio = 0.5f;
+  [Tooltip("this ratio is the ratio that divide each room, if 0 each divided room is in equal ratio")]
+  [SerializeField] [Range(0, 10)] private float _randomRange = 1f;
 
 
 
@@ -102,7 +102,7 @@ public class PcgCreateRoom : MonoBehaviour
         newNode.transform.position = posNewNode;
         newNode.sizeRoom = mapToCut.sizeRoom;
 
-        int newSizeRoomX = (int) (mapToCut.sizeRoom.x / (Random.value * (1 - _dividRatio) + 2));
+        int newSizeRoomX = (int) (mapToCut.sizeRoom.x / (Random.value *_randomRange + 2));
 
         if (newSizeRoomX % 2!= 0)
         {
@@ -141,7 +141,7 @@ public class PcgCreateRoom : MonoBehaviour
         newNode.transform.position = posNewNode;
         newNode.sizeRoom = mapToCut.sizeRoom;
 
-        int newSizeRoomY = (int) (mapToCut.sizeRoom.y / (Random.value * (1 - _dividRatio) + 2));
+        int newSizeRoomY = (int) (mapToCut.sizeRoom.y / (Random.value * _randomRange + 2));
 
         if (newSizeRoomY % 2!= 0)
         {
