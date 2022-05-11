@@ -28,7 +28,7 @@ public class MapPCG : MonoBehaviour
     [SerializeField] private int _minWidth = 40;
     [SerializeField] private int _minHeight = 40;
 
-    [SerializeField] private int _roomFitOffset = 2;
+    [SerializeField] private int _roomShrink = 2;
 
     private List<BoundsInt> _areaList = new List<BoundsInt>();
     private List<BoundsInt> _roomList = new List<BoundsInt>();
@@ -226,10 +226,10 @@ public class MapPCG : MonoBehaviour
         for (int i = 0; i < _areaList.Count; i++)
         {
             BoundsInt newRoom = new BoundsInt();
-            newRoom.xMin = _areaList[i].xMin + _roomFitOffset;
-            newRoom.xMax = _areaList[i].xMax - _roomFitOffset;
-            newRoom.yMin = _areaList[i].yMin + _roomFitOffset;
-            newRoom.yMax = _areaList[i].yMax - _roomFitOffset;
+            newRoom.xMin = _areaList[i].xMin + _roomShrink;
+            newRoom.xMax = _areaList[i].xMax - _roomShrink;
+            newRoom.yMin = _areaList[i].yMin + _roomShrink;
+            newRoom.yMax = _areaList[i].yMax - _roomShrink;
             _roomList.Add(newRoom);
         }
     }
