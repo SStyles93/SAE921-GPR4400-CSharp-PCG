@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class PcgCreateRoom : MonoBehaviour
 {
+    //NEVER SET MINSIZEROOM TO ZERO, if zero it's go to a infinite room, this is bad for our computer.
   [Tooltip("Size of the map, this represent the boundary where the map is created. bigger map create more room")]
-    [SerializeField] private Vector2Int _canvaSize;
+  [SerializeField] private Vector2Int _canvaSize;
   [Tooltip("Min size of a room, this define the minimal size possible room")]
-    [SerializeField] private Vector2Int _minSizeRoom = new Vector2Int(10,10);
-    [Tooltip("this ratio is the ratio that divide each room, if 1 each divided room is in equal ration, if 0 each room is drastically different")]
-    [SerializeField] [Range(0, 1)] private float _dividRatio = 0.5f;
+  [SerializeField] private Vector2Int _minSizeRoom = new Vector2Int(10,10);
+  [Tooltip("this ratio is the ratio that divide each room, if 1 each divided room is in equal ration, if 0 each room is drastically different")]
+  [SerializeField] [Range(0, 1)] private float _dividRatio = 0.5f;
 
 
 
 
-
+    //this methode is used to create a "base" component called Generated map and ad the first node to it
+    //after it call the method to cut this first node to create a lot more node.
     public void GenerateMapNodes()
     {
         GameObject mapGameObject = new GameObject("Generated Map");
@@ -22,8 +24,11 @@ public class PcgCreateRoom : MonoBehaviour
         
         List<MapNode> generatedNodes = map.mapNodes ;
 
+        GameObject newListGameNode = new GameObject("List map node");
+        newListGameNode.transform.parent = mapGameObject.transform;
+        
         GameObject newGameNode = new GameObject("First map node");
-        newGameNode.transform.parent = mapGameObject.transform;
+        newGameNode.transform.parent = newListGameNode.transform;
         
         generatedNodes.Add(newGameNode.gameObject.AddComponent<MapNode>());
 
@@ -36,7 +41,7 @@ public class PcgCreateRoom : MonoBehaviour
 
             for (bool cuttingFinish = false; !cuttingFinish;)
             {
-                MapNode newNode = cuttingMapNode(nodes, mapGameObject);
+                MapNode newNode = cuttingMapNode(nodes, newListGameNode);
 
                 if (newNode != null)
                 { 
@@ -54,39 +59,43 @@ public class PcgCreateRoom : MonoBehaviour
 
     
     //this method is for define and launch the cutting process to creat two nodes from one node
-    private MapNode cuttingMapNode(MapNode mapToCut,GameObject mapGameObject)
+    //it define if we cut verticaly or horizontaly the node and other paramater of cutting
+    //and call the desired method to use for cut
+    private MapNode cuttingMapNode(MapNode mapToCut,GameObject listMapNode)
     {
         if(mapToCut.sizeRoom.x >= _minSizeRoom.x * 2 && mapToCut.sizeRoom.y >= _minSizeRoom.y * 2)
         {
             if (Random.value > 0.5)
             {
-                return cuttingMapNodeHorizontal(mapToCut,mapGameObject);
+                return cuttingMapNodeHorizontal(mapToCut,listMapNode);
             }
             else
             {
-                return cuttingMapNodeVertical(mapToCut,mapGameObject);
+                return cuttingMapNodeVertical(mapToCut,listMapNode);
             }
         }
         else
         {
             if (mapToCut.sizeRoom.x >= _minSizeRoom.x * 2)
             {
-                return cuttingMapNodeHorizontal(mapToCut,mapGameObject);
+                return cuttingMapNodeHorizontal(mapToCut,listMapNode);
             }
 
             if (mapToCut.sizeRoom.y >= _minSizeRoom.y * 2)
             {
-                return cuttingMapNodeVertical(mapToCut,mapGameObject);
+                return cuttingMapNodeVertical(mapToCut,listMapNode);
             }
         }
 
         return null;
     }
 
-    private MapNode cuttingMapNodeHorizontal(MapNode mapToCut,GameObject mapGameObject)
+    
+    //cutting in horizontal a node for create two node.
+    private MapNode cuttingMapNodeHorizontal(MapNode mapToCut,GameObject listMapNodes)
     {
         GameObject newGameNode = new GameObject("Map node");
-        newGameNode.transform.parent = mapGameObject.transform;
+        newGameNode.transform.parent = listMapNodes.transform;
 
         MapNode newNode = newGameNode.AddComponent<MapNode>();
         Vector3 posNewNode = mapToCut.transform.position;
@@ -121,6 +130,7 @@ public class PcgCreateRoom : MonoBehaviour
 
     }
     
+    //cutting in vertical a node for create two node.
     private MapNode cuttingMapNodeVertical(MapNode mapToCut,GameObject mapGameObject)
     {
         GameObject newGameNode = new GameObject("Map node");
