@@ -7,10 +7,13 @@ public class LinkScript : MonoBehaviour
 {
     [SerializeField] private MapScript map;
     [SerializeField] private uint minSizeDoor = 5;
+    private GameObject _newListLink;
 
-
+    // create a new game object and use the create link methode on each map node for have all link possible
     public void CreateAllLink()
     {
+        _newListLink = new GameObject("List link node");
+        _newListLink.transform.parent = map.transform;
         List<MapNode> mapsToLink = map.mapNodes;
 
         for (int it = 0; it < mapsToLink.Count; it++)
@@ -23,6 +26,7 @@ public class LinkScript : MonoBehaviour
         
         
     }
+    
     private void CreateLink(MapNode baseNode,MapNode secondNode)
     {
         
@@ -37,13 +41,13 @@ public class LinkScript : MonoBehaviour
                     math.abs(poseBaseNode.y - poseSecondNode.y) <= deltaY - minSizeDoor )
                 {
                     GameObject newLink = new GameObject("Link node");
-                    newLink.transform.parent = map.transform;
+                    newLink.transform.parent = _newListLink.transform;
 
                     int sizeXtra;
 
                     if (poseBaseNode.x < poseSecondNode.x)
                     {
-                            sizeXtra = baseNode.sizeRoom.x / 2;
+                        sizeXtra = baseNode.sizeRoom.x / 2;
                     }
                     else 
                     { 
@@ -63,16 +67,16 @@ public class LinkScript : MonoBehaviour
                      math.abs(poseBaseNode.x - poseSecondNode.x) <= deltaX - minSizeDoor)
                 {
                     GameObject newLink = new GameObject("Link node");
-                    newLink.transform.parent = map.transform;
+                    newLink.transform.parent = _newListLink.transform;
 
                     int sizeYtra;
 
                     if (poseBaseNode.y < poseSecondNode.y)
                     {
-                            sizeYtra = baseNode.sizeRoom.y / 2;
+                        sizeYtra = baseNode.sizeRoom.y / 2;
                     }else 
                     {
-                            sizeYtra = - baseNode.sizeRoom.y / 2;
+                        sizeYtra = - baseNode.sizeRoom.y / 2;
                     }
                     
                     MapNodeLink newLinkNode = newLink.AddComponent<MapNodeLink>();
