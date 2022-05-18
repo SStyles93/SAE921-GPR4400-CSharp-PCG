@@ -14,7 +14,7 @@ public class MapNode : MonoBehaviour
    {
       
       sizeRoom = size;
-      
+
    }
 
    

@@ -23,7 +23,8 @@ public class PcgCreateRoom : MonoBehaviour
         MapScript map = mapGameObject.AddComponent<MapScript>();
         
         List<MapNode> generatedNodes = map.mapNodes ;
-
+        map.mapSize = _canvaSize;
+        
         GameObject newListGameNode = new GameObject("List map node");
         newListGameNode.transform.parent = mapGameObject.transform;
         

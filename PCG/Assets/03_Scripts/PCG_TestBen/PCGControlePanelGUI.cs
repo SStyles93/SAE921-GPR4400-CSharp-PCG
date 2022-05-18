@@ -10,9 +10,13 @@ public class PCGControlePanelGUI : Editor
 
         PCGControlePanel myScript = (PCGControlePanel)target;
         
-        if(GUILayout.Button("Generate room(map Node)"))
+        if(GUILayout.Button("Generate room(Link Node)"))
         {
             myScript.GenerateRoom();
+        }
+        if(GUILayout.Button("Generate Link(Link Node)"))
+        {
+            myScript.GenerateLink();
         }
         
     }

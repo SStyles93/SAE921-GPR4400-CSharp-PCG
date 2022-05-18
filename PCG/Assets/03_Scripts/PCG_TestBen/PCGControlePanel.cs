@@ -12,11 +12,16 @@ public class PCGControlePanel : MonoBehaviour
    //than the ControlePanel
    
    [SerializeField] PcgCreateRoom _createRoom;
-   
+   [SerializeField] private LinkScript _createLink;
 
    //button for create the room in the PCGCreateRoom script
    public void GenerateRoom()
    {
       _createRoom.GenerateMapNodes();
+   }
+
+   public void GenerateLink()
+   {
+      _createLink.CreateAllLink();
    }
 }
