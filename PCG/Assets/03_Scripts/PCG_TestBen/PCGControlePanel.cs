@@ -11,11 +11,12 @@ public class PCGControlePanel : MonoBehaviour
    //here are listed all script to need to be here for the generator,all this script is in the same game object
    //than the ControlePanel
    
-   [SerializeField] PcgCreateRoom _createRoom;
-   [SerializeField] LinkScript _createLink;
-   [SerializeField] PaintGroundandWall _paintGround;
-
-   private MapScript _map;
+    [SerializeField] PcgCreateRoom _createRoom;
+    [SerializeField] LinkScript _createLink;
+    [SerializeField] PaintGroundandWall _paintGround;
+    [SerializeField] PlayerSpawner _playerSpawner;
+    
+    private MapScript _map;
 
    //button for create the room in the PCGCreateRoom script
    public void GenerateRoom()
@@ -23,6 +24,7 @@ public class PCGControlePanel : MonoBehaviour
         _map = _createRoom.GenerateMapNodes();
         _createLink.CreateAllLink(_map);
         _paintGround.PaintAllGround(_map);
+        _playerSpawner.SpawnPosition = _map.mapNodes[0].transform.position;
    }
 
    //public void GenerateLink()
