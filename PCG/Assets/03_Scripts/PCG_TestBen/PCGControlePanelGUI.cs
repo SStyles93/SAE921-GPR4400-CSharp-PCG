@@ -14,17 +14,21 @@ public class PCGControlePanelGUI : Editor
         {
             myScript.GenerateRoom();
         }
-        //if(GUILayout.Button("Generate Link(Link Node)"))
-        //{
-        //    myScript.GenerateLink();
-        //}
-        //if(GUILayout.Button("Paint Ground(TileMap)"))
-        //{
-        //    myScript.paintGround();
-        //}
-        if(GUILayout.Button("Clear Ground(TileMap)"))
+        if (GUILayout.Button("Generate Link(Link Node)"))
+        {
+            myScript.GenerateLink();
+        }
+        if (GUILayout.Button("Paint Ground(TileMap)"))
+        {
+            myScript.paintGround();
+        }
+        if (GUILayout.Button("Clear Ground(TileMap)"))
         {
             myScript.clearGround();
+        }
+        if (GUILayout.Button("GenerateAll"))
+        {
+            myScript.GenerateAll();
         }
         
         

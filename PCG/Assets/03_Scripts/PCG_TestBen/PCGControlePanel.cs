@@ -18,26 +18,33 @@ public class PCGControlePanel : MonoBehaviour
     
     private MapScript _map;
 
-   //button for create the room in the PCGCreateRoom script
-   public void GenerateRoom()
-   {
+    /// <summary>
+    /// Launches successively all the methods in order to create a map
+    /// </summary>
+    public void GenerateAll()
+    {
         _map = _createRoom.GenerateMapNodes();
         _createLink.CreateAllLink(_map);
         _paintGround.PaintAllGround(_map);
         _playerSpawner.SpawnPosition = _map.mapNodes[0].transform.position;
+    }
+   //button for create the room in the PCGCreateRoom script
+   public void GenerateRoom()
+   {
+        _map = _createRoom.GenerateMapNodes();
    }
 
-   //public void GenerateLink()
-   //{
-   //   _createLink.CreateAllLink(_map);
-   //}
+    public void GenerateLink()
+    {
+        _createLink.CreateAllLink(_map);
+    }
 
-   //public void paintGround()
-   //{
-   //   _paintGround.PaintAllGround(_map);
-   //}
+    public void paintGround()
+    {
+        _paintGround.PaintAllGround(_map);
+    }
 
-   public void clearGround()
+    public void clearGround()
    {
       _paintGround.ClearMap();
    }
