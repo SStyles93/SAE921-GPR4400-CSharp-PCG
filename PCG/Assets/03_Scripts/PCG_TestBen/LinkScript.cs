@@ -6,17 +6,18 @@ using UnityEngine;
 // this class is for create link on each room possible on the map.
 public class LinkScript : MonoBehaviour
 {
-    [SerializeField] private MapScript map;
+    private MapScript _map;
     [SerializeField] private uint minSizeDoor = 5;
     private GameObject _newListLink;
 
     // create a new game object and use the create link methode on each map node for have all link possible
-    public void CreateAllLink()
+    public void CreateAllLink(MapScript map)
     {
+        _map = map;
         _newListLink = new GameObject("List link node")
-        {transform = {parent = map.transform}};
+        {transform = {parent = _map.transform}};
         
-        List<MapNode> mapsToLink = map.mapNodes;
+        List<MapNode> mapsToLink = _map.mapNodes;
 
         for (int it = 0; it < mapsToLink.Count; it++)
         {
@@ -94,7 +95,7 @@ public class LinkScript : MonoBehaviour
 
                     newLinkNode.firstMapNode = baseNode;
                     newLinkNode.secondMapNode = secondNode;
-                    map.maplinks.Add(newLinkNode);
+                    _map.maplinks.Add(newLinkNode);
                 }
 
     }

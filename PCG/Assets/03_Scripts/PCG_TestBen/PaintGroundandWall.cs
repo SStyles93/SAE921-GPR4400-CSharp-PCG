@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.Intrinsics;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -8,23 +9,25 @@ public class PaintGroundandWall : MonoBehaviour
    [SerializeField] private Tilemap ground;
    [SerializeField] private RuleTile wallTile;
    [SerializeField] private RuleTile floorTile;
-   [SerializeField] private MapScript mapScript;
+   private MapScript _mapScript;
    
-   public void PaintAllGround()
+   public void PaintAllGround(MapScript map)
    {
-      for (int iX = 0; iX < mapScript.mapSize.x+2; iX++)
+      _mapScript = map;
+      
+      for (int iX = 0; iX < _mapScript.mapSize.x+2; iX++)
       {
-         for (int iY = 0; iY < mapScript.mapSize.y+2; iY++)
+         for (int iY = 0; iY < _mapScript.mapSize.y+2; iY++)
          {
-            Vector2Int cellpostion = new Vector2Int((int)-(mapScript.mapSize.x + 2) / 2 +iX,
-               (int)-(mapScript.mapSize.y + 2) / 2 +iY);
+            Vector2Int cellpostion = new Vector2Int((int)-(_mapScript.mapSize.x + 2) / 2 +iX,
+               (int)-(_mapScript.mapSize.y + 2) / 2 +iY);
 
             PaintWallCell(cellpostion);
          }
       }
       
 
-      foreach (var mapNode in mapScript.mapNodes)
+      foreach (var mapNode in _mapScript.mapNodes)
       {
          var sizeRoom = mapNode.sizeRoom;
          sizeRoom -= new Vector2Int(2, 2);
@@ -44,7 +47,7 @@ public class PaintGroundandWall : MonoBehaviour
             
       }
 
-      foreach (var linkNode in mapScript.maplinks)
+      foreach (var linkNode in _mapScript.maplinks)
       {
          
          var sizeDoor = new Vector2Int(2, 2);

@@ -17,7 +17,7 @@ public class PcgCreateRoom : MonoBehaviour
 
     //this methode is used to create a "base" component called Generated map and ad the first node to it
     //after it call the method to cut this first node to create a lot more node.
-    public void GenerateMapNodes()
+    public MapScript GenerateMapNodes()
     {
         GameObject mapGameObject = new GameObject("Generated Map");
         MapScript map = mapGameObject.AddComponent<MapScript>();
@@ -55,6 +55,8 @@ public class PcgCreateRoom : MonoBehaviour
             }
             
         }
+
+        return map;
     }
 
 

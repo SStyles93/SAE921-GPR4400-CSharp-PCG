@@ -15,20 +15,22 @@ public class PCGControlePanel : MonoBehaviour
    [SerializeField] LinkScript _createLink;
    [SerializeField] PaintGroundandWall _paintGround;
 
+   private MapScript _map;
+
    //button for create the room in the PCGCreateRoom script
    public void GenerateRoom()
    {
-      _createRoom.GenerateMapNodes();
+      _map = _createRoom.GenerateMapNodes();
    }
 
    public void GenerateLink()
    {
-      _createLink.CreateAllLink();
+      _createLink.CreateAllLink(_map);
    }
 
    public void paintGround()
    {
-      _paintGround.PaintAllGround();
+      _paintGround.PaintAllGround(_map);
    }
 
    public void clearGround()
