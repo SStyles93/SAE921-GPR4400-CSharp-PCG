@@ -13,12 +13,16 @@ namespace Player
         private PlayerAudio _playerAudio;
         private PlayerVisuals _playerVisuals;
 
-        private float _health;
-        
+        //Players stats Variables
+        [SerializeField] private float _health;
+        [SerializeField] private float _currentHealth;
+        [SerializeField] private float _speed = 2;
+
         [SerializeField] private bool _isInvicible = false;
 
         //Properties
         public bool IsInvicible { get => _isInvicible; set => _isInvicible = value; }
+        public float Speed { get => _speed; set => _speed = value; }
 
         private void Awake()
         {
@@ -43,7 +47,7 @@ namespace Player
         {
             if (_health <= 0.0f)
             {
-                Die();
+                //Die();
             }
         }
 

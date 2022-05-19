@@ -284,8 +284,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerController: {fileID: 0}
-  _playerStats: {fileID: 0}
-  _playerSpawnIndicator: {fileID: 0}
   _healthSlider: {fileID: 7071487692443674765}
   _healthGradient:
     serializedVersion: 2
@@ -317,22 +315,9 @@ MonoBehaviour:
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
   _healthFill: {fileID: 1578101709410861405}
-  _headImage: {fileID: 1249619822032635407}
-  _headSprites:
-  - {fileID: 21300000, guid: 3536186a33090c9489230e45eda54925, type: 3}
-  - {fileID: 21300000, guid: f9df0358469e5f14bb3bb811266e113c, type: 3}
+  _actionImage: {fileID: 1249619822032635407}
   _blockedColor: {r: 1, g: 1, b: 1, a: 0.15686275}
-  _bodyImages:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 1249619822032635407}
-  _buttonImages:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 7362773079651827597}
   _uIButtonsSO: {fileID: 11400000, guid: a803d7a12cccbdb4e8eef03ad3413a21, type: 2}
-  _uIActionsSO: {fileID: 11400000, guid: 06e7d0b37132db447ab9cd79aa4459da, type: 2}
-  _playerStatsSO: {fileID: 11400000, guid: 8e75537d895c89b48a22e256998336ef, type: 2}
 --- !u!1 &3783078376969341478
 GameObject:
   m_ObjectHideFlags: 0

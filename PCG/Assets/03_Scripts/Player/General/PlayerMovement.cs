@@ -8,7 +8,7 @@ namespace Player
     {
         //Reference Scripts
         private PlayerController _playerController;
-
+        private PlayerStats _playerStats;
         //Reference Components
         private Rigidbody2D _rb;
 
@@ -18,6 +18,9 @@ namespace Player
         void Awake()
         {
             _playerController = GetComponent<PlayerController>();
+            _playerStats = GetComponent<PlayerStats>();
+            
+            //Player Components
             _rb = GetComponent<Rigidbody2D>();
 
             _playerController.GameState += MovePlayer;
@@ -27,11 +30,10 @@ namespace Player
             //Movement
             if (_canMove)
             {
-                Vector3 movement = new Vector3(_playerController.Movement.x, _playerController.Movement.y, 0.0f);
                 //transform.Translate(movement * _playerStats.Speed * Time.deltaTime);
-                if(movement != Vector3.zero)
+                if((Vector3)_playerController.Movement != Vector3.zero)
                 {
-                    _rb.MovePosition(transform.position + movement * Time.fixedDeltaTime);
+                    _rb.MovePosition(transform.position + (Vector3)_playerController.Movement * _playerStats.Speed * Time.fixedDeltaTime);
                     
                 }
             }

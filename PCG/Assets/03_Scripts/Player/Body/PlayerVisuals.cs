@@ -20,7 +20,7 @@ namespace Player
         private int _movementHash;
         private int _attackHash;
 
-        private bool _updateVisuals = true;
+        [SerializeField] private bool _updateVisuals = true;
 
         //Color Change
         [SerializeField] private SpriteRenderer _spriteRender;

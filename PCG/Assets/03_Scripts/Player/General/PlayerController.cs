@@ -56,7 +56,7 @@ namespace Player
 
             if (!_canRepeateActions)
             {
-                //Prevents from repeating input HEAD
+                //Prevents from repeating input Action1
                 if (_repeatingAction1)
                 {
                     _repeatTimerAction1 += Time.deltaTime;
@@ -72,7 +72,7 @@ namespace Player
                     _action1 = false;
                 }
 
-                //Prevents from repeating input ArmR
+                //Prevents from repeating input Action2
                 if (_repeatingAction2)
                 {
                     _repeatTimerAction2 += Time.deltaTime;
@@ -88,7 +88,7 @@ namespace Player
                     _action2 = false;
                 }
 
-                //Prevents from repeating input ArmL
+                //Prevents from repeating input Action3
                 if (_repeatingAction3)
                 {
                     _repeatTimerAction3 += Time.deltaTime;
@@ -124,7 +124,7 @@ namespace Player
             }
 
         }
-        public void OnHead(InputValue value)
+        public void OnAction1(InputValue value)
         {
             if (!_canRepeateActions)
             {
@@ -137,7 +137,7 @@ namespace Player
                 _action1 = value.isPressed;
             }
         }
-        public void OnArmR(InputValue value)
+        public void OnAction2(InputValue value)
         {
             if (!_canRepeateActions)
             {
@@ -150,7 +150,7 @@ namespace Player
                 _action2 = value.isPressed;
             }
         }
-        public void OnArmL(InputValue value)
+        public void OnAction3(InputValue value)
         {
             if (!_canRepeateActions)
             {
