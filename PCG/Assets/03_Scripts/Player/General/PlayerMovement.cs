@@ -30,7 +30,6 @@ namespace Player
             //Movement
             if (_canMove)
             {
-                //transform.Translate(movement * _playerStats.Speed * Time.deltaTime);
                 if((Vector3)_playerController.Movement != Vector3.zero)
                 {
                     _rb.MovePosition(transform.position + (Vector3)_playerController.Movement * _playerStats.Speed * Time.fixedDeltaTime);

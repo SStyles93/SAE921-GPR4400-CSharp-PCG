@@ -20,18 +20,20 @@ public class PCGControlePanel : MonoBehaviour
    //button for create the room in the PCGCreateRoom script
    public void GenerateRoom()
    {
-      _map = _createRoom.GenerateMapNodes();
+        _map = _createRoom.GenerateMapNodes();
+        _createLink.CreateAllLink(_map);
+        _paintGround.PaintAllGround(_map);
    }
 
-   public void GenerateLink()
-   {
-      _createLink.CreateAllLink(_map);
-   }
+   //public void GenerateLink()
+   //{
+   //   _createLink.CreateAllLink(_map);
+   //}
 
-   public void paintGround()
-   {
-      _paintGround.PaintAllGround(_map);
-   }
+   //public void paintGround()
+   //{
+   //   _paintGround.PaintAllGround(_map);
+   //}
 
    public void clearGround()
    {

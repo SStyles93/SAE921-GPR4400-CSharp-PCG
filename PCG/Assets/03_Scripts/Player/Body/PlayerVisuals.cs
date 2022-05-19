@@ -114,7 +114,7 @@ namespace Player
         }
 
         /// <summary>
-        /// Launch headbutt
+        /// Launch Attack
         /// </summary>
         public void StartAttack()
         {
@@ -123,9 +123,9 @@ namespace Player
 
         }
         /// <summary>
-        /// Method used to disable Headbutt bool in animator
+        /// Method used to disable Attack bool in animator
         /// </summary>
-        public void EndHeadbutt()
+        public void EndAttack()
         {
             _animator.SetBool(_attackHash, false);
             _playerMovement.CanMove = true;

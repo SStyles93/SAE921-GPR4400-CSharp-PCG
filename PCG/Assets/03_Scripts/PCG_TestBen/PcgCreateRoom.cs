@@ -5,21 +5,27 @@ using UnityEngine;
 public class PcgCreateRoom : MonoBehaviour
 {
     //NEVER SET MINSIZEROOM TO ZERO, if zero it's go to a infinite room, this is bad for our computer.
-  [Tooltip("Size of the map, this represent the boundary where the map is created. bigger map create more room")]
-  [SerializeField] private Vector2Int _canvaSize;
-  [Tooltip("Min size of a room, this define the minimal size possible room")]
-  [SerializeField] private Vector2Int _minSizeRoom = new Vector2Int(10,10);
-  [Tooltip("this ratio is the ratio that divide each room, if 0 each divided room is in equal ratio")]
-  [SerializeField] [Range(0, 10)] private float _randomRange = 1f;
+    [Tooltip("Size of the map, this represent the boundary where the map is created. bigger map create more room")]
+    [SerializeField] private Vector2Int _canvaSize;
+    [Tooltip("Min size of a room, this define the minimal size possible room")]
+    [SerializeField] private Vector2Int _minSizeRoom = new Vector2Int(10,10);
+    [Tooltip("this ratio is the ratio that divide each room, if 0 each divided room is in equal ratio")]
+    [SerializeField] [Range(0, 10)] private float _randomRange = 1f;
 
+    [SerializeField] private GameObject mapGameObject;
 
-
-
-    //this methode is used to create a "base" component called Generated map and ad the first node to it
-    //after it call the method to cut this first node to create a lot more node.
+    /// <summary>
+    /// This methode is used to create a "base" component called Generated map and ad the first node to it.
+    /// It then calls the method to cut this first node to create a lot more node.
+    /// </summary>
+    /// <returns>The MapScript</returns>
     public MapScript GenerateMapNodes()
     {
-        GameObject mapGameObject = new GameObject("Generated Map");
+        //Destroy current map before creating a new one
+        if(mapGameObject != null)
+        DestroyImmediate(mapGameObject);
+
+        mapGameObject = new GameObject("Generated Map");
         MapScript map = mapGameObject.AddComponent<MapScript>();
         
         List<MapNode> generatedNodes = map.mapNodes ;
@@ -59,11 +65,14 @@ public class PcgCreateRoom : MonoBehaviour
         return map;
     }
 
-
-    
-    //this method is for define and launch the cutting process to creat two nodes from one node
-    //it define if we cut verticaly or horizontaly the node and other paramater of cutting
-    //and call the desired method to use for cut
+    /// <summary>
+    /// This method is for defining and launching the cutting process to create two nodes from one.
+    /// It defines if we cut verticaly or horizontaly the node and other paramaters of cutting
+    /// and calls the desired method to use for cutting
+    /// </summary>
+    /// <param name="mapToCut">The MapNode to cut</param>
+    /// <param name="listMapNode">GameObject</param>
+    /// <returns>The cut MapNode</returns>
     private MapNode cuttingMapNode(MapNode mapToCut,GameObject listMapNode)
     {
         if(mapToCut.sizeRoom.x >= _minSizeRoom.x * 2 && mapToCut.sizeRoom.y >= _minSizeRoom.y * 2)
@@ -93,8 +102,13 @@ public class PcgCreateRoom : MonoBehaviour
         return null;
     }
 
-    
-    //cutting in horizontal a node for create two node.
+
+    /// <summary>
+    /// Cutting in horizontal a node to create two nodes.
+    /// </summary>
+    /// <param name="mapToCut">The MapNode to cut</param>
+    /// <param name="listMapNodes">GameObject</param>
+    /// <returns>The cut MapNode</returns>
     private MapNode cuttingMapNodeHorizontal(MapNode mapToCut,GameObject listMapNodes)
     {
         GameObject newGameNode = new GameObject("Map node");
@@ -132,8 +146,13 @@ public class PcgCreateRoom : MonoBehaviour
         return newNode;
 
     }
-    
-    //cutting in vertical a node for create two node.
+
+    /// <summary>
+    /// Cutting in vertical a node for create two node.
+    /// </summary>
+    /// <param name="mapToCut">The MapNode to cut</param>
+    /// <param name="mapGameObject">GameObject</param>
+    /// <returns>The cut MapNode</returns>
     private MapNode cuttingMapNodeVertical(MapNode mapToCut,GameObject mapGameObject)
     {
         GameObject newGameNode = new GameObject("Map node");
