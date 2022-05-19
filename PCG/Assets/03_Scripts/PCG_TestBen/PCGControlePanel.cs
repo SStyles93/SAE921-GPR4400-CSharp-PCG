@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 
 
+[ExecuteInEditMode]
 //this script is used for control manually the PCG, for debug.
 public class PCGControlePanel : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class PCGControlePanel : MonoBehaviour
     [SerializeField] LinkScript _createLink;
     [SerializeField] PaintGroundandWall _paintGround;
     [SerializeField] PlayerSpawner _playerSpawner;
-    
+    [SerializeField] AstarPath _aStar;    
     private MapScript _map;
 
     /// <summary>
@@ -23,10 +24,17 @@ public class PCGControlePanel : MonoBehaviour
     /// </summary>
     public void GenerateAll()
     {
+        //Generate the map
         _map = _createRoom.GenerateMapNodes();
         _createLink.CreateAllLink(_map);
         _paintGround.PaintAllGround(_map);
+
+        //Spawn player
         _playerSpawner.SpawnPosition = _map.mapNodes[0].transform.position;
+
+        //Set A*
+        _aStar.data.gridGraph.SetDimensions((int)_map.mapSize.x, (int)_map.mapSize.y, 1.0f);
+        AstarPath.active.Scan();
     }
    //button for create the room in the PCGCreateRoom script
    public void GenerateRoom()
