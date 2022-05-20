@@ -95,8 +95,8 @@ public class LinkScript : MonoBehaviour
                     newLinkNode.secondMapNode = secondNode;
                     _map.maplinks.Add(newLinkNode);
                     
-                    baseNode._linkToOtherNode.Add(newLinkNode);
-                    secondNode._linkToOtherNode.Add(newLinkNode);
+                    baseNode.linkToOtherNode.Add(newLinkNode);
+                    secondNode.linkToOtherNode.Add(newLinkNode);
                 }
     }
 //in this method we create a pos for the door of the link, we see if it possible to draw it between the two point.

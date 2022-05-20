@@ -18,6 +18,10 @@ public class PCGControlePanelGUI : Editor
         {
             myScript.GenerateLink();
         }
+        if (GUILayout.Button("Generate rootRoad(LinkNode,Map Node"))
+        {
+            myScript.CreateRoot();
+        }
         if (GUILayout.Button("Paint Ground(TileMap)"))
         {
             myScript.paintGround();
@@ -30,5 +34,7 @@ public class PCGControlePanelGUI : Editor
         {
             myScript.GenerateAll();
         }
+        
+        
     }
 }

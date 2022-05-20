@@ -18,6 +18,7 @@ public class PCGControlePanel : MonoBehaviour
     [SerializeField] PlayerSpawner _playerSpawner;
     [SerializeField] AstarPath _aStar;
     [SerializeField] GizmosDrawPCG _GizmosDrawPcg;
+    [SerializeField] PcgCreateRootRoad _rootRoad;
     private MapScript _map;
 
     /// <summary>
@@ -29,6 +30,7 @@ public class PCGControlePanel : MonoBehaviour
         _map = _createRoom.GenerateMapNodes();
         _GizmosDrawPcg.AddMapToGizmos(_map);
         _createLink.CreateAllLink(_map);
+        _rootRoad.CreateRoot(_map);
         _paintGround.PaintAllGround(_map);
 
         //Spawn player
@@ -59,4 +61,9 @@ public class PCGControlePanel : MonoBehaviour
    {
       _paintGround.ClearMap();
    }
+
+    public void CreateRoot()
+    {
+        _rootRoad.CreateRoot(_map);
+    }
 }
