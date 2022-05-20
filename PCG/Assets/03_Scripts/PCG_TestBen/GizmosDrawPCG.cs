@@ -5,6 +5,12 @@ using UnityEngine;
 public class GizmosDrawPCG : MonoBehaviour
 {
     [SerializeField] private MapScript mapScript;
+
+    public void AddMapToGizmos(MapScript map)
+    {
+        mapScript = map;
+    }
+    
     public void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;

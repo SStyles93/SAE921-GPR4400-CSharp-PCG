@@ -16,7 +16,8 @@ public class PCGControlePanel : MonoBehaviour
     [SerializeField] LinkScript _createLink;
     [SerializeField] PaintGroundandWall _paintGround;
     [SerializeField] PlayerSpawner _playerSpawner;
-    [SerializeField] AstarPath _aStar;    
+    [SerializeField] AstarPath _aStar;
+    [SerializeField] GizmosDrawPCG _GizmosDrawPcg;
     private MapScript _map;
 
     /// <summary>
@@ -26,6 +27,7 @@ public class PCGControlePanel : MonoBehaviour
     {
         //Generate the map
         _map = _createRoom.GenerateMapNodes();
+        _GizmosDrawPcg.AddMapToGizmos(_map);
         _createLink.CreateAllLink(_map);
         _paintGround.PaintAllGround(_map);
 
@@ -40,6 +42,7 @@ public class PCGControlePanel : MonoBehaviour
    public void GenerateRoom()
    {
         _map = _createRoom.GenerateMapNodes();
+        _GizmosDrawPcg.AddMapToGizmos(_map);
    }
 
     public void GenerateLink()
