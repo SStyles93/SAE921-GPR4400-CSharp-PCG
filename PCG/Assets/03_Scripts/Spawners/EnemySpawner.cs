@@ -15,7 +15,7 @@ public class EnemySpawner : MonoBehaviour
 
         for (int i = 1; i < _mapScript.mapNodes.Count; i++)
         {
-            if(_mapScript.mapNodes[i].rootPos != 0)
+            if(_mapScript.mapNodes[i].rootPos != 0 && _mapScript.mapNodes[i].rootPos != 1)
             spawnPositions.Add(_mapScript.mapNodes[i].transform.position);
         }
         foreach (var position in spawnPositions)

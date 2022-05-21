@@ -9,6 +9,8 @@ public class PCGInGame : MonoBehaviour
     [SerializeField] AstarPath _aStar;
     [SerializeField] PlayerSpawner _playerSpawner;
 
+    private MapNode _spawningNode;
+
 
     private void Awake()
     {
@@ -35,7 +37,14 @@ public class PCGInGame : MonoBehaviour
         pcgControlePanel.paintGround();
 
         //Spawn player
-        _playerSpawner.SpawnPosition = pcgControlePanel.Map.mapNodes[0].transform.position;
+        foreach (var node in pcgControlePanel.Map.mapNodes)
+        {
+            if(node.rootPos == 1)
+            {
+                _spawningNode = node;
+            }
+        }
+        _playerSpawner.SpawnPosition = _spawningNode.transform.position;
     }
 
     /// <summary>
