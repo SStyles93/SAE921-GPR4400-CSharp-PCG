@@ -17,16 +17,23 @@ namespace Player
         [SerializeField] private GameObject mouseTarget;
         [SerializeField] private GameObject _cameraTarget;
         [SerializeField] private GameObject _aim;
-        
+        [SerializeField] private GameObject _projectilePrefab;
+
+
         //List of bools used for Actions
         [Header("Action's variables")]
         [Range(0.0f, 1.0f)]
         [SerializeField] private float _aimCorrection;
         [SerializeField] private float _action1CoolDownTime = 1.0f;
         private float _action1CoolDown;
+        [SerializeField] private float _action2CoolDownTime = 1.0f;
+        private float _action2CoolDown;
 
         private bool _canHit = true;
+        private bool _canShoot = true;
         private bool _isInCombat = true;      
+        
+        private GameObject _currentProjectile;
 
         Vector3 currentAimPos;
 
@@ -154,20 +161,6 @@ namespace Player
         /// </summary>
         private void ActionCheck()
         {
-            ////RightArm Throw
-            //if (_playerController.ArmR && _canThrow[(int)BODYPART.RIGHTARM])
-            //{
-            //    if(_playerController.ControlScheme == "Gamepad" && _playerController.Aim == Vector2.zero)
-            //    {
-            //        return;
-            //    }
-
-            //    EnablePlayersArm(BODYPART.RIGHTARM, false);
-            //    InstantiateArm(BODYPART.RIGHTARM);
-            //    _canThrow[(int)BODYPART.RIGHTARM] = false;
-
-            //}
-
             //Attack
             if (_playerController.Action1 && _canHit)
             {
@@ -183,58 +176,46 @@ namespace Player
                     _canHit = true;
                 }
             }
+            
+            //Projectile
+            if (_playerController.Action2 && _canShoot)
+            {
+                if (_playerController.ControlScheme == "Gamepad" && _playerController.Aim == Vector2.zero)
+                {
+                    return;
+                }
+
+                InstantiateProjectile();
+                _canShoot = false;
+
+            }
+            else if (!_canShoot)
+            {
+                _action2CoolDown -= Time.deltaTime;
+                if (_action2CoolDown <= 0.0f)
+                {
+                    _action2CoolDown = _action2CoolDownTime;
+                    _canShoot = true;
+                }
+            }
         }
 
-        ///// <summary>
-        ///// Enables or disables Arms
-        ///// </summary>
-        ///// <param name="armSide">Enum use to indicate which arms to interact with</param>
-        ///// <param name="enable">Bool to enable or disable</param>
-        //public void EnablePlayersArm(BODYPART armSide, bool enable)
-        //{
-        //    _arms[(int)armSide].SetActive(enable);
-        //    _canThrow[(int)armSide] = true;
+        /// <summary>
+        /// Instantiates a projectile
+        /// </summary>
+        private void InstantiateProjectile()
+        {
+            Vector3 instantiationPos = _aim.transform.position;
 
-        //}
-
-        ///// <summary>
-        ///// Instantiates an arm
-        ///// </summary>
-        ///// <param name="armSide">Define which arm to instantiate</param>
-        //private void InstantiateArm(BODYPART armSide)
-        //{
-        //    Vector3 instantiationPos = _aim.transform.position;
-
-        //    if (armSide == BODYPART.RIGHTARM)
-        //    {
-        //        //will have to adapt to ability chosen
-        //        currentRightArm = Instantiate(_rightArms[_chosenAbilityIdxR].gameObject, instantiationPos, Quaternion.identity);
-        //        Arm arm = currentRightArm.GetComponent<Arm>();
-        //        arm.ArmDirection = _aim.transform.localPosition;
-        //        arm.Damage *= _playerStats.ArmDamage;
-        //        //ThrowPosition used for BommerangArm
-        //        arm.ThrowPosition = transform.position;
-        //        //PushPower used for Explosive
-        //        arm.PushPower *= _playerStats.PushPower;
-        //        arm.Player = gameObject;
-        //    }
-        //    if (armSide == BODYPART.LEFTARM)
-        //    {
-        //        //will have to adapt to ability chosen
-        //        currentLeftArm = Instantiate(_leftArms[_chosenAbilityIdxL].gameObject, instantiationPos, Quaternion.identity);
-        //        Arm arm = currentLeftArm.GetComponent<Arm>();
-        //        arm.ArmDirection = _aim.transform.localPosition;
-        //        arm.Damage *= _playerStats.ArmDamage;
-        //        //ThrowPosition used for BommerangArm
-        //        arm.ThrowPosition = transform.position;
-        //        //PushPower used for Explosive
-        //        arm.PushPower *= _playerStats.PushPower;
-        //        arm.Player = gameObject;
-        //    }
-        //}
+            // Instantiates the projectile and gives it the necessary data
+            _currentProjectile = Instantiate(_projectilePrefab, instantiationPos, Quaternion.identity);
+            //Projectile projectile = _currentProjectile.GetComponent<Projectile>();
+            //projectile.ArrowDirection = _aim.transform.localPosition;
+            //projectile.Damage *= _playerStats.Damage;
+        }
 
         /// <summary>
-        /// Launches the Headbutt
+        /// Launches the Attack
         /// </summary>
         private void Attack()
         {

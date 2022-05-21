@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Enemy;
 
 namespace Player
 {
@@ -19,15 +20,15 @@ namespace Player
         /// <param name="collision"></param>
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            //if (collision.gameObject.GetComponent<EnemyStats>())
-            //{
-            //    //Send enemy in opposite direction from player
-            //    Vector2 forceDirection = collision.gameObject.transform.position -
-            //        gameObject.transform.position;
-            //    collision.gameObject.GetComponent<Rigidbody2D>().AddForce(forceDirection * (_pushPower * 100.0f), ForceMode2D.Impulse);
+            if (collision.collider.CompareTag("Enemy"))
+            {
+                //Send enemy in opposite direction from player
+                Vector2 forceDirection = collision.gameObject.transform.position -
+                    gameObject.transform.position;
+                collision.gameObject.GetComponent<Rigidbody2D>().AddForce(forceDirection * (_pushPower * 100.0f), ForceMode2D.Impulse);
 
-            //    collision.gameObject.GetComponent<EnemyStats>().TakeDamage(_attackDamage);
-            //}
+                collision.gameObject.GetComponent<EnemyStats>().TakeDamage(_attackDamage);
+            }
         }
     }
 }
