@@ -8,6 +8,9 @@ namespace Player
     {
         //Reference Scripts
         private PlayerController _playerController;
+        private PlayerVisuals _playerVisuals;
+        private PlayerStats _playerStats;
+        private Attack _attack;
 
         //Reference GameObjects
         [Header("Player's body parts")]
@@ -19,30 +22,28 @@ namespace Player
         [Header("Action's variables")]
         [Range(0.0f, 1.0f)]
         [SerializeField] private float _aimCorrection;
-        [SerializeField] private float _actionCoolDownTime = 1.0f;
+        [SerializeField] private float _action1CoolDownTime = 1.0f;
+        private float _action1CoolDown;
+
         private bool _canHit = true;
-        private bool _isInCombat = true;
+        private bool _isInCombat = true;      
 
         Vector3 currentAimPos;
 
         //Properties
         public bool CanHit { get => _canHit; set => _canHit = value; }
-        //public bool[] CanThrow { get => _canThrow; set => _canThrow = value; }
-        //public bool CanHeadbutt { get => _canHeadbutt; set => _canHeadbutt = value; }
         public GameObject Aim { get => _aim; private set => _aim = value; }
         public bool IsInCombat { get => _isInCombat; set => _isInCombat = value; }
-        //public GameObject CurrentRightArm { get => currentRightArm; private set => currentRightArm = value; }
-        //public GameObject CurrentLeftArm { get => currentLeftArm; private set => currentLeftArm = value; }
 
         void Awake()
         {
             _playerController = GetComponent<PlayerController>();
+            _playerVisuals = GetComponentInChildren<PlayerVisuals>();
+            _playerStats = GetComponent<PlayerStats>();
         }
         private void Start()
         {
             _aim.transform.localPosition = new Vector3(0.0f, -0.5f, 0.0f);
-            //_chosenAbilityIdxR = _playerStatSO.rightArmType;
-            //_chosenAbilityIdxL = _playerStatSO.leftArmType;
         }
 
         void Update()
@@ -167,34 +168,21 @@ namespace Player
 
             //}
 
-            ////LeftArm Throw
-            //if (_playerController.ArmL && _canThrow[(int)BODYPART.LEFTARM])
-            //{
-            //    if (_playerController.ControlScheme == "Gamepad" && _playerController.Aim == Vector2.zero)
-            //    {
-            //        return;
-            //    }
-
-            //    EnablePlayersArm(BODYPART.LEFTARM, false);
-            //    InstantiateArm(BODYPART.LEFTARM);
-            //    _canThrow[(int)BODYPART.LEFTARM] = false;
-            //}
-
-            ////Headbutt
-            //if (_playerController.Head && _canHeadbutt)
-            //{
-            //    _canHeadbutt = false;
-            //    Headbutt();
-            //}
-            //else if (!_canHeadbutt)
-            //{
-            //    _headbuttCoolDown -= Time.deltaTime;
-            //    if (_headbuttCoolDown <= 0.0f)
-            //    {
-            //        _headbuttCoolDown = _headbuttCoolDownTime;
-            //        _canHeadbutt = true;
-            //    }
-            //}
+            //Attack
+            if (_playerController.Action1 && _canHit)
+            {
+                _canHit = false;
+                Attack();
+            }
+            else if (!_canHit)
+            {
+                _action1CoolDown -= Time.deltaTime;
+                if (_action1CoolDown <= 0.0f)
+                {
+                    _action1CoolDown = _action1CoolDownTime;
+                    _canHit = true;
+                }
+            }
         }
 
         ///// <summary>
@@ -245,14 +233,17 @@ namespace Player
         //    }
         //}
 
-        ///// <summary>
-        ///// Launches the Headbutt
-        ///// </summary>
-        //private void Headbutt()
-        //{
-        //    _playerVisuals.StartHeadbutt();
-        //    _head.GetComponent<Headbutt>().PushPower = _playerStats.PushPower;
-        //}
+        /// <summary>
+        /// Launches the Headbutt
+        /// </summary>
+        private void Attack()
+        {
+            //Launch attack
+            _playerVisuals.StartAttack();
+
+            //Sets the pushing power of the attack
+            _attack.GetComponent<Attack>().PushPower = _playerStats.PushPower;
+        }
     }
 
 }

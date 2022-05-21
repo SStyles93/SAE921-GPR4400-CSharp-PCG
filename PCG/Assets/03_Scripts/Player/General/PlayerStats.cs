@@ -16,13 +16,15 @@ namespace Player
         //Players stats Variables
         [SerializeField] private float _health;
         [SerializeField] private float _currentHealth;
-        [SerializeField] private float _speed = 2;
+        [SerializeField] private float _speed = 2.0f;
+        [SerializeField] private float _pushPower = 2.0f;
 
         [SerializeField] private bool _isInvicible = false;
 
         //Properties
         public bool IsInvicible { get => _isInvicible; set => _isInvicible = value; }
         public float Speed { get => _speed; set => _speed = value; }
+        public float PushPower { get => _pushPower; set => _pushPower = value; }
 
         private void Awake()
         {
