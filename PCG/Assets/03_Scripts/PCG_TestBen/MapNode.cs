@@ -6,14 +6,14 @@ using UnityEngine.Serialization;
 
 public class MapNode : MonoBehaviour
 { 
-   //this is the size of the room,nothing less or more.
-   public Vector2Int sizeRoom;
+    //this is the size of the room,nothing less or more.
+    public Vector2Int sizeRoom;
    
-   //this is represent the length to the first root, if 0 it's not assigned to a root.
-   public int rootPos;
+    //this is represent the length to the first root, if 0 it's not assigned to a root.
+    public int rootPos;
 
-   //this is the list of link for accessible room.
-   public List<MapNodeLink> linkToOtherNode;
+    //this is the list of link for accessible room.
+    public List<MapNodeLink> linkToOtherNode;
 
    MapNode()
    {

@@ -72,7 +72,7 @@ public class PCGControlePanel : MonoBehaviour
     {
         //Set A*
         _aStar.data.gridGraph.SetDimensions((int)_map.mapSize.x, (int)_map.mapSize.y, 1.0f);
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.2f);
         AstarPath.active.Scan();
     }
 }
