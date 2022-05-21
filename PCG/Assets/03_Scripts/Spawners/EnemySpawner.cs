@@ -9,14 +9,10 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private MapScript _mapScript;
     [SerializeField] private List<Vector3> spawnPositions;
 
-    private void Awake()
-    {
-        _mapScript = _pcgRoom.MapGameObject.GetComponent<MapScript>();
-    }
-
-    // Start is called before the first frame update
     void Start()
     {
+        _mapScript = _pcgRoom.MapGameObject.GetComponent<MapScript>();
+
         for (int i = 1; i < _mapScript.mapNodes.Count; i++)
         {
             spawnPositions.Add(_mapScript.mapNodes[i].transform.position);

@@ -24,7 +24,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Action1",
+                    "name": "Action3",
                     "type": "Value",
                     "id": "6fdb4ef4-f5ec-4218-9446-4e7674efafd2",
                     "expectedControlType": "Button",
@@ -42,7 +42,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Action3",
+                    "name": "Action1",
                     "type": "Value",
                     "id": "44a91d46-d65d-4a9e-8625-54fae429ddfc",
                     "expectedControlType": "",
@@ -211,7 +211,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Action3",
+                    "action": "Action1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -222,7 +222,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Action3",
+                    "action": "Action1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -255,7 +255,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Action1",
+                    "action": "Action3",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -266,18 +266,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Action1",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "3598dc73-b3fa-420f-bbc2-680016b6b67b",
-                    "path": "<Keyboard>/ctrl",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Action1",
+                    "action": "Action3",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

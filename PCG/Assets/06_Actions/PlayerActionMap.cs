@@ -46,7 +46,7 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Action1"",
+                    ""name"": ""Action3"",
                     ""type"": ""Value"",
                     ""id"": ""6fdb4ef4-f5ec-4218-9446-4e7674efafd2"",
                     ""expectedControlType"": ""Button"",
@@ -64,7 +64,7 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Action3"",
+                    ""name"": ""Action1"",
                     ""type"": ""Value"",
                     ""id"": ""44a91d46-d65d-4a9e-8625-54fae429ddfc"",
                     ""expectedControlType"": """",
@@ -233,7 +233,7 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Action3"",
+                    ""action"": ""Action1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -244,7 +244,7 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Action3"",
+                    ""action"": ""Action1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -277,7 +277,7 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Action1"",
+                    ""action"": ""Action3"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -288,18 +288,7 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Action1"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""3598dc73-b3fa-420f-bbc2-680016b6b67b"",
-                    ""path"": ""<Keyboard>/ctrl"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""Action1"",
+                    ""action"": ""Action3"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -889,9 +878,9 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
         m_PlayerMovement = asset.FindActionMap("PlayerMovement", throwIfNotFound: true);
         m_PlayerMovement_Move = m_PlayerMovement.FindAction("Move", throwIfNotFound: true);
         m_PlayerMovement_Aim = m_PlayerMovement.FindAction("Aim", throwIfNotFound: true);
-        m_PlayerMovement_Action1 = m_PlayerMovement.FindAction("Action1", throwIfNotFound: true);
-        m_PlayerMovement_Action2 = m_PlayerMovement.FindAction("Action2", throwIfNotFound: true);
         m_PlayerMovement_Action3 = m_PlayerMovement.FindAction("Action3", throwIfNotFound: true);
+        m_PlayerMovement_Action2 = m_PlayerMovement.FindAction("Action2", throwIfNotFound: true);
+        m_PlayerMovement_Action1 = m_PlayerMovement.FindAction("Action1", throwIfNotFound: true);
         m_PlayerMovement_Pause = m_PlayerMovement.FindAction("Pause", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
@@ -966,9 +955,9 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
     private IPlayerMovementActions m_PlayerMovementActionsCallbackInterface;
     private readonly InputAction m_PlayerMovement_Move;
     private readonly InputAction m_PlayerMovement_Aim;
-    private readonly InputAction m_PlayerMovement_Action1;
-    private readonly InputAction m_PlayerMovement_Action2;
     private readonly InputAction m_PlayerMovement_Action3;
+    private readonly InputAction m_PlayerMovement_Action2;
+    private readonly InputAction m_PlayerMovement_Action1;
     private readonly InputAction m_PlayerMovement_Pause;
     public struct PlayerMovementActions
     {
@@ -976,9 +965,9 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
         public PlayerMovementActions(@PlayerActionMap wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_PlayerMovement_Move;
         public InputAction @Aim => m_Wrapper.m_PlayerMovement_Aim;
-        public InputAction @Action1 => m_Wrapper.m_PlayerMovement_Action1;
-        public InputAction @Action2 => m_Wrapper.m_PlayerMovement_Action2;
         public InputAction @Action3 => m_Wrapper.m_PlayerMovement_Action3;
+        public InputAction @Action2 => m_Wrapper.m_PlayerMovement_Action2;
+        public InputAction @Action1 => m_Wrapper.m_PlayerMovement_Action1;
         public InputAction @Pause => m_Wrapper.m_PlayerMovement_Pause;
         public InputActionMap Get() { return m_Wrapper.m_PlayerMovement; }
         public void Enable() { Get().Enable(); }
@@ -995,15 +984,15 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
                 @Aim.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnAim;
                 @Aim.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnAim;
                 @Aim.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnAim;
-                @Action1.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnAction1;
-                @Action1.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnAction1;
-                @Action1.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnAction1;
-                @Action2.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnAction2;
-                @Action2.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnAction2;
-                @Action2.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnAction2;
                 @Action3.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnAction3;
                 @Action3.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnAction3;
                 @Action3.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnAction3;
+                @Action2.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnAction2;
+                @Action2.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnAction2;
+                @Action2.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnAction2;
+                @Action1.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnAction1;
+                @Action1.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnAction1;
+                @Action1.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnAction1;
                 @Pause.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnPause;
@@ -1017,15 +1006,15 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
                 @Aim.started += instance.OnAim;
                 @Aim.performed += instance.OnAim;
                 @Aim.canceled += instance.OnAim;
-                @Action1.started += instance.OnAction1;
-                @Action1.performed += instance.OnAction1;
-                @Action1.canceled += instance.OnAction1;
-                @Action2.started += instance.OnAction2;
-                @Action2.performed += instance.OnAction2;
-                @Action2.canceled += instance.OnAction2;
                 @Action3.started += instance.OnAction3;
                 @Action3.performed += instance.OnAction3;
                 @Action3.canceled += instance.OnAction3;
+                @Action2.started += instance.OnAction2;
+                @Action2.performed += instance.OnAction2;
+                @Action2.canceled += instance.OnAction2;
+                @Action1.started += instance.OnAction1;
+                @Action1.performed += instance.OnAction1;
+                @Action1.canceled += instance.OnAction1;
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
@@ -1160,9 +1149,9 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnAim(InputAction.CallbackContext context);
-        void OnAction1(InputAction.CallbackContext context);
-        void OnAction2(InputAction.CallbackContext context);
         void OnAction3(InputAction.CallbackContext context);
+        void OnAction2(InputAction.CallbackContext context);
+        void OnAction1(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
     }
     public interface IUIActions

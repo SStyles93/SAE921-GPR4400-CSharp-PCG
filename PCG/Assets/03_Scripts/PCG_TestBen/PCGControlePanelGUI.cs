@@ -30,11 +30,5 @@ public class PCGControlePanelGUI : Editor
         {
             myScript.clearGround();
         }
-        if (GUILayout.Button("GenerateAll"))
-        {
-            myScript.GenerateAll();
-        }
-        
-        
     }
 }

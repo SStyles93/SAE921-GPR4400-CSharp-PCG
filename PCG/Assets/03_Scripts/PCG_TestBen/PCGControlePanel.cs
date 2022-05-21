@@ -16,33 +16,14 @@ public class PCGControlePanel : MonoBehaviour
     [SerializeField] LinkScript _createLink;
     [SerializeField] PaintGroundandWall _paintGround;
     [SerializeField] PlayerSpawner _playerSpawner;
-    [SerializeField] AstarPath _aStar;
     [SerializeField] GizmosDrawPCG _GizmosDrawPcg;
     [SerializeField] PcgCreateRootRoad _rootRoad;
     private MapScript _map;
 
-    private void Start()
-    {
-        StartCoroutine(ScanMap());
-    }
+    public MapScript Map { get => _map; private set => _map = value; }
 
-    /// <summary>
-    /// Launches successively all the methods in order to create a map
-    /// </summary>
-    public void GenerateAll()
-    {
-        //Generate the map
-        _map = _createRoom.GenerateMapNodes();
-        _GizmosDrawPcg.AddMapToGizmos(_map);
-        _createLink.CreateAllLink(_map);
-        _rootRoad.CreateRoot(_map);
-        _paintGround.PaintAllGround(_map);
-
-        //Spawn player
-        _playerSpawner.SpawnPosition = _map.mapNodes[0].transform.position;
-    }
-   //button for create the room in the PCGCreateRoom script
-   public void GenerateRoom()
+    //button for create the room in the PCGCreateRoom script
+    public void GenerateRoom()
    {
         _map = _createRoom.GenerateMapNodes();
         _GizmosDrawPcg.AddMapToGizmos(_map);
@@ -66,13 +47,5 @@ public class PCGControlePanel : MonoBehaviour
     public void CreateRoot()
     {
         _rootRoad.CreateRoot(_map);
-    }
-
-    IEnumerator ScanMap()
-    {
-        //Set A*
-        _aStar.data.gridGraph.SetDimensions((int)_map.mapSize.x, (int)_map.mapSize.y, 1.0f);
-        yield return new WaitForSeconds(0.2f);
-        AstarPath.active.Scan();
     }
 }

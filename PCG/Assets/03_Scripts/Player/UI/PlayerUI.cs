@@ -17,7 +17,7 @@ namespace Player
         [SerializeField] private Slider _healthSlider;
         [SerializeField] private Gradient _healthGradient;
         [SerializeField] private Image _healthFill;
-        [SerializeField] private Image _actionImage;
+        [SerializeField] private Image _actionBtnImage;
 
         [Header("Player Actions UI")]
         [SerializeField] private Color _blockedColor = Color.gray;
@@ -63,7 +63,7 @@ namespace Player
         private void UpdateButtonsUiColor()
         {
             // If button pressed => blockedColor
-            _actionImage.color =
+            _actionBtnImage.color =
                 _playerController.Action1 ? _blockedColor : _normalColor;
         }
 
@@ -76,12 +76,12 @@ namespace Player
             {
                 case "Keyboard":
 
-                    _actionImage.sprite = _uIButtonsSO.keyboardSprite;
+                    _actionBtnImage.sprite = _uIButtonsSO.keyboardSprite;
                     
                     break;
                 case "Gamepad":
 
-                    _actionImage.sprite = _uIButtonsSO.gamepadSprite;
+                    _actionBtnImage.sprite = _uIButtonsSO.gamepadSprite;
                     
                     break;
                 default:
