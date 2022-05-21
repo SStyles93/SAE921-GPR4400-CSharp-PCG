@@ -21,6 +21,11 @@ public class PCGControlePanel : MonoBehaviour
     [SerializeField] PcgCreateRootRoad _rootRoad;
     private MapScript _map;
 
+    private void Start()
+    {
+        StartCoroutine(ScanMap());
+    }
+
     /// <summary>
     /// Launches successively all the methods in order to create a map
     /// </summary>
@@ -35,10 +40,6 @@ public class PCGControlePanel : MonoBehaviour
 
         //Spawn player
         _playerSpawner.SpawnPosition = _map.mapNodes[0].transform.position;
-
-        //Set A*
-        _aStar.data.gridGraph.SetDimensions((int)_map.mapSize.x, (int)_map.mapSize.y, 1.0f);
-        AstarPath.active.Scan();
     }
    //button for create the room in the PCGCreateRoom script
    public void GenerateRoom()
@@ -65,5 +66,13 @@ public class PCGControlePanel : MonoBehaviour
     public void CreateRoot()
     {
         _rootRoad.CreateRoot(_map);
+    }
+
+    IEnumerator ScanMap()
+    {
+        //Set A*
+        _aStar.data.gridGraph.SetDimensions((int)_map.mapSize.x, (int)_map.mapSize.y, 1.0f);
+        yield return new WaitForSeconds(0.1f);
+        AstarPath.active.Scan();
     }
 }
