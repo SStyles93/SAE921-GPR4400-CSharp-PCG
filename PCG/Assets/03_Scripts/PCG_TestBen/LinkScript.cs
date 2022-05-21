@@ -16,14 +16,12 @@ public class LinkScript : MonoBehaviour
         _map = map;
         _newListLink = new GameObject("List link node")
         {transform = {parent = _map.transform}};
-        
-        List<MapNode> mapsToLink = _map.mapNodes;
 
-        for (int it = 0; it < mapsToLink.Count; it++)
+        for (int it = 0; it < _map.mapNodes.Count; it++)
         {
-            for (int i = it + 1; i < mapsToLink.Count; i++)
+            for (int i = it + 1; i < _map.mapNodes.Count; i++)
             {
-                CreateLink(mapsToLink[it], mapsToLink[i]);
+                CreateLink(_map.mapNodes[it], _map.mapNodes[i]);
             }
         }
         
@@ -84,20 +82,22 @@ public class LinkScript : MonoBehaviour
                     {
                         //this else theoretically never append but it's here in a case of bad behavior.
                         pointBaseNode = Vector2.zero;
-                        pointSecondNode =Vector2.zero;
+                        pointSecondNode = Vector2.zero;
                     }
                     
                     var newDoorPos = CreateNewDoor(baseNode, secondNode, pointBaseNode, pointSecondNode);
                     
-                    //after the door is placed (center of the GameObject) qe add all information the node need for function
+                    //after the door is placed (center of the GameObject) we add all information the node need for function
                     MapNodeLink newLinkNode = newLink.AddComponent<MapNodeLink>();
+                    
                     newLinkNode.transform.position = newDoorPos;
-
                     newLinkNode.firstMapNode = baseNode;
                     newLinkNode.secondMapNode = secondNode;
                     _map.maplinks.Add(newLinkNode);
+                    
+                    baseNode.linkToOtherNode.Add(newLinkNode);
+                    secondNode.linkToOtherNode.Add(newLinkNode);
                 }
-
     }
 //in this method we create a pos for the door of the link, we see if it possible to draw it between the two point.
 //it cover all spec of a door, in major part it's only go in the exact middle of the two collision point.

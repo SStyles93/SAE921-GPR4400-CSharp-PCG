@@ -29,39 +29,46 @@ public class PaintGroundandWall : MonoBehaviour
 
       foreach (var mapNode in _mapScript.mapNodes)
       {
-         var sizeRoom = mapNode.sizeRoom;
-         sizeRoom -= new Vector2Int(2, 2);
-            
-         for (int iX = 0; iX < sizeRoom.x; iX++)
+         if (mapNode.rootPos != 0)
          {
-            for (int iY = 0; iY < sizeRoom.y; iY++)
-            {
-               Vector3 centerNode = mapNode.transform.position;
-                    
-               Vector2Int cellpostion = new Vector2Int((int)centerNode.x - sizeRoom.x / 2 +iX,
-                  (int) centerNode.y - sizeRoom.y / 2 +iY);
+            var sizeRoom = mapNode.sizeRoom;
+            sizeRoom -= new Vector2Int(2, 2);
 
-               PaintFloorCell(cellpostion);
+            for (int iX = 0; iX < sizeRoom.x; iX++)
+            {
+               for (int iY = 0; iY < sizeRoom.y; iY++)
+               {
+                  Vector3 centerNode = mapNode.transform.position;
+
+                  Vector2Int cellpostion = new Vector2Int((int) centerNode.x - sizeRoom.x / 2 + iX,
+                     (int) centerNode.y - sizeRoom.y / 2 + iY);
+
+                  PaintFloorCell(cellpostion);
+               }
             }
          }
-            
+
       }
 
       foreach (var linkNode in _mapScript.maplinks)
       {
-         
-         var sizeDoor = new Vector2Int(2, 2);
-            
-         for (int iX = 0; iX < sizeDoor.x; iX++)
+         if(linkNode.rootPathing)
          {
-            for (int iY = 0; iY < sizeDoor.y; iY++)
-            {
-               Vector3 centerNode = linkNode.transform.position;
-                    
-               Vector2Int cellpostion = new Vector2Int((int)centerNode.x - sizeDoor.x / 2 +iX,
-                  (int) centerNode.y - sizeDoor.y / 2 +iY);
 
-               PaintFloorCell(cellpostion);
+
+            var sizeDoor = new Vector2Int(2, 2);
+
+            for (int iX = 0; iX < sizeDoor.x; iX++)
+            {
+               for (int iY = 0; iY < sizeDoor.y; iY++)
+               {
+                  Vector3 centerNode = linkNode.transform.position;
+
+                  Vector2Int cellpostion = new Vector2Int((int) centerNode.x - sizeDoor.x / 2 + iX,
+                     (int) centerNode.y - sizeDoor.y / 2 + iY);
+
+                  PaintFloorCell(cellpostion);
+               }
             }
          }
       }

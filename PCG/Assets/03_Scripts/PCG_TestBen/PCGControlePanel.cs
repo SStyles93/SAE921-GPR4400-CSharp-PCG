@@ -16,13 +16,10 @@ public class PCGControlePanel : MonoBehaviour
     [SerializeField] LinkScript _createLink;
     [SerializeField] PaintGroundandWall _paintGround;
     [SerializeField] PlayerSpawner _playerSpawner;
-    [SerializeField] AstarPath _aStar;    
+    [SerializeField] AstarPath _aStar;
+    [SerializeField] GizmosDrawPCG _GizmosDrawPcg;
+    [SerializeField] PcgCreateRootRoad _rootRoad;
     private MapScript _map;
-
-    private void Start()
-    {
-        StartCoroutine(CreateAndScan());
-    }
 
     /// <summary>
     /// Launches successively all the methods in order to create a map
@@ -31,38 +28,23 @@ public class PCGControlePanel : MonoBehaviour
     {
         //Generate the map
         _map = _createRoom.GenerateMapNodes();
+        _GizmosDrawPcg.AddMapToGizmos(_map);
         _createLink.CreateAllLink(_map);
+        _rootRoad.CreateRoot(_map);
         _paintGround.PaintAllGround(_map);
-    }
 
-    /// <summary>
-    /// Gets the player's spawnPosition
-    /// </summary>
-    private void GetPlayerSpawn()
-    {
         //Spawn player
         _playerSpawner.SpawnPosition = _map.mapNodes[0].transform.position;
 
-    }
-
-    /// <summary>
-    /// Scans the map for the A* pathfinding
-    /// </summary>
-    private void ScanAll()
-    {
-
         //Set A*
         _aStar.data.gridGraph.SetDimensions((int)_map.mapSize.x, (int)_map.mapSize.y, 1.0f);
-        foreach (var item in _aStar.graphs)
-        {
-            item.Scan();
-        }
+        AstarPath.active.Scan();
     }
-
    //button for create the room in the PCGCreateRoom script
    public void GenerateRoom()
    {
         _map = _createRoom.GenerateMapNodes();
+        _GizmosDrawPcg.AddMapToGizmos(_map);
    }
 
     public void GenerateLink()
@@ -76,20 +58,12 @@ public class PCGControlePanel : MonoBehaviour
     }
 
     public void clearGround()
-    {
+   {
       _paintGround.ClearMap();
-    }
+   }
 
-    /// <summary>
-    /// Corountine used to Scan the map, without a delay the scan appens too early and the scan is the result of the old map
-    /// </summary>
-    /// <returns>Waiting time</returns>
-    public IEnumerator CreateAndScan()
+    public void CreateRoot()
     {
-        GenerateAll();
-        yield return new WaitForSeconds(0.1f);
-        GetPlayerSpawn();
-        yield return new WaitForSeconds(0.1f);
-        ScanAll();
+        _rootRoad.CreateRoot(_map);
     }
 }

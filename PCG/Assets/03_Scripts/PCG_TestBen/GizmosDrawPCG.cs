@@ -5,6 +5,12 @@ using UnityEngine;
 public class GizmosDrawPCG : MonoBehaviour
 {
     [SerializeField] private MapScript mapScript;
+
+    public void AddMapToGizmos(MapScript map)
+    {
+        mapScript = map;
+    }
+    
     public void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
@@ -22,13 +28,15 @@ public class GizmosDrawPCG : MonoBehaviour
         
         foreach (var linkNode in mapScript.maplinks)
         {
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawLine(linkNode.transform.position,linkNode.firstMapNode.transform.position);
-            Gizmos.color = Color.red;
-            Gizmos.DrawLine(linkNode.transform.position,linkNode.secondMapNode.transform.position);
-            Gizmos.color = Color.cyan;
-            Gizmos.DrawWireCube(linkNode.transform.position,new Vector3(1,1));
-            
+            if (linkNode.rootPathing)
+            {
+                Gizmos.color = Color.yellow;
+                Gizmos.DrawLine(linkNode.transform.position, linkNode.firstMapNode.transform.position);
+                Gizmos.color = Color.red;
+                Gizmos.DrawLine(linkNode.transform.position, linkNode.secondMapNode.transform.position);
+                Gizmos.color = Color.cyan;
+                Gizmos.DrawWireCube(linkNode.transform.position, new Vector3(1, 1));
+            }
         }
     }
 }
