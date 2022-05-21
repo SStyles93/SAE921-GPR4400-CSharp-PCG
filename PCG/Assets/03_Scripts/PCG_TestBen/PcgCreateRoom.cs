@@ -14,6 +14,8 @@ public class PcgCreateRoom : MonoBehaviour
 
     [SerializeField] private GameObject mapGameObject;
 
+    public GameObject MapGameObject { get => mapGameObject; private set => mapGameObject = value; }
+
     /// <summary>
     /// This methode is used to create a "base" component called Generated map and ad the first node to it.
     /// It then calls the method to cut this first node to create a lot more node.
