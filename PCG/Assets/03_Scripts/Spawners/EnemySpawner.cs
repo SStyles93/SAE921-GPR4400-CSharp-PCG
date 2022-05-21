@@ -15,18 +15,13 @@ public class EnemySpawner : MonoBehaviour
 
         for (int i = 1; i < _mapScript.mapNodes.Count; i++)
         {
+            if(_mapScript.mapNodes[i].rootPos != 0)
             spawnPositions.Add(_mapScript.mapNodes[i].transform.position);
         }
         foreach (var position in spawnPositions)
         {
             SpawnEnemy(_enemyPrefab, position, 2);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void OnDrawGizmos()
