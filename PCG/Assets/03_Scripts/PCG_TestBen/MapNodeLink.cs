@@ -12,6 +12,9 @@ public class MapNodeLink : MonoBehaviour
     public bool alreadyCheck;
     //this is represent if the root take this path or not, if false it's not assigned to the root.
     public bool rootPathing;
+    
+    //this is the type of the door is in the link between the two room
+    public PcgPopulate.LinkType doorType;
 
     MapNodeLink()
     {
