@@ -15,7 +15,6 @@ public class PCGControlePanel : MonoBehaviour
     [SerializeField] PcgCreateRoom _createRoom;
     [SerializeField] LinkScript _createLink;
     [SerializeField] PaintGroundandWall _paintGround;
-    [SerializeField] PlayerSpawner _playerSpawner;
     [SerializeField] GizmosDrawPCG _GizmosDrawPcg;
     [SerializeField] PcgCreateRootRoad _rootRoad;
     private MapScript _map;
