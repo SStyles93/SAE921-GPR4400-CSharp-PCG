@@ -14,6 +14,9 @@ public class MapNode : MonoBehaviour
 
     //this is the list of link for accessible room.
     public List<MapNodeLink> linkToOtherNode;
+    
+    //this is the type of the room, that is use for populate the room of monster crate etc..
+    public PcgPopulate.RoomType roomType;
 
    MapNode()
    {
@@ -26,11 +29,13 @@ public class MapNode : MonoBehaviour
       sizeRoom = size;
    }
 
-   public void growRoot(int rootLenght,int lastLenght)
+   public void GrowRoot(int rootLenght,int lastLenght,PcgPopulate populate)
    {
       if (rootPos == 0)
       {
          rootPos = rootLenght;
+         roomType = populate.GetTypeRoom(rootPos);
+
       }
       else if (rootPos >= rootLenght|| lastLenght>=rootPos )
       {
@@ -58,7 +63,7 @@ public class MapNode : MonoBehaviour
 
             if (nodeLink.alreadyCheck && nodeLink.rootPathing)
             {
-               targetNode.growRoot(rootLenght,rootPos);
+               targetNode.GrowRoot(rootLenght,rootPos,populate);
             }
 
             if (nodeLink.alreadyCheck == false)
@@ -67,7 +72,8 @@ public class MapNode : MonoBehaviour
                {
                   nodeLink.alreadyCheck = true;
                   nodeLink.rootPathing = true;
-                  targetNode.growRoot(rootLenght,rootPos);
+                  nodeLink.doorType = populate.GetTypeLink(rootLenght);
+                  targetNode.GrowRoot(rootLenght,rootPos,populate);
                }
                else
                {
