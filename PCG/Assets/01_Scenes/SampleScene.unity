@@ -34371,6 +34371,17 @@ MonoBehaviour:
   alreadyCheck: 0
   rootPathing: 0
   doorType: 0
+--- !u!114 &1462209036 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4711840696486176311, guid: 48c43091bdc84a74fa7ede07defcf5c9, type: 3}
+  m_PrefabInstance: {fileID: 4711840697948187707}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5bdb359a6565a54abf31d36e0d31b25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1479524450
 GameObject:
   m_ObjectHideFlags: 0
@@ -35377,6 +35388,17 @@ MonoBehaviour:
   - {fileID: 665161251}
   - {fileID: 1828731416}
   roomType: 0
+--- !u!114 &1765647923 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8230002118825306879, guid: 20809afa85418ea4aaa8f9a9e8fe2f7e, type: 3}
+  m_PrefabInstance: {fileID: 8230002120287767756}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78396926cbbfc4ac3b48fc5fc34a87d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1770108580
 GameObject:
   m_ObjectHideFlags: 0
@@ -37507,6 +37529,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6873637083800037609, guid: 7874ce10921af0d4ea20bd95e41bf810, type: 3}
+      propertyPath: _aStar
+      value: 
+      objectReference: {fileID: 1765647923}
+    - target: {fileID: 6873637083800037609, guid: 7874ce10921af0d4ea20bd95e41bf810, type: 3}
+      propertyPath: _playerSpawner
+      value: 
+      objectReference: {fileID: 1462209036}
     - target: {fileID: 6873637083800037610, guid: 7874ce10921af0d4ea20bd95e41bf810, type: 3}
       propertyPath: m_RootOrder
       value: 3
