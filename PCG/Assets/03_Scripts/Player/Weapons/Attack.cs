@@ -19,9 +19,9 @@ namespace Player
         /// Use the collider (on the weapon) to launch attack
         /// </summary>
         /// <param name="collision"></param>
-        private void OnTriggerEnter2D(Collider2D collision)
+        private void OnCollisionEnter2D(Collision2D collision)
         {
-            if (collision.CompareTag("Enemy"))
+            if (collision.collider.CompareTag("Enemy"))
             {
                 //Send enemy in opposite direction from player
                 Vector2 forceDirection = collision.gameObject.transform.position -

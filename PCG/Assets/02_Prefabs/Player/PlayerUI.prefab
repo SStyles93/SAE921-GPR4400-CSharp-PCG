@@ -283,6 +283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerController: {fileID: 0}
+  _playerStats: {fileID: 0}
   _healthSlider: {fileID: 7071487692443674765}
   _healthGradient:
     serializedVersion: 2
@@ -383,7 +384,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1079265111, guid: c77da020c7142994aacc9d678d6d0545, type: 3}
+  m_Sprite: {fileID: -1548177014, guid: 2f500de00622dc543a0515e586ba5c98, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
