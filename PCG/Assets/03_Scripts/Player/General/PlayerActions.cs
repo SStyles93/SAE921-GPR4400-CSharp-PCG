@@ -10,14 +10,13 @@ namespace Player
         private PlayerController _playerController;
         private PlayerVisuals _playerVisuals;
         private PlayerStats _playerStats;
-        private Attack _attack;
 
         //Reference GameObjects
         [Header("Player's body parts")]
-        [SerializeField] private GameObject mouseTarget;
         [SerializeField] private GameObject _cameraTarget;
         [SerializeField] private GameObject _aim;
         [SerializeField] private GameObject _projectilePrefab;
+        [SerializeField] private Attack _attack;
 
 
         //List of bools used for Actions
@@ -31,6 +30,7 @@ namespace Player
 
         private bool _canHit = true;
         private bool _canShoot = true;
+        private bool _canAttack = true;
         private bool _isInCombat = true;      
         
         private GameObject _currentProjectile;
@@ -55,10 +55,7 @@ namespace Player
 
         void Update()
         {
-            if (_isInCombat)
-            {
-                PlayerCombatLook();
-            }
+            PlayerLook();
 
             if (_canHit)
             {
@@ -67,78 +64,9 @@ namespace Player
         }
 
         /// <summary>
-        /// Updates the player look direction
-        /// </summary>
-        private void PlayerCombatLook()
-        {
-            switch (_playerController.ControlScheme)
-            {
-                case "Gamepad":
-
-                    //Switches from MouseTarget to GamepadTarget
-                    mouseTarget.gameObject.SetActive(false);
-                    _cameraTarget.GetComponent<SpriteRenderer>().enabled = true;
-
-                    //Updates the Aim position according to the Gamepad input
-                    Vector2 look = _playerController.Aim;
-                    //Movement used for headbut aiming
-                    Vector2 movement = _playerController.Movement;
-
-                    if (look != Vector2.zero)
-                    {
-                        _cameraTarget.transform.localPosition = new Vector3(look.x, look.y, 0.0f);
-                       currentAimPos = _aim.transform.localPosition = new Vector3(look.x, look.y, 0.0f);
-                        _cameraTarget.GetComponent<SpriteRenderer>().enabled = true;
-                    }
-
-                    #region MoveToAim
-
-                    //else if (_playerController.Movement != Vector2.zero)
-                    //{
-                    //    _cameraTarget.transform.localPosition = new Vector3(movement.x, movement.y, 0.0f);
-                    //    _aim.transform.localPosition = new Vector3(movement.x, movement.y, 0.0f);
-                    //    _cameraTarget.GetComponent<SpriteRenderer>().enabled = true;
-                    //}
-
-                    #endregion
-
-                    else
-                    {
-                        _cameraTarget.transform.localPosition = Vector3.zero;
-                        _cameraTarget.GetComponent<SpriteRenderer>().enabled = false;
-                        _aim.transform.localPosition = currentAimPos;
-                    }
-                    break;
-                case "Keyboard":
-
-                    //Switches from GamepadTarget to MouseTarget
-                    mouseTarget.gameObject.SetActive(true);
-                    _cameraTarget.GetComponent<SpriteRenderer>().enabled = false;
-
-                    //Updates the Aim position according to the Mouse position 
-                    Vector3 mousePos = Input.mousePosition;
-                    mousePos.z = 0.0f;
-                    mouseTarget.transform.position = mousePos;
-                    _aim.transform.localPosition =
-                    _cameraTarget.transform.localPosition =
-                        mouseTarget.transform.localPosition.normalized;
-                    break;
-
-                default:
-                    mouseTarget.gameObject.SetActive(false);
-                    break;
-            }
-
-            Vector3 correctedPos = _aim.transform.localPosition;
-            correctedPos.x += correctedPos.x * -_aimCorrection;
-            correctedPos.y += correctedPos.y * -_aimCorrection;
-            _aim.transform.localPosition = correctedPos;
-        }
-
-        /// <summary>
         /// Updates the player look when out of combat
         /// </summary>
-        private void PlayerPasiveLook()
+        private void PlayerLook()
         {
             Vector3 currentAimPos = _aim.transform.localPosition;
             Vector2 movement = _playerController.Movement;
@@ -146,12 +74,12 @@ namespace Player
             {
                 _cameraTarget.transform.localPosition = new Vector3(movement.x, movement.y, 0.0f);
                 _aim.transform.localPosition = new Vector3(movement.x, movement.y, 0.0f);
-                _cameraTarget.GetComponent<SpriteRenderer>().enabled = true;
+                //_cameraTarget.GetComponent<SpriteRenderer>().enabled = true;
             }
             else
             {
                 _cameraTarget.transform.localPosition = Vector3.zero;
-                _cameraTarget.GetComponent<SpriteRenderer>().enabled = false;
+                //_cameraTarget.GetComponent<SpriteRenderer>().enabled = false;
                 _aim.transform.localPosition = currentAimPos;
             }
         }
@@ -162,29 +90,24 @@ namespace Player
         private void ActionCheck()
         {
             //Attack
-            if (_playerController.Action1 && _canHit)
+            if (_playerController.Action1 && _canAttack)
             {
-                _canHit = false;
+                _canAttack = false;
                 Attack();
             }
-            else if (!_canHit)
+            else if (!_canAttack)
             {
                 _action1CoolDown -= Time.deltaTime;
                 if (_action1CoolDown <= 0.0f)
                 {
                     _action1CoolDown = _action1CoolDownTime;
-                    _canHit = true;
+                    _canAttack = true;
                 }
             }
             
             //Projectile
             if (_playerController.Action2 && _canShoot)
             {
-                if (_playerController.ControlScheme == "Gamepad" && _playerController.Aim == Vector2.zero)
-                {
-                    return;
-                }
-
                 InstantiateProjectile();
                 _canShoot = false;
 

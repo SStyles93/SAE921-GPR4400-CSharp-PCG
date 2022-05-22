@@ -104,7 +104,7 @@ namespace Player
         public void ResetLife()
         {
             //Reset player's health
-            //_health = //max value
+            _currentHealth = _health;
         }
     }
 }

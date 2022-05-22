@@ -60,10 +60,10 @@ namespace Player
         /// </summary>
         private void Look()
         {
-            if (_playerController.Aim != Vector2.zero)
+            if (_playerController.Movement != Vector2.zero)
             {
-                _animator.SetFloat(_xPositionHash, _playerController.Aim.x);
-                _animator.SetFloat(_yPositionHash, _playerController.Aim.y);
+                _animator.SetFloat(_xPositionHash, _playerController.Movement.x);
+                _animator.SetFloat(_yPositionHash, _playerController.Movement.y);
             }
             else
             {

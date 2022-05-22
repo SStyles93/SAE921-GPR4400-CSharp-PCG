@@ -15,7 +15,7 @@ AnimatorStateTransition:
     m_ConditionEvent: Movement
     m_EventTreshold: 0.1
   - m_ConditionMode: 2
-    m_ConditionEvent: Headbutt
+    m_ConditionEvent: Attack
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1000729928088341049}
@@ -53,7 +53,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 5f37a3cb7c576b043867631b5930a8c2, type: 2}
+  m_Motion: {fileID: 7400000, guid: 88c313f4e3a8cd640a5b31b40865b924, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -71,7 +71,7 @@ AnimatorStateTransition:
     m_ConditionEvent: xPosition
     m_EventTreshold: 0.1
   - m_ConditionMode: 1
-    m_ConditionEvent: Headbutt
+    m_ConditionEvent: Attack
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: yPosition
@@ -108,7 +108,7 @@ AnimatorStateTransition:
     m_ConditionEvent: Movement
     m_EventTreshold: 0.1
   - m_ConditionMode: 2
-    m_ConditionEvent: Headbutt
+    m_ConditionEvent: Attack
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 3066587719668431565}
@@ -160,7 +160,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Headbutt
+    m_ConditionEvent: Attack
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1988585405034070734}
@@ -191,7 +191,7 @@ AnimatorStateTransition:
     m_ConditionEvent: Movement
     m_EventTreshold: 0.1
   - m_ConditionMode: 2
-    m_ConditionEvent: Headbutt
+    m_ConditionEvent: Attack
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1385044955556109833}
@@ -289,7 +289,7 @@ AnimatorStateTransition:
     m_ConditionEvent: Movement
     m_EventTreshold: 0.1
   - m_ConditionMode: 2
-    m_ConditionEvent: Headbutt
+    m_ConditionEvent: Attack
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -8802502787275356514}
@@ -339,7 +339,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Headbutt
+    m_ConditionEvent: Attack
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1219542409813523690}
@@ -389,7 +389,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Headbutt
+    m_ConditionEvent: Attack
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -7917642476972825529}
@@ -420,7 +420,7 @@ AnimatorStateTransition:
     m_ConditionEvent: Movement
     m_EventTreshold: 0.1
   - m_ConditionMode: 2
-    m_ConditionEvent: Headbutt
+    m_ConditionEvent: Attack
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7972054341947322520}
@@ -445,7 +445,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Headbutt
+    m_ConditionEvent: Attack
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -7917642476972825529}
@@ -470,7 +470,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Headbutt
+    m_ConditionEvent: Attack
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -1987487853676273654}
@@ -520,7 +520,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Headbutt
+    m_ConditionEvent: Attack
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1219542409813523690}
@@ -551,7 +551,7 @@ AnimatorStateTransition:
     m_ConditionEvent: Movement
     m_EventTreshold: 0.1
   - m_ConditionMode: 2
-    m_ConditionEvent: Headbutt
+    m_ConditionEvent: Attack
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 9183224448114922263}
@@ -589,7 +589,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: cf7817654b817714392c58c02f834d29, type: 2}
+  m_Motion: {fileID: 7400000, guid: 738581239ce5d4a44a2f5489e6d56601, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -632,7 +632,7 @@ AnimatorStateTransition:
     m_ConditionEvent: xPosition
     m_EventTreshold: -0.1
   - m_ConditionMode: 1
-    m_ConditionEvent: Headbutt
+    m_ConditionEvent: Attack
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: yPosition
@@ -696,7 +696,7 @@ AnimatorStateTransition:
     m_ConditionEvent: Movement
     m_EventTreshold: 0.1
   - m_ConditionMode: 2
-    m_ConditionEvent: Headbutt
+    m_ConditionEvent: Attack
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7314502978861903281}
@@ -726,25 +726,25 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: yPosition
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: Movement
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: Headbutt
+    m_Controller: {fileID: 0}
+  - m_Name: Attack
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -767,7 +767,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Headbutt
+    m_ConditionEvent: Attack
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1385044955556109833}
@@ -805,7 +805,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 8223f1345020b0a46bb36480494f774c, type: 2}
+  m_Motion: {fileID: 7400000, guid: e0840f67ec0754b40ba46bf857e8690a, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -885,7 +885,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 1d48fdec6ec6ac94eb54a88ee73f1f15, type: 2}
+  m_Motion: {fileID: 7400000, guid: 6ced9d501769519449b9d80cec710bf1, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -990,7 +990,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 05acaf80757d6d94c90b27c54f392657, type: 2}
+  m_Motion: {fileID: 7400000, guid: 68f5e7f0a5b290f47aada18274801fc2, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1005,7 +1005,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Headbutt
+    m_ConditionEvent: Attack
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 9183224448114922263}
@@ -1030,7 +1030,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Headbutt
+    m_ConditionEvent: Attack
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -1189464888807553739}
@@ -1080,7 +1080,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Headbutt
+    m_ConditionEvent: Attack
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -8802502787275356514}
@@ -1111,7 +1111,7 @@ AnimatorStateTransition:
     m_ConditionEvent: Movement
     m_EventTreshold: 0.1
   - m_ConditionMode: 2
-    m_ConditionEvent: Headbutt
+    m_ConditionEvent: Attack
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -1987487853676273654}
@@ -1149,7 +1149,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 0933cc556ccf76646a0cffa353f44211, type: 2}
+  m_Motion: {fileID: 7400000, guid: cfc2f6c5a63e0fd47acfdbef6b3319ff, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1167,7 +1167,7 @@ AnimatorStateTransition:
     m_ConditionEvent: yPosition
     m_EventTreshold: -0.1
   - m_ConditionMode: 1
-    m_ConditionEvent: Headbutt
+    m_ConditionEvent: Attack
     m_EventTreshold: 0
   - m_ConditionMode: 3
     m_ConditionEvent: xPosition
@@ -1211,7 +1211,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: aa6dfa9b7ae81664fbc70588a2c86bc0, type: 2}
+  m_Motion: {fileID: 7400000, guid: d36ba89392631134ab718dd752fe5b70, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1229,7 +1229,7 @@ AnimatorStateTransition:
     m_ConditionEvent: yPosition
     m_EventTreshold: 0.1
   - m_ConditionMode: 1
-    m_ConditionEvent: Headbutt
+    m_ConditionEvent: Attack
     m_EventTreshold: 0
   - m_ConditionMode: 3
     m_ConditionEvent: xPosition
@@ -1260,7 +1260,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Headbutt
+    m_ConditionEvent: Attack
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1988585405034070734}
@@ -1285,7 +1285,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Headbutt
+    m_ConditionEvent: Attack
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -1189464888807553739}
@@ -1323,7 +1323,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 02886589063edd844831549d9d2294ef, type: 2}
+  m_Motion: {fileID: 7400000, guid: 311bc29848845344c8ff4ed3f8d28025, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

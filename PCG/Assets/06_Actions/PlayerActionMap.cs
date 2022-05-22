@@ -37,15 +37,6 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Aim"",
-                    ""type"": ""Value"",
-                    ""id"": ""1aca8aae-0989-47f4-81d6-9ce134ca4064"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
                     ""name"": ""Action3"",
                     ""type"": ""Value"",
                     ""id"": ""6fdb4ef4-f5ec-4218-9446-4e7674efafd2"",
@@ -203,28 +194,6 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""ee9cf710-bdcc-40d6-b63c-4eb152a28550"",
-                    ""path"": ""<Gamepad>/rightStick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Aim"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""293c4420-86a4-4673-a1ed-193c1b3df93f"",
-                    ""path"": ""<Mouse>/position"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""Aim"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
@@ -877,7 +846,6 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
         // PlayerMovement
         m_PlayerMovement = asset.FindActionMap("PlayerMovement", throwIfNotFound: true);
         m_PlayerMovement_Move = m_PlayerMovement.FindAction("Move", throwIfNotFound: true);
-        m_PlayerMovement_Aim = m_PlayerMovement.FindAction("Aim", throwIfNotFound: true);
         m_PlayerMovement_Action3 = m_PlayerMovement.FindAction("Action3", throwIfNotFound: true);
         m_PlayerMovement_Action2 = m_PlayerMovement.FindAction("Action2", throwIfNotFound: true);
         m_PlayerMovement_Action1 = m_PlayerMovement.FindAction("Action1", throwIfNotFound: true);
@@ -954,7 +922,6 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_PlayerMovement;
     private IPlayerMovementActions m_PlayerMovementActionsCallbackInterface;
     private readonly InputAction m_PlayerMovement_Move;
-    private readonly InputAction m_PlayerMovement_Aim;
     private readonly InputAction m_PlayerMovement_Action3;
     private readonly InputAction m_PlayerMovement_Action2;
     private readonly InputAction m_PlayerMovement_Action1;
@@ -964,7 +931,6 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
         private @PlayerActionMap m_Wrapper;
         public PlayerMovementActions(@PlayerActionMap wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_PlayerMovement_Move;
-        public InputAction @Aim => m_Wrapper.m_PlayerMovement_Aim;
         public InputAction @Action3 => m_Wrapper.m_PlayerMovement_Action3;
         public InputAction @Action2 => m_Wrapper.m_PlayerMovement_Action2;
         public InputAction @Action1 => m_Wrapper.m_PlayerMovement_Action1;
@@ -981,9 +947,6 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
                 @Move.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnMove;
-                @Aim.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnAim;
-                @Aim.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnAim;
-                @Aim.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnAim;
                 @Action3.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnAction3;
                 @Action3.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnAction3;
                 @Action3.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnAction3;
@@ -1003,9 +966,6 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
-                @Aim.started += instance.OnAim;
-                @Aim.performed += instance.OnAim;
-                @Aim.canceled += instance.OnAim;
                 @Action3.started += instance.OnAction3;
                 @Action3.performed += instance.OnAction3;
                 @Action3.canceled += instance.OnAction3;
@@ -1148,7 +1108,6 @@ public partial class @PlayerActionMap : IInputActionCollection2, IDisposable
     public interface IPlayerMovementActions
     {
         void OnMove(InputAction.CallbackContext context);
-        void OnAim(InputAction.CallbackContext context);
         void OnAction3(InputAction.CallbackContext context);
         void OnAction2(InputAction.CallbackContext context);
         void OnAction1(InputAction.CallbackContext context);

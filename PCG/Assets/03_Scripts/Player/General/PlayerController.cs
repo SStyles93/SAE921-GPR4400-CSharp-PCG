@@ -14,7 +14,6 @@ namespace Player
 
         //Movement Vectors
         private Vector2 _movement;
-        private Vector2 _aim;
 
         //Action bools
         private bool _action1;
@@ -39,7 +38,6 @@ namespace Player
         //Properties
         public string ControlScheme { get => _controlScheme; set => _controlScheme = value; }
         public Vector2 Movement { get => _movement; set => _movement = value; }
-        public Vector2 Aim { get => _aim; set => _aim = value; }
         public bool Action1 { get => _action1; set => _action1 = value; }
         public bool Action2 { get => _action2; set => _action2 = value; }
         public bool Action3 { get => _action3; set => _action3 = value; }
@@ -109,20 +107,6 @@ namespace Player
         public void OnMove(InputValue value)
         {
             _movement = value.Get<Vector2>();
-        }
-        public void OnAim(InputValue value)
-        {
-            switch (_controlScheme)
-            {
-                case "Keyboard":
-                    break;
-                case "Gamepad":
-                    _aim = value.Get<Vector2>();
-                    break;
-                default:
-                    break;
-            }
-
         }
         public void OnAction1(InputValue value)
         {

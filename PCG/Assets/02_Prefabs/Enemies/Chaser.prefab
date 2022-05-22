@@ -70,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1027808603
-  m_SortingLayer: 0
+  m_SortingLayerID: 942989145
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4809d478fb75daa479811073fe528bc4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -154,8 +154,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1027808603
-  m_SortingLayer: 0
+  m_SortingLayerID: 942989145
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3a1c67c7e2c129d42aab87c38072d4d7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 769978086981784850}
   - component: {fileID: 769978086981784851}
-  m_Layer: 3
+  m_Layer: 2
   m_Name: RayCaster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,7 +229,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 769978087663957991}
-  m_Layer: 3
+  m_Layer: 2
   m_Name: RayCastTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5302,14 +5302,14 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 100
+  m_Mass: 10
   m_LinearDrag: 10
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &769978088285160732
 BoxCollider2D:
@@ -5589,9 +5589,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 769978088285160707}
     m_Modifications:
+    - target: {fileID: 1725696496527218175, guid: ad9ca5a8519ac7a4cbd88cd5b183ac15, type: 3}
+      propertyPath: _enemyStats
+      value: 
+      objectReference: {fileID: 769978088285160733}
     - target: {fileID: 2045456290862151703, guid: ad9ca5a8519ac7a4cbd88cd5b183ac15, type: 3}
       propertyPath: m_Name
       value: HealthBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 2734169337211155933, guid: ad9ca5a8519ac7a4cbd88cd5b183ac15, type: 3}
+      propertyPath: m_Type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2734169337211155933, guid: ad9ca5a8519ac7a4cbd88cd5b183ac15, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5451072025078278003, guid: ad9ca5a8519ac7a4cbd88cd5b183ac15, type: 3}
       propertyPath: m_Pivot.x
