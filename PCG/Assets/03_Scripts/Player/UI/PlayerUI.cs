@@ -11,6 +11,7 @@ namespace Player
         [Header("Player Scripts")]
         //[SerializeField] private PlayerInput _playerInput;
         [SerializeField] private PlayerController _playerController;
+        [SerializeField] private PlayerStats _playerStats;
 
         //Reference Components
         [Header("Player Health UI")]
@@ -28,16 +29,15 @@ namespace Player
 
         private void Awake()
         {
-            //_playerStats = GetComponentInParent<PlayerStats>();
-            //_playerActions = GetComponentInParent<PlayerActions>();
+            _playerStats = GetComponentInParent<PlayerStats>();
             _playerController = GetComponentInParent<PlayerController>();
 
             _healthSlider = GetComponentInChildren<Slider>();
         }
         private void Start()
         {
-            //_healthSlider.maxValue = _playerStats.MaxHealth;
-            //_healthSlider.value = _playerStats.Health;
+            _healthSlider.maxValue = _playerStats.Health;
+            _healthSlider.value = _playerStats.CurrentHealth;
         }
 
         // Update is called once per frame
@@ -53,7 +53,7 @@ namespace Player
         /// </summary>
         private void UpdateHealthBar()
         {
-            //_healthSlider.value = _playerStats.Health;
+            _healthSlider.value = _playerStats.Health;
             _healthFill.color = _healthGradient.Evaluate(_healthSlider.value / _healthSlider.maxValue);
             
         }

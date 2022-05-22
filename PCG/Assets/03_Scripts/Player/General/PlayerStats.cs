@@ -27,6 +27,8 @@ namespace Player
         public float Speed { get => _speed; set => _speed = value; }
         public float PushPower { get => _pushPower; set => _pushPower = value; }
         public float Damage { get => _damage; set => _damage = value; }
+        public float Health { get => _health; private set => _health = value; }
+        public float CurrentHealth { get => _currentHealth; private set => _currentHealth = value; }
 
         private void Awake()
         {

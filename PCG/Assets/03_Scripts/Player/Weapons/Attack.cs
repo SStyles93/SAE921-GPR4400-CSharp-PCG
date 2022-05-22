@@ -8,11 +8,12 @@ namespace Player
     public class Attack : MonoBehaviour
     {
         [Tooltip("AttackDamage sent to the enemyStat")]
-        [SerializeField] private float _attackDamage = 5.0f;
+        private float _attackDamage = 5.0f;
         
         private float _pushPower;
 
         public float PushPower { get => _pushPower; set => _pushPower = value; }
+        public float AttackDamage { get => _attackDamage; set => _attackDamage = value; }
 
         /// <summary>
         /// Use the collider (on the weapon) to launch attack
@@ -26,7 +27,6 @@ namespace Player
                 Vector2 forceDirection = collision.gameObject.transform.position -
                     gameObject.transform.position;
                 collision.gameObject.GetComponent<Rigidbody2D>().AddForce(forceDirection * _pushPower, ForceMode2D.Impulse);
-
                 collision.gameObject.GetComponent<EnemyStats>().TakeDamage(_attackDamage);
             }
         }

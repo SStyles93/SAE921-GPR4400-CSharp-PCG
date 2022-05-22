@@ -147,6 +147,7 @@ namespace Player
 
             //Sets the pushing power of the attack
             _attack.GetComponent<Attack>().PushPower = _playerStats.PushPower;
+            _attack.GetComponent<Attack>().AttackDamage = _playerStats.Damage;
         }
     }
 
