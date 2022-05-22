@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6873637083800037617}
   - component: {fileID: 6873637083800037608}
   - component: {fileID: 6873637083800037611}
+  - component: {fileID: 3147446735744166515}
   - component: {fileID: 6873637083800037609}
   m_Layer: 0
   m_Name: PCGenerator
@@ -53,7 +54,6 @@ MonoBehaviour:
   _createRoom: {fileID: 6873637083800037612}
   _createLink: {fileID: 6873637083800037615}
   _paintGround: {fileID: 6873637083800037617}
-  _playerSpawner: {fileID: 0}
   _GizmosDrawPcg: {fileID: 6873637083800037611}
   _rootRoad: {fileID: 6873637083800037608}
 --- !u!114 &6873637083800037612
@@ -126,6 +126,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapScript: {fileID: 0}
+--- !u!114 &3147446735744166515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6873637083800037616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 523e9e6290bb3c34980a08045d58023e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxBossRoom: 1
+  deltaBossRoom: 4
 --- !u!114 &6873637083800037609
 MonoBehaviour:
   m_ObjectHideFlags: 0

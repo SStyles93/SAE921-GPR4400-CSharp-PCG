@@ -13,8 +13,10 @@ public class GizmosDrawPCG : MonoBehaviour
     
     public void OnDrawGizmos()
     {
-        Gizmos.color = Color.blue;
+        if (mapScript == null)
+            return;
 
+        Gizmos.color = Color.blue;
         foreach (var roomNode in mapScript.mapNodes)
         {
             Gizmos.DrawWireCube(roomNode.transform.position,new Vector3(roomNode.sizeRoom.x,roomNode.sizeRoom.y));
