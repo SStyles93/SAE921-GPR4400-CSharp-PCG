@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Coin : LootableItem
+public class Potion : LootableItem
 {
     // Start is called before the first frame update
     void Start()
@@ -18,6 +18,6 @@ public class Coin : LootableItem
 
     public override void OnPickUp()
     {
-        Debug.Log("PickUp");
+        Debug.Log("potion picked up");
     }
 }

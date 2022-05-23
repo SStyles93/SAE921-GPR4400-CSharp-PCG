@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
-public abstract class Item : MonoBehaviour
+public abstract class LootableItem : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision)
     {

@@ -30,11 +30,18 @@ namespace Player
             //Movement
             if (_canMove)
             {
+                _rb.constraints = RigidbodyConstraints2D.None;
+                _rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+
                 if((Vector3)_playerController.Movement != Vector3.zero)
                 {
                     _rb.MovePosition(transform.position + (Vector3)_playerController.Movement * _playerStats.Speed * Time.fixedDeltaTime);
                     
                 }
+            }
+            else
+            {
+                _rb.constraints = RigidbodyConstraints2D.FreezeAll;
             }
         }
 
