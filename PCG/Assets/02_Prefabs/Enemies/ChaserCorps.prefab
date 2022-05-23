@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8385655369951882790}
   - component: {fileID: 7259964703752450127}
+  - component: {fileID: 5214627924905304674}
   m_Layer: 0
-  m_Name: Square
+  m_Name: ChaserCorps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,8 +74,8 @@ SpriteRenderer:
   m_SortingLayerID: 942989145
   m_SortingLayer: 1
   m_SortingOrder: -1
-  m_Sprite: {fileID: 630611840, guid: c77da020c7142994aacc9d678d6d0545, type: 3}
-  m_Color: {r: 0, g: 0.4245283, b: 0.064857334, a: 1}
+  m_Sprite: {fileID: -1110276677, guid: c8cc04f0ca61f7f4f94fb38515b86767, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -84,3 +85,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5214627924905304674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2507369514991458762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81e1f105c0e13e34ebc23111efa69454, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 7259964703752450127}
+  _sprites:
+  - {fileID: -177907925, guid: c8cc04f0ca61f7f4f94fb38515b86767, type: 3}
+  - {fileID: 730998038, guid: c8cc04f0ca61f7f4f94fb38515b86767, type: 3}
+  - {fileID: 477783228, guid: c8cc04f0ca61f7f4f94fb38515b86767, type: 3}
+  - {fileID: 2105320585, guid: c8cc04f0ca61f7f4f94fb38515b86767, type: 3}
+  - {fileID: 1102077326, guid: c8cc04f0ca61f7f4f94fb38515b86767, type: 3}
+  - {fileID: 674479428, guid: c8cc04f0ca61f7f4f94fb38515b86767, type: 3}
+  - {fileID: 207781955, guid: c8cc04f0ca61f7f4f94fb38515b86767, type: 3}
+  - {fileID: -1680556084, guid: c8cc04f0ca61f7f4f94fb38515b86767, type: 3}
+  - {fileID: -2013982045, guid: c8cc04f0ca61f7f4f94fb38515b86767, type: 3}
+  - {fileID: -323538921, guid: c8cc04f0ca61f7f4f94fb38515b86767, type: 3}
+  - {fileID: -1110276677, guid: c8cc04f0ca61f7f4f94fb38515b86767, type: 3}
