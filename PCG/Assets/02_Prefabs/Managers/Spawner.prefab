@@ -59,7 +59,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6370b55468458204c9e67fae2e6ff521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyPrefab: {fileID: 769978088285160711, guid: c05b1a1daf33e5742a51c474a72de992, type: 3}
   _pcgRoom: {fileID: 0}
   _mapScript: {fileID: 0}
+  _enemyPrefab1: {fileID: 769978088285160711, guid: c05b1a1daf33e5742a51c474a72de992, type: 3}
+  _minSpawnAmountEnemy1: 0
+  _maxSpawnAmountEnemy1: 2
+  _enemyPrefab2: {fileID: 8495529115230520538, guid: 07ac3be2cf2ea95448de6d4db1b267eb, type: 3}
+  _minSpawnAmountEnemy2: 0
+  _maxSpawnAmountEnemy2: 1
   spawnPositions: []
+  spawnRange: 2

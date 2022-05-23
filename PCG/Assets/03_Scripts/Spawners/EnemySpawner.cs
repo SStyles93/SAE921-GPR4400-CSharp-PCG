@@ -5,14 +5,22 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     //Reference scripts
+    [Header("Reference Scripts")]
     [SerializeField] private PcgCreateRoom _pcgRoom;
     [SerializeField] private MapScript _mapScript;
     
     //Prefabs to spawn
+    [Header("Enemy1 \"Chaser\"")]
     [SerializeField] private GameObject _enemyPrefab1;
+    [SerializeField] private int _minSpawnAmountEnemy1 = 0;
+    [SerializeField] private int _maxSpawnAmountEnemy1 = 10;
+    [Header("Enemy2 \"Shooter\"")]
     [SerializeField] private GameObject _enemyPrefab2;
+    [SerializeField] private int _minSpawnAmountEnemy2 = 0;
+    [SerializeField] private int _maxSpawnAmountEnemy2 = 10;
 
     //Spawning variables
+    [Header("Spawning Details")]
     [SerializeField] private List<Vector3> spawnPositions;
     [SerializeField] private float spawnRange = 1.0f;
 
@@ -24,12 +32,11 @@ public class EnemySpawner : MonoBehaviour
         {
             //Spawning for enemies
             if (_mapScript.mapNodes[i].roomType == PcgPopulate.RoomType.MonsterRoom)
-                SpawnEnemy(_enemyPrefab1, _mapScript.mapNodes[i].transform.position, 1);
+                SpawnEnemy(_enemyPrefab1, _mapScript.mapNodes[i].transform.position, Random.Range(_minSpawnAmountEnemy1, _maxSpawnAmountEnemy1));
 
             //Spawning for boss
             if (_mapScript.mapNodes[i].roomType == PcgPopulate.RoomType.BossRoom)
-                SpawnEnemy(_enemyPrefab2, _mapScript.mapNodes[i].transform.position, 1);
-
+                SpawnEnemy(_enemyPrefab2, _mapScript.mapNodes[i].transform.position, Random.Range(_minSpawnAmountEnemy2, _maxSpawnAmountEnemy2));
         }
     }
 
