@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject _enemyPrefab;
+    //Reference scripts
     [SerializeField] private PcgCreateRoom _pcgRoom;
     [SerializeField] private MapScript _mapScript;
+    
+    //Prefabs to spawn
+    [SerializeField] private GameObject _enemyPrefab1;
+    [SerializeField] private GameObject _enemyPrefab2;
+
+    //Spawning variables
     [SerializeField] private List<Vector3> spawnPositions;
+    [SerializeField] private float spawnRange = 1.0f;
 
     void Start()
     {
@@ -15,12 +22,14 @@ public class EnemySpawner : MonoBehaviour
 
         for (int i = 1; i < _mapScript.mapNodes.Count; i++)
         {
-            if(_mapScript.mapNodes[i].rootPos != 0 && _mapScript.mapNodes[i].rootPos != 1)
-            spawnPositions.Add(_mapScript.mapNodes[i].transform.position);
-        }
-        foreach (var position in spawnPositions)
-        {
-            SpawnEnemy(_enemyPrefab, position, 2);
+            //Spawning for enemies
+            if (_mapScript.mapNodes[i].roomType == PcgPopulate.RoomType.MonsterRoom)
+                SpawnEnemy(_enemyPrefab1, _mapScript.mapNodes[i].transform.position, 1);
+
+            //Spawning for boss
+            if (_mapScript.mapNodes[i].roomType == PcgPopulate.RoomType.BossRoom)
+                SpawnEnemy(_enemyPrefab2, _mapScript.mapNodes[i].transform.position, 1);
+
         }
     }
 
@@ -35,8 +44,6 @@ public class EnemySpawner : MonoBehaviour
 
     public void SpawnEnemy(GameObject enemyPrefab, Vector3 spawnPosition, int numbersOfEnemiesToSpawn)
     {
-        float spawnRange = 1.0f;
-
         for (int i = 0; i < numbersOfEnemiesToSpawn; i++)
         {
             Instantiate(enemyPrefab,

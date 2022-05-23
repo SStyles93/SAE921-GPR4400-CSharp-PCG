@@ -39,7 +39,7 @@ public class PCGInGame : MonoBehaviour
         //Spawn player
         foreach (var node in pcgControlePanel.Map.mapNodes)
         {
-            if(node.rootPos == 1)
+            if(node.roomType == PcgPopulate.RoomType.PlayerBase)
             {
                 _spawningNode = node;
             }
