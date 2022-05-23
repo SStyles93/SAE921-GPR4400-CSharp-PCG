@@ -15,12 +15,12 @@ public class PaintGroundandWall : MonoBehaviour
    {
       _mapScript = map;
       
-      for (int iX = 0; iX < _mapScript.mapSize.x+2; iX++)
+      for (int iX = 0; iX < _mapScript.mapSize.x+30; iX++)
       {
-         for (int iY = 0; iY < _mapScript.mapSize.y+2; iY++)
+         for (int iY = 0; iY < _mapScript.mapSize.y+30; iY++)
          {
-            Vector2Int cellpostion = new Vector2Int((int)-(_mapScript.mapSize.x + 2) / 2 +iX,
-               (int)-(_mapScript.mapSize.y + 2) / 2 +iY);
+            Vector2Int cellpostion = new Vector2Int((int)-(_mapScript.mapSize.x + 30) / 2 +iX,
+               (int)-(_mapScript.mapSize.y + 30) / 2 +iY);
 
             PaintWallCell(cellpostion);
          }
