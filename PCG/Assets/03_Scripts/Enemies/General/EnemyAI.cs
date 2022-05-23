@@ -20,6 +20,8 @@ namespace Enemy
         private float attackTime;
         private bool _stopMoving = false;
 
+        private Vector3 _targetDirection;
+
         private float _detectionRadius = 0.0f;
 
         //Reference Component
@@ -63,7 +65,9 @@ namespace Enemy
                 _stopMoving = false;
             }
 
-            float targetDistance = (_destinationSetter.target.position - transform.position).magnitude;
+            _targetDirection = _destinationSetter.target.position - transform.position;
+            _enemyVisuals.TargetDirection = _targetDirection;
+            float targetDistance = _targetDirection.magnitude;
             if (_rayCaster.PlayerInSight)
             {
                 _colliderTrigger.enabled = targetDistance < _detectionRadius ? true : false;

@@ -26,9 +26,12 @@ namespace Enemy
         private Color _currentColor;
         private float _damageCooldown = 2f;
 
+        [SerializeField] private Vector3 _targetDirection;
+        
         private bool _attack = false;
 
         public bool Attack { get => _attack; set => _attack = value; }
+        public Vector3 TargetDirection { get => _targetDirection; set => _targetDirection = value; }
 
         private void Awake()
         {
@@ -45,8 +48,8 @@ namespace Enemy
 
         void Update()
         {
-            _animator.SetFloat(_xPositionHash, _rayCaster.transform.rotation.y);
-            _animator.SetFloat(_yPositionHash, _rayCaster.transform.rotation.x);
+            _animator.SetFloat(_xPositionHash, _targetDirection.x);
+            _animator.SetFloat(_yPositionHash, _targetDirection.y);
             if (_aIPath.canMove)
             {
                 if (_aIPath.reachedEndOfPath)
