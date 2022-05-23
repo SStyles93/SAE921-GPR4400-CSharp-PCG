@@ -46,6 +46,7 @@ namespace Enemy
         void Update()
         {
             _animator.SetFloat(_xPositionHash, _rayCaster.transform.rotation.y);
+            _animator.SetFloat(_yPositionHash, _rayCaster.transform.rotation.x);
             if (_aIPath.canMove)
             {
                 if (_aIPath.reachedEndOfPath)

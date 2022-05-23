@@ -11,6 +11,10 @@ public class PaintGroundandWall : MonoBehaviour
    [SerializeField] private RuleTile floorTile;
    private MapScript _mapScript;
    
+    /// <summary>
+    /// Paints all the ground cells
+    /// </summary>
+    /// <param name="map">The mapScript to paint</param>
    public void PaintAllGround(MapScript map)
    {
       _mapScript = map;
@@ -74,18 +78,29 @@ public class PaintGroundandWall : MonoBehaviour
       }
    }
 
+    /// <summary>
+    /// Paint a particular cell with wallTile
+    /// </summary>
+    /// <param name="position">The position of the cell to paint</param>
    private void PaintWallCell(Vector2Int position)
    {
       var posInGrid = ground.WorldToCell(new Vector3(position.x, position.y, 0));
       ground.SetTile(posInGrid, wallTile);
    }
    
+    /// <summary>
+    /// Paint a particular cell with floorTile
+    /// </summary>
+    /// <param name="position"></param>
    private void PaintFloorCell(Vector2Int position)
    {
       var posInGrid = ground.WorldToCell(new Vector3(position.x, position.y, 0));
       ground.SetTile(posInGrid, floorTile);
    }
 
+    /// <summary>
+    /// Clears the Map
+    /// </summary>
    public void ClearMap()
    {
       ground.ClearAllTiles();
