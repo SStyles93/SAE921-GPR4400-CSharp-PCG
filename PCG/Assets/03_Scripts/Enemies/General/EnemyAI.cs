@@ -66,7 +66,7 @@ namespace Enemy
             }
 
             _targetDirection = _destinationSetter.target.position - transform.position;
-            _enemyVisuals.TargetDirection = _targetDirection;
+            _enemyVisuals.TargetDirection = _targetDirection.normalized;
             float targetDistance = _targetDirection.magnitude;
             if (_rayCaster.PlayerInSight)
             {
