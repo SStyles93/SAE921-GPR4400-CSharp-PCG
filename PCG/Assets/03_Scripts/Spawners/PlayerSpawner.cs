@@ -4,14 +4,22 @@ using UnityEngine;
 
 public class PlayerSpawner : MonoBehaviour
 {
+    [SerializeField] private GameManager _gameManager;
+
     [SerializeField] private GameObject _playerPrefab;
     [SerializeField] private Vector3 _spawnPosition;
 
     public Vector3 SpawnPosition { get => _spawnPosition; set => _spawnPosition = value; }
 
+
+    private void Awake()
+    {
+        _gameManager = GetComponent<GameManager>();        
+    }
+
     void Start()
     {
-        Instantiate(_playerPrefab, _spawnPosition, Quaternion.identity);
+        _gameManager.Player = Instantiate(_playerPrefab, _spawnPosition, Quaternion.identity);
     }
 
     private void OnDrawGizmos()

@@ -8,6 +8,7 @@ public class EnemySpawner : MonoBehaviour
     [Header("Reference Scripts")]
     [SerializeField] private PcgCreateRoom _pcgRoom;
     [SerializeField] private MapScript _mapScript;
+    [SerializeField] private GameManager _gameManager;
     
     //Prefabs to spawn
     [Header("Enemy1 \"Chaser\"")]
@@ -27,16 +28,23 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         _mapScript = _pcgRoom.MapGameObject.GetComponent<MapScript>();
+        _gameManager = GetComponent<GameManager>();
 
-        for (int i = 1; i < _mapScript.mapNodes.Count; i++)
+        for (int i = 0; i < _mapScript.mapNodes.Count; i++)
         {
             //Spawning for enemies
             if (_mapScript.mapNodes[i].roomType == PcgPopulate.RoomType.MonsterRoom)
-                SpawnEnemy(_enemyPrefab1, _mapScript.mapNodes[i].transform.position, Random.Range(_minSpawnAmountEnemy1, _maxSpawnAmountEnemy1));
+                SpawnEnemy(_enemyPrefab1,
+                    _mapScript.mapNodes[i].transform.position,
+                    Random.Range(_minSpawnAmountEnemy1, _maxSpawnAmountEnemy1));
 
             //Spawning for boss
             if (_mapScript.mapNodes[i].roomType == PcgPopulate.RoomType.BossRoom)
-                SpawnEnemy(_enemyPrefab2, _mapScript.mapNodes[i].transform.position, Random.Range(_minSpawnAmountEnemy2, _maxSpawnAmountEnemy2));
+                _gameManager.TrackedEnemies.Add(
+                    SpawnEnemy(
+                        _enemyPrefab2,
+                        _mapScript.mapNodes[i].transform.position,
+                        Random.Range(_minSpawnAmountEnemy2, _maxSpawnAmountEnemy2)));
         }
     }
 
@@ -49,13 +57,15 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    public void SpawnEnemy(GameObject enemyPrefab, Vector3 spawnPosition, int numbersOfEnemiesToSpawn)
+    public GameObject SpawnEnemy(GameObject enemyPrefab, Vector3 spawnPosition, int numbersOfEnemiesToSpawn)
     {
         for (int i = 0; i < numbersOfEnemiesToSpawn; i++)
         {
-            Instantiate(enemyPrefab,
+                return Instantiate(enemyPrefab,
                 spawnPosition + new Vector3(Random.Range(-spawnRange, spawnRange),Random.Range(-spawnRange, spawnRange), 0.0f),
                 Quaternion.identity);
         }
+
+        return null;
     }
 }
