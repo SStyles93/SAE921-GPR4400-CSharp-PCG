@@ -1,0 +1,157 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6873637083800037616
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6873637083800037610}
+  - component: {fileID: 6873637083800037613}
+  - component: {fileID: 6873637083800037612}
+  - component: {fileID: 6873637083800037615}
+  - component: {fileID: 6873637083800037617}
+  - component: {fileID: 6873637083800037608}
+  - component: {fileID: 6873637083800037611}
+  - component: {fileID: 3147446735744166515}
+  - component: {fileID: 6873637083800037609}
+  m_Layer: 0
+  m_Name: PCGeneratorOLD
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6873637083800037610
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6873637083800037616}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6873637083800037613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6873637083800037616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ca826d985da3574b9543247c0bf4388, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _createRoom: {fileID: 6873637083800037612}
+  _createLink: {fileID: 6873637083800037615}
+  _paintGround: {fileID: 6873637083800037617}
+  _GizmosDrawPcg: {fileID: 6873637083800037611}
+  _rootRoad: {fileID: 6873637083800037608}
+--- !u!114 &6873637083800037612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6873637083800037616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d980506f0f2c7942aedf595cccda1ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canvaSize: {x: 50, y: 50}
+  _minSizeRoom: {x: 10, y: 10}
+  _randomRange: 1
+  mapGameObject: {fileID: 0}
+--- !u!114 &6873637083800037615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6873637083800037616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4abcb124900b84d92b97a89fa28d30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minSizeDoor: 5
+--- !u!114 &6873637083800037617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6873637083800037616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1defe009a4020e84cb54eb9e4fa5f2b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ground: {fileID: 0}
+  wallTile: {fileID: 11400000, guid: cb7e3bc6ba9ed3545a4b0c895e56bbfa, type: 2}
+  floorTile: {fileID: 11400000, guid: 5e000e56dbeb294458eb6462c004fc60, type: 2}
+--- !u!114 &6873637083800037608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6873637083800037616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 239f00b0d648b80418a19c072bf5d105, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rootLenght: 5
+--- !u!114 &6873637083800037611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6873637083800037616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4c754916dabeac47be0dea96b343796, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapScript: {fileID: 0}
+--- !u!114 &3147446735744166515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6873637083800037616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 523e9e6290bb3c34980a08045d58023e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxBossRoom: 1
+  deltaBossRoom: 4
+--- !u!114 &6873637083800037609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6873637083800037616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a57c3affbcfe5c4580ccb057b4bdcf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pcgControlePanel: {fileID: 6873637083800037613}
+  _aStar: {fileID: 0}
+  _playerSpawner: {fileID: 0}
