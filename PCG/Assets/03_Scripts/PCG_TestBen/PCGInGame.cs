@@ -31,9 +31,11 @@ public class PCGInGame : MonoBehaviour
     /// </summary>
     public void GenerateAll()
     {
+        pcgControlePanel.clearGround();
         pcgControlePanel.GenerateRoom();
         pcgControlePanel.GenerateLink();
         pcgControlePanel.CreateRoot();
+        pcgControlePanel.ClearListFromUnused();
         pcgControlePanel.paintGround();
 
         //Spawn player
