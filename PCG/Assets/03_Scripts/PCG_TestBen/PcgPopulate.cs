@@ -38,11 +38,14 @@ public class PcgPopulate : MonoBehaviour
     [SerializeField] private int maxBossRoom = 1; private int _actualBossRoom = 0;
     [Tooltip("where the bossRoom is generated if the number is big, the boss room is more away of the playerBase")]
     [SerializeField] private int deltaBossRoom = 4;
+    [Tooltip("this is the script that contain all access to prefab that use the populate")]
+    public PrefabTank prefabTank;
 
 
     private void Awake()
     {
         _rootRoad = GetComponent<PcgCreateRootRoad>();
+        prefabTank = GetComponent<PrefabTank>();
     }
     
     

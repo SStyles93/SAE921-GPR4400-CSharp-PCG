@@ -5,25 +5,27 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 public class MapNode : MonoBehaviour
-{ 
-    //this is the size of the room,nothing less or more.
-    public Vector2Int sizeRoom;
+{
+   //this is the size of the room,nothing less or more.
+   public Vector2Int sizeRoom;
+
+   //this is represent the length to the first root, if 0 it's not assigned to a root.
+   public int rootPos;
+
+   //this is the list of link for accessible room.
+   public List<MapNodeLink> linkToOtherNode;
+
+   //this is the type of the room, that is use for populate the room of monster crate etc..
+   public PcgPopulate.RoomType roomType;
+   [SerializeField] private RoomPopulate _roomPopulate;
+
    
-    //this is represent the length to the first root, if 0 it's not assigned to a root.
-    public int rootPos;
-
-    //this is the list of link for accessible room.
-    public List<MapNodeLink> linkToOtherNode;
-    
-    //this is the type of the room, that is use for populate the room of monster crate etc..
-    public PcgPopulate.RoomType roomType;
-    [SerializeField] private RoomPopulate _roomPopulate;
-
    MapNode()
    {
       linkToOtherNode = new List<MapNodeLink>();
       rootPos = 0;
    }
+   
 
    public MapNode(Transform newTransform,Vector2Int size)
    {
@@ -54,6 +56,7 @@ public class MapNode : MonoBehaviour
             case PcgPopulate.RoomType.PlayerBase:
                gameObject.AddComponent(typeof(PlayerBasePopulate));
                _roomPopulate = GetComponent<RoomPopulate>();
+               _roomPopulate.SetPrefabTank(populate.prefabTank);
                break;
             default:
                break;

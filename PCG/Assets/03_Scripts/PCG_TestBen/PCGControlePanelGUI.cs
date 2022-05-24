@@ -22,6 +22,10 @@ public class PCGControlePanelGUI : Editor
         {
             myScript.CreateRoot();
         }
+        if (GUILayout.Button("Clear UnusedNode(LinkNode,Map Node)"))
+        {
+            myScript.ClearListFromUnused();
+        }
         if (GUILayout.Button("Paint Ground(TileMap)"))
         {
             myScript.paintGround();
@@ -30,5 +34,7 @@ public class PCGControlePanelGUI : Editor
         {
             myScript.clearGround();
         }
+        
+        
     }
 }

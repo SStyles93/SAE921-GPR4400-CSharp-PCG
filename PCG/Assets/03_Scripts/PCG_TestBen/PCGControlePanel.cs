@@ -47,4 +47,9 @@ public class PCGControlePanel : MonoBehaviour
     {
         _rootRoad.CreateRoot(_map);
     }
+
+    public void ClearListFromUnused()
+    {
+        _map.ClearListFromUnused();
+    }
 }
