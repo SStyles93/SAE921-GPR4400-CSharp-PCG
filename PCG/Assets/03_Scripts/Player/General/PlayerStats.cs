@@ -21,6 +21,7 @@ namespace Player
         [SerializeField] private float _pushPower = 2.0f;
 
         [SerializeField] private bool _isInvicible = false;
+        [SerializeField] private bool _isDead = false;
 
         //Properties
         public bool IsInvicible { get => _isInvicible; set => _isInvicible = value; }
@@ -29,6 +30,7 @@ namespace Player
         public float Damage { get => _damage; set => _damage = value; }
         public float Health { get => _health; private set => _health = value; }
         public float CurrentHealth { get => _currentHealth; private set => _currentHealth = value; }
+        public bool IsDead { get => _isDead; set => _isDead = value; }
 
         private void Awake()
         {

@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PlayerSpawner _playerSpawner;
 
     private bool _hasWon = false;
+    private bool _hasLost = false;
 
     // Update is called once per frame
     void Update()
@@ -61,6 +62,12 @@ public class GameManager : MonoBehaviour
             if (!_hasWon)
             Victory();
         }
+
+        if (_playerSpawner.Player.GetComponent<Player.PlayerStats>().IsDead)
+        {
+            if(!_hasLost)
+                Lose();
+        }
     }
 
     private void Victory()
@@ -72,5 +79,14 @@ public class GameManager : MonoBehaviour
         //Launches the fade out to the scene
         _sceneManagement.FadeOut = true;
         _hasWon = true;
+    }
+    private void Lose()
+    {
+        Debug.Log("Lost !");
+        //Reset scene
+        _sceneManagement.SceneIndex = 1;
+        //Launch scene
+        _sceneManagement.FadeOut = true;
+        _hasLost = true;
     }
 }
