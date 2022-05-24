@@ -17,6 +17,7 @@ public class MapNode : MonoBehaviour
     
     //this is the type of the room, that is use for populate the room of monster crate etc..
     public PcgPopulate.RoomType roomType;
+    [SerializeField] private RoomPopulate _roomPopulate;
 
    MapNode()
    {
@@ -36,6 +37,27 @@ public class MapNode : MonoBehaviour
          rootPos = rootLenght;
          roomType = populate.GetTypeRoom(rootPos);
 
+         switch (roomType)
+         {
+            case PcgPopulate.RoomType.BossRoom:
+               gameObject.AddComponent(typeof(BossRoomPopulate));
+               _roomPopulate = GetComponent<RoomPopulate>();
+               break;
+            case PcgPopulate.RoomType.MonsterRoom:
+               gameObject.AddComponent(typeof(MonsterRoomPopulate));
+               _roomPopulate = GetComponent<RoomPopulate>();
+               break;
+            case PcgPopulate.RoomType.CrateRoom:
+               gameObject.AddComponent(typeof(CrateRoomPopulate));
+               _roomPopulate = GetComponent<RoomPopulate>();
+               break;
+            case PcgPopulate.RoomType.PlayerBase:
+               gameObject.AddComponent(typeof(PlayerBasePopulate));
+               _roomPopulate = GetComponent<RoomPopulate>();
+               break;
+            default:
+               break;
+         }
       }
       else if (rootPos >= rootLenght|| lastLenght>=rootPos )
       {
@@ -49,7 +71,7 @@ public class MapNode : MonoBehaviour
       {
          foreach (var nodeLink in linkToOtherNode)
          {
-
+            
             MapNode targetNode;
 
             if (nodeLink.firstMapNode == this)
@@ -73,6 +95,24 @@ public class MapNode : MonoBehaviour
                   nodeLink.alreadyCheck = true;
                   nodeLink.rootPathing = true;
                   nodeLink.doorType = populate.GetTypeLink(rootLenght);
+                  switch (nodeLink.doorType)
+                  {
+                     case PcgPopulate.LinkType.FreeAccesses:
+                        nodeLink.gameObject.AddComponent(typeof(FreeAccessPopulate));
+                        nodeLink.SetPopulate(GetComponent<DoorPopulate>());
+                        break;
+                     case PcgPopulate.LinkType.BlockedByCrate:
+                        nodeLink.gameObject.AddComponent(typeof(BlockedByCratePopulate));
+                        nodeLink.SetPopulate(GetComponent<DoorPopulate>());
+                        break;
+                     case PcgPopulate.LinkType.BlockedByDoor:
+                        nodeLink.gameObject.AddComponent((typeof(DoorPopulate)));
+                        nodeLink.SetPopulate(GetComponent<DoorPopulate>());
+                        break;
+                     default:
+                        break;
+                  }
+                  
                   targetNode.GrowRoot(rootLenght,rootPos,populate);
                }
                else
@@ -83,4 +123,5 @@ public class MapNode : MonoBehaviour
          }
       }
    }
+   
 }

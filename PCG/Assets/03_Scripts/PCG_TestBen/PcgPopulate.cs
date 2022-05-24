@@ -10,7 +10,7 @@ public class PcgPopulate : MonoBehaviour
 
     public enum RoomType
     {
-        None,
+        None,//Node by default
         PlayerBase,
         MonsterRoom,
         CrateRoom,
@@ -20,7 +20,7 @@ public class PcgPopulate : MonoBehaviour
 
     public enum LinkType
     {
-        None,
+        None,//Node by default
         FreeAccesses,
         BlockedByCrate,
         BlockedByDoor

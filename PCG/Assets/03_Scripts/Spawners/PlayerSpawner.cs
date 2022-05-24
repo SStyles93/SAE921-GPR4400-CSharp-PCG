@@ -11,7 +11,7 @@ public class PlayerSpawner : MonoBehaviour
 
     void Start()
     {
-        Instantiate(_playerPrefab, _spawnPosition, Quaternion.identity);        
+        Instantiate(_playerPrefab, _spawnPosition, Quaternion.identity);
     }
 
     private void OnDrawGizmos()

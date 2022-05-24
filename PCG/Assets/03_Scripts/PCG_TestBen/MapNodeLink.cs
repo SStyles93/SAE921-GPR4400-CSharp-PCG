@@ -15,9 +15,16 @@ public class MapNodeLink : MonoBehaviour
     
     //this is the type of the door is in the link between the two room
     public PcgPopulate.LinkType doorType;
+    [SerializeField] private DoorPopulate _doorPopulate;
 
     MapNodeLink()
     {
         rootPathing = false;
+    }
+
+
+    public void SetPopulate(DoorPopulate newPopulate)
+    {
+        _doorPopulate = newPopulate;
     }
 }
