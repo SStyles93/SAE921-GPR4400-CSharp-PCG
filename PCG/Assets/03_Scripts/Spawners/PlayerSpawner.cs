@@ -1,30 +1,42 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Player;
 
 public class PlayerSpawner : MonoBehaviour
 {
-    [SerializeField] private GameManager _gameManager;
+    [SerializeField] private Managers.SceneManagement _sceneManagement;
+    [SerializeField] private EnemySpawner _enemySpawner;
 
     [SerializeField] private GameObject _playerPrefab;
     [SerializeField] private Vector3 _spawnPosition;
 
+    [SerializeField] private GameObject _player;
+
     public Vector3 SpawnPosition { get => _spawnPosition; set => _spawnPosition = value; }
-
-
-    private void Awake()
-    {
-        _gameManager = GetComponent<GameManager>();        
-    }
+    public GameObject Player { get => _player; set => _player = value; }
 
     void Start()
     {
-        _gameManager.Player = Instantiate(_playerPrefab, _spawnPosition, Quaternion.identity);
+        _player = Instantiate(_playerPrefab, _spawnPosition, Quaternion.identity);
+        //Subscribes the "Pause" Methods to the player Controller
+        _player.GetComponent<PlayerController>().GameState += _enemySpawner.PauseEnemies;
+        _player.GetComponent<PlayerController>().GameState += _sceneManagement.PauseCanvas;
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
         Gizmos.DrawSphere(_spawnPosition, 0.25f);
+    }
+
+    /// <summary>
+    /// Sets the game state to "Play"
+    /// </summary>
+    public void ResumeGame()
+    {
+        _player.GetComponent<PlayerController>().GameState(true);
+        _player.GetComponent<PlayerController>().play = true;
+        Time.timeScale = 1.0f;
     }
 }

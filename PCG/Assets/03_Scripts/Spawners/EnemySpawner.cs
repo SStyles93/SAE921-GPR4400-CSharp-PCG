@@ -8,8 +8,10 @@ public class EnemySpawner : MonoBehaviour
     [Header("Reference Scripts")]
     [SerializeField] private PcgCreateRoom _pcgRoom;
     [SerializeField] private MapScript _mapScript;
-    [SerializeField] private GameManager _gameManager;
-    
+
+    [SerializeField] private List<GameObject> _trackedEnemies;
+    [SerializeField] private List<GameObject> _trackedBosses;
+
     //Prefabs to spawn
     [Header("Enemy1 \"Chaser\"")]
     [SerializeField] private GameObject _enemyPrefab1;
@@ -25,22 +27,24 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private List<Vector3> spawnPositions;
     [SerializeField] private float spawnRange = 1.0f;
 
+    public List<GameObject> TrackedEnemies { get => _trackedEnemies; set => _trackedEnemies = value; }
+    public List<GameObject> TrackedBosses { get => _trackedBosses; set => _trackedBosses = value; }
+
     void Start()
     {
         _mapScript = _pcgRoom.MapGameObject.GetComponent<MapScript>();
-        _gameManager = GetComponent<GameManager>();
 
         for (int i = 0; i < _mapScript.mapNodes.Count; i++)
         {
             //Spawning for enemies
             if (_mapScript.mapNodes[i].roomType == PcgPopulate.RoomType.MonsterRoom)
-                SpawnEnemy(_enemyPrefab1,
+                _trackedEnemies.Add(SpawnEnemy(_enemyPrefab1,
                     _mapScript.mapNodes[i].transform.position,
-                    Random.Range(_minSpawnAmountEnemy1, _maxSpawnAmountEnemy1));
+                    Random.Range(_minSpawnAmountEnemy1, _maxSpawnAmountEnemy1)));
 
             //Spawning for boss
             if (_mapScript.mapNodes[i].roomType == PcgPopulate.RoomType.BossRoom)
-                _gameManager.TrackedEnemies.Add(
+                _trackedBosses.Add(
                     SpawnEnemy(
                         _enemyPrefab2,
                         _mapScript.mapNodes[i].transform.position,
@@ -67,5 +71,17 @@ public class EnemySpawner : MonoBehaviour
         }
 
         return null;
+    }
+
+    /// <summary>
+    /// Sets all the enemies in Play(true)/Pause(false) state
+    /// </summary>
+    /// <param name="state">state in which the enemies have to be</param>
+    public void PauseEnemies(bool state)
+    {
+        foreach (GameObject enemy in _trackedEnemies)
+        {
+            enemy.GetComponent<Enemy.EnemyAI>().PauseEnemy(state);
+        }
     }
 }
