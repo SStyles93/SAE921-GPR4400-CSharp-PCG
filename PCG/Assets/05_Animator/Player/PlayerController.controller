@@ -81,10 +81,10 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: yPosition
-    m_EventTreshold: 0.7
+    m_EventTreshold: 0.71
   - m_ConditionMode: 3
     m_ConditionEvent: yPosition
-    m_EventTreshold: -0.7
+    m_EventTreshold: -0.71
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -1189464888807553739}
   m_Solo: 0
@@ -118,10 +118,10 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: yPosition
-    m_EventTreshold: 0.7
+    m_EventTreshold: 0.71
   - m_ConditionMode: 3
     m_ConditionEvent: yPosition
-    m_EventTreshold: -0.7
+    m_EventTreshold: -0.71
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 3066587719668431565}
   m_Solo: 0
@@ -585,10 +585,10 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: yPosition
-    m_EventTreshold: 0.7
+    m_EventTreshold: 0.71
   - m_ConditionMode: 3
     m_ConditionEvent: yPosition
-    m_EventTreshold: -0.7
+    m_EventTreshold: -0.71
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 9183224448114922263}
   m_Solo: 0
@@ -672,10 +672,10 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: yPosition
-    m_EventTreshold: 0.7
+    m_EventTreshold: 0.71
   - m_ConditionMode: 3
     m_ConditionEvent: yPosition
-    m_EventTreshold: -0.7
+    m_EventTreshold: -0.71
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -7917642476972825529}
   m_Solo: 0
@@ -736,10 +736,10 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: yPosition
-    m_EventTreshold: 0.7
+    m_EventTreshold: 0.71
   - m_ConditionMode: 3
     m_ConditionEvent: yPosition
-    m_EventTreshold: -0.7
+    m_EventTreshold: -0.71
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7314502978861903281}
   m_Solo: 0
@@ -1157,10 +1157,10 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: yPosition
-    m_EventTreshold: 0.7
+    m_EventTreshold: 0.71
   - m_ConditionMode: 3
     m_ConditionEvent: yPosition
-    m_EventTreshold: -0.7
+    m_EventTreshold: -0.71
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -1987487853676273654}
   m_Solo: 0

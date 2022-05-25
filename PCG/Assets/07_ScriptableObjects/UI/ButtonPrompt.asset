@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82167e01f4baebd40aef81912502ae51, type: 3}
   m_Name: ButtonPrompt
   m_EditorClassIdentifier: 
-  keyboardSprite: {fileID: 21300000, guid: aacf1689ebd716e4fa82bbb6eae3518c, type: 3}
+  keyboardSprite: {fileID: 21300000, guid: c4ece8baea8dbbe49924ae0997a67f3d, type: 3}
   gamepadSprite: {fileID: 21300000, guid: 97fe54d760d5dc94fa4ad9923c0fe209, type: 3}
