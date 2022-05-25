@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4153996855253238552}
   - component: {fileID: 6868967941821449760}
   - component: {fileID: 3986434186655862900}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4064321823447979900}
   - component: {fileID: 7071487692443674765}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HealthSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 1894231259167934942}
   - component: {fileID: 2154109813783738384}
   - component: {fileID: 1906562759}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -284,6 +284,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerController: {fileID: 0}
   _playerStats: {fileID: 0}
+  _playerActions: {fileID: 0}
   _healthSlider: {fileID: 7071487692443674765}
   _healthGradient:
     serializedVersion: 2
@@ -316,6 +317,7 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   _healthFill: {fileID: 1578101709410861405}
   _actionBtnImage: {fileID: 7362773079651827597}
+  _actionImage: {fileID: 1249619822032635407}
   _blockedColor: {r: 1, g: 1, b: 1, a: 0.15686275}
   _uIButtonsSO: {fileID: 11400000, guid: a803d7a12cccbdb4e8eef03ad3413a21, type: 2}
 --- !u!1 &3783078376969341478
@@ -329,7 +331,7 @@ GameObject:
   - component: {fileID: 5614420902520487488}
   - component: {fileID: 5726931022207254431}
   - component: {fileID: 1249619822032635407}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ActionImg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -405,7 +407,7 @@ GameObject:
   - component: {fileID: 4964735322115632289}
   - component: {fileID: 5836343700564060850}
   - component: {fileID: 1578101709410861405}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HealthFill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -479,7 +481,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6175798681136757212}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -518,7 +520,7 @@ GameObject:
   - component: {fileID: 6869316481973529002}
   - component: {fileID: 4152453824116956482}
   - component: {fileID: 7362773079651827597}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ActionButtonImg
   m_TagString: Untagged
   m_Icon: {fileID: 0}

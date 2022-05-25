@@ -12,12 +12,14 @@ namespace Player
         //[SerializeField] private PlayerInput _playerInput;
         [SerializeField] private PlayerController _playerController;
         [SerializeField] private PlayerStats _playerStats;
+        [SerializeField] private PlayerActions _playerActions;
 
         //Reference Components
         [Header("Player Health UI")]
         [SerializeField] private Slider _healthSlider;
         [SerializeField] private Gradient _healthGradient;
         [SerializeField] private Image _healthFill;
+        [SerializeField] private Image _actionImage;
         [SerializeField] private Image _actionBtnImage;
 
         [Header("Player Actions UI")]
@@ -31,6 +33,7 @@ namespace Player
         {
             _playerStats = GetComponentInParent<PlayerStats>();
             _playerController = GetComponentInParent<PlayerController>();
+            _playerActions = GetComponentInParent<PlayerActions>();
 
             _healthSlider = GetComponentInChildren<Slider>();
         }
@@ -62,9 +65,13 @@ namespace Player
         /// </summary>
         private void UpdateButtonsUiColor()
         {
+            //If action !available => blockedColor
+            _actionImage.color =
+                _playerActions.CanAttack ? _normalColor : _blockedColor;
             // If button pressed => blockedColor
             _actionBtnImage.color =
                 _playerController.Action1 ? _blockedColor : _normalColor;
+            
         }
 
         /// <summary>

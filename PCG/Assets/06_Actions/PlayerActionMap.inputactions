@@ -175,17 +175,6 @@
                 },
                 {
                     "name": "",
-                    "id": "14ea341a-9bf2-4b7b-b90d-5f0297d9e6a7",
-                    "path": "<Gamepad>/leftTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Action1",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "ecc13bf7-fa01-4131-ab4a-1354535d115d",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
@@ -230,17 +219,6 @@
                 },
                 {
                     "name": "",
-                    "id": "3a65f6ed-aa03-474b-92b2-db100a09630d",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Action3",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "01d80095-ff7b-484d-8c9f-0d605b3d980a",
                     "path": "<Gamepad>/start",
                     "interactions": "",
@@ -258,6 +236,28 @@
                     "processors": "",
                     "groups": "Keyboard",
                     "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3a65f6ed-aa03-474b-92b2-db100a09630d",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Action1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "14ea341a-9bf2-4b7b-b90d-5f0297d9e6a7",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Action3",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

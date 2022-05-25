@@ -52,11 +52,16 @@ namespace Player
 
         }
 
+        private void Start()
+        {
+            ResetLife();
+        }
+
         private void Update()
         {
             if (_health <= 0.0f)
             {
-                //Die();
+                Die();
             }
         }
 
@@ -66,7 +71,7 @@ namespace Player
         private void Die()
         {
             DisablePlayersActions();
-            //ResetLife();
+            _isDead = true;
         }
 
         /// <summary>

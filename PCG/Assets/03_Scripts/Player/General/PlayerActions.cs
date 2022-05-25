@@ -41,6 +41,7 @@ namespace Player
         public bool CanHit { get => _canHit; set => _canHit = value; }
         public GameObject Aim { get => _aim; private set => _aim = value; }
         public bool IsInCombat { get => _isInCombat; set => _isInCombat = value; }
+        public bool CanAttack { get => _canAttack; set => _canAttack = value; }
 
         void Awake()
         {
