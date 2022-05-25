@@ -31,6 +31,10 @@ public class PCGControlePanelGUI : Editor
         {
             myScript.paintGround();
         }
+        if (GUILayout.Button("Call Populate(Room Populate)"))
+        {
+                     myScript.CallPopulate();
+        }
         if (GUILayout.Button("Clear Ground(TileMap)"))
         {
             myScript.clearGround();

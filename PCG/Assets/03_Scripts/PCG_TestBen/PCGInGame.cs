@@ -36,6 +36,7 @@ public class PCGInGame : MonoBehaviour
         pcgControlePanel.GenerateLink();
         pcgControlePanel.CreateRoot();
         pcgControlePanel.ClearListFromUnused();
+        pcgControlePanel.CallPopulate();
         pcgControlePanel.paintGround();
 
         //Spawn player

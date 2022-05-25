@@ -8,6 +8,7 @@ public class MapScript : MonoBehaviour
      public Vector2 mapSize;
      public List<MapNodeLink> maplinks = new List<MapNodeLink>();
      public List<MapNode> mapNodes = new List<MapNode>();
+     public PrefabTank PrefabTank;
 
      public void ClearListFromUnused()
      {

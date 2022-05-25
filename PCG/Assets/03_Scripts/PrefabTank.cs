@@ -5,4 +5,9 @@ using UnityEngine;
 public class PrefabTank : MonoBehaviour
 {
     public GameObject jar;
+    
+    
+    public GameObject Door;
+    
+    
 }

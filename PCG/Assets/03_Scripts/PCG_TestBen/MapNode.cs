@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.U2D.Animation;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -19,7 +20,9 @@ public class MapNode : MonoBehaviour
    public PcgPopulate.RoomType roomType;
    [SerializeField] private RoomPopulate _roomPopulate;
 
-   
+
+   public RoomPopulate RoomPopulate => _roomPopulate;
+      
    MapNode()
    {
       linkToOtherNode = new List<MapNodeLink>();
@@ -44,19 +47,26 @@ public class MapNode : MonoBehaviour
             case PcgPopulate.RoomType.BossRoom:
                gameObject.AddComponent(typeof(BossRoomPopulate));
                _roomPopulate = GetComponent<RoomPopulate>();
+               _roomPopulate.SetPrefabTank(populate.prefabTank);
+               _roomPopulate.SetMapNode(this);
                break;
             case PcgPopulate.RoomType.MonsterRoom:
                gameObject.AddComponent(typeof(MonsterRoomPopulate));
                _roomPopulate = GetComponent<RoomPopulate>();
+               _roomPopulate.SetPrefabTank(populate.prefabTank);
+               _roomPopulate.SetMapNode(this);
                break;
             case PcgPopulate.RoomType.CrateRoom:
                gameObject.AddComponent(typeof(CrateRoomPopulate));
                _roomPopulate = GetComponent<RoomPopulate>();
+               _roomPopulate.SetPrefabTank(populate.prefabTank);
+               _roomPopulate.SetMapNode(this);
                break;
             case PcgPopulate.RoomType.PlayerBase:
                gameObject.AddComponent(typeof(PlayerBasePopulate));
                _roomPopulate = GetComponent<RoomPopulate>();
                _roomPopulate.SetPrefabTank(populate.prefabTank);
+               _roomPopulate.SetMapNode(this);
                break;
             default:
                break;
@@ -102,15 +112,15 @@ public class MapNode : MonoBehaviour
                   {
                      case PcgPopulate.LinkType.FreeAccesses:
                         nodeLink.gameObject.AddComponent(typeof(FreeAccessPopulate));
-                        nodeLink.SetPopulate(GetComponent<DoorPopulate>());
+                        nodeLink.SetPopulate(nodeLink.GetComponent<LinkPopulate>());
                         break;
                      case PcgPopulate.LinkType.BlockedByCrate:
                         nodeLink.gameObject.AddComponent(typeof(BlockedByCratePopulate));
-                        nodeLink.SetPopulate(GetComponent<DoorPopulate>());
+                        nodeLink.SetPopulate(nodeLink.GetComponent<LinkPopulate>());
                         break;
                      case PcgPopulate.LinkType.BlockedByDoor:
-                        nodeLink.gameObject.AddComponent((typeof(DoorPopulate)));
-                        nodeLink.SetPopulate(GetComponent<DoorPopulate>());
+                        nodeLink.gameObject.AddComponent(typeof(DoorPopulate));
+                        nodeLink.SetPopulate(nodeLink.GetComponent<LinkPopulate>());
                         break;
                      default:
                         break;

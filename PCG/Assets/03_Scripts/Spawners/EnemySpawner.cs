@@ -38,17 +38,23 @@ public class EnemySpawner : MonoBehaviour
         {
             //Spawning for enemies
             if (_mapScript.mapNodes[i].roomType == PcgPopulate.RoomType.MonsterRoom)
-                _trackedEnemies.Add(SpawnEnemy(_enemyPrefab1,
+            {
+                GameObject ennemy = SpawnEnemy(_enemyPrefab1,
                     _mapScript.mapNodes[i].transform.position,
-                    Random.Range(_minSpawnAmountEnemy1, _maxSpawnAmountEnemy1)));
-
+                    Random.Range(_minSpawnAmountEnemy1, _maxSpawnAmountEnemy1));
+                _trackedEnemies.Add(ennemy);
+                _mapScript.mapNodes[i].RoomPopulate.entity.Add(ennemy);
+            }
             //Spawning for boss
             if (_mapScript.mapNodes[i].roomType == PcgPopulate.RoomType.BossRoom)
-                _trackedBosses.Add(
-                    SpawnEnemy(
-                        _enemyPrefab2,
-                        _mapScript.mapNodes[i].transform.position,
-                        Random.Range(_minSpawnAmountEnemy2, _maxSpawnAmountEnemy2)));
+            {
+                GameObject Boss = SpawnEnemy(_enemyPrefab2,
+                    _mapScript.mapNodes[i].transform.position,
+                    Random.Range(_minSpawnAmountEnemy2, _maxSpawnAmountEnemy2));
+                _trackedBosses.Add(Boss);
+                _mapScript.mapNodes[i].RoomPopulate.entity.Add(Boss);
+                
+            }
         }
     }
 

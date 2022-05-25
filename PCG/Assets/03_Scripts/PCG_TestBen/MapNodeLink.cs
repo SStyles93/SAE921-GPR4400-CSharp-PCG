@@ -10,12 +10,13 @@ public class MapNodeLink : MonoBehaviour
     //this represent if the root are already check this node, if false the root use it, if true the root use
     //only if the rootPathing is true-
     public bool alreadyCheck;
+
     //this is represent if the root take this path or not, if false it's not assigned to the root.
     public bool rootPathing;
-    
+
     //this is the type of the door is in the link between the two room
     public PcgPopulate.LinkType doorType;
-    [SerializeField] private DoorPopulate _doorPopulate;
+    public LinkPopulate _linkPopulate;
 
     MapNodeLink()
     {
@@ -23,8 +24,14 @@ public class MapNodeLink : MonoBehaviour
     }
 
 
-    public void SetPopulate(DoorPopulate newPopulate)
+    public void SetPopulate(LinkPopulate newPopulate)
     {
-        _doorPopulate = newPopulate;
+        _linkPopulate = newPopulate;
+    }
+
+    public void CloseDoor()
+    {
+        _linkPopulate.CloseDoor();
     }
 }
+    

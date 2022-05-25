@@ -5,9 +5,5 @@ using UnityEngine;
 public class BossRoomPopulate : RoomPopulate
 {
     
-    public override void PcgPopulate()
-    {
-        throw new System.NotImplementedException();
-    }
-    
+   
 }

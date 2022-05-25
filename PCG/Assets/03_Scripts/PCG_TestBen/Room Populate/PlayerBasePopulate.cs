@@ -5,11 +5,4 @@ using UnityEngine;
 public class PlayerBasePopulate : RoomPopulate
 {
     
-    
-    public override void PcgPopulate()
-    {
-        throw new System.NotImplementedException();
-    }
-    
-    
 }

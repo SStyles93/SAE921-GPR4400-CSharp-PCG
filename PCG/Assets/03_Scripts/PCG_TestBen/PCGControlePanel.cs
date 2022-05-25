@@ -17,6 +17,7 @@ public class PCGControlePanel : MonoBehaviour
     [SerializeField] PaintGroundandWall _paintGround;
     [SerializeField] GizmosDrawPCG _GizmosDrawPcg;
     [SerializeField] PcgCreateRootRoad _rootRoad;
+    [SerializeField] PcgPopulate _pcgPopulate;
     private MapScript _map;
 
     public MapScript Map { get => _map; private set => _map = value; }
@@ -26,6 +27,8 @@ public class PCGControlePanel : MonoBehaviour
    {
         _map = _createRoom.GenerateMapNodes();
         _GizmosDrawPcg.AddMapToGizmos(_map);
+        _pcgPopulate.SetMap(_map);
+        
    }
 
     public void GenerateLink()
@@ -51,5 +54,10 @@ public class PCGControlePanel : MonoBehaviour
     public void ClearListFromUnused()
     {
         _map.ClearListFromUnused();
+    }
+
+    public void CallPopulate()
+    {
+        _pcgPopulate.CallPcgPopulate();
     }
 }

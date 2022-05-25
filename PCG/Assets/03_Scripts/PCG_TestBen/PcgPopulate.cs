@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 using Random = UnityEngine.Random;
 
 public class PcgPopulate : MonoBehaviour
@@ -26,7 +27,6 @@ public class PcgPopulate : MonoBehaviour
         BlockedByDoor
     }
     
-    private PcgCreateRootRoad _rootRoad;
     
     //all the value is use by the populate for limit the number of room of each type.
     //each room have a associated two number that regis the number max of the room and when pop it
@@ -41,13 +41,31 @@ public class PcgPopulate : MonoBehaviour
     [Tooltip("this is the script that contain all access to prefab that use the populate")]
     public PrefabTank prefabTank;
 
+    private MapScript _map;
 
-    private void Awake()
+
+    private void Start()
     {
-        _rootRoad = GetComponent<PcgCreateRootRoad>();
         prefabTank = GetComponent<PrefabTank>();
     }
-    
+
+    public void SetMap(MapScript mapScript)
+    {
+        _map = mapScript;
+    }
+    public void CallPcgPopulate()
+    {
+        foreach (var mapNode in _map.mapNodes)
+        {
+            mapNode.RoomPopulate.PcgPopulate();
+            mapNode.RoomPopulate.SetPrefabTank(prefabTank);
+        }
+
+        foreach (var mapNodeLink in _map.maplinks)
+        {
+            mapNodeLink._linkPopulate.SetPrefabTank(prefabTank);
+        }
+    }
     
     public RoomType GetTypeRoom(int rootLenght)
     {
