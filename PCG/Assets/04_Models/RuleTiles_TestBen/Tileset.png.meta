@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -69,7 +69,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -6982,7 +6982,6 @@ TextureImporter:
       Tileset_81: -1488648079
       Tileset_13: 1558513833
       Tileset_67: -501925229
-      Tileset_89: 823853456
       Tileset_95: 1344219085
       Tileset_110: 2118247235
       Tileset_10: 1392255729
@@ -6995,6 +6994,7 @@ TextureImporter:
       Tileset_232: -2021539191
       Tileset_151: 1838008917
       Tileset_261: 1506453722
+      Tileset_281: 843726250
       Tileset_5: 1074629292
       Tileset_187: -1382104716
       Tileset_46: 504687413
@@ -7011,9 +7011,9 @@ TextureImporter:
       Tileset_54: -1431865904
       Tileset_239: -1655346410
       Tileset_22: -1172291328
+      Tileset_0: -1039510700
       Tileset_34: 1862332552
       Tileset_101: 1372638306
-      Tileset_0: -1039510700
       Tileset_213: -261834414
       Tileset_152: -1588208201
       Tileset_205: -1558777516
@@ -7134,11 +7134,11 @@ TextureImporter:
       Tileset_112: 1765254779
       Tileset_246: -1745898865
       Tileset_197: 1676076560
-      Tileset_85: 1431134387
+      Tileset_116: 1495546164
       Tileset_212: 687437023
       Tileset_282: 282043774
       Tileset_47: 4542492
-      Tileset_116: 1495546164
+      Tileset_85: 1431134387
       Tileset_266: -1302270707
       Tileset_18: 1067200599
       Tileset_192: 190646680
@@ -7293,13 +7293,13 @@ TextureImporter:
       Tileset_84: 13002463
       Tileset_139: 1814193789
       Tileset_62: -1423512904
-      Tileset_118: -1157991298
-      Tileset_281: 843726250
-      Tileset_200: 1657674532
-      Tileset_124: 1425904458
-      Tileset_270: -1786893717
-      Tileset_292: 2030128341
       Tileset_21: -2004354790
+      Tileset_118: -1157991298
+      Tileset_200: 1657674532
+      Tileset_270: -1786893717
+      Tileset_124: 1425904458
+      Tileset_292: 2030128341
+      Tileset_89: 823853456
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
