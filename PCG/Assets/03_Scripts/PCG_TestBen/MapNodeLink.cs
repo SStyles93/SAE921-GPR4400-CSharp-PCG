@@ -33,5 +33,10 @@ public class MapNodeLink : MonoBehaviour
     {
         _linkPopulate.CloseDoor();
     }
+
+    public void OpenDoor()
+    {
+        _linkPopulate.OpenDoor();
+    }
 }
     

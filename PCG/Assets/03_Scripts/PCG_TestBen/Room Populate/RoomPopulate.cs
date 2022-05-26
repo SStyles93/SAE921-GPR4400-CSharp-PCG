@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.Design.Serialization;
 using UnityEngine;
 
 public abstract class RoomPopulate : MonoBehaviour
@@ -11,12 +12,13 @@ public abstract class RoomPopulate : MonoBehaviour
 
      private MapNode _myMapNode;
      protected BoxCollider2D _myCollider;
+     protected bool _roomActive = false;
 
      public virtual void PcgPopulate()
      {
          _myCollider = gameObject.AddComponent<BoxCollider2D>();
 
-         _myCollider.size = _myMapNode.sizeRoom - new Vector2Int(2,2);
+         _myCollider.size = _myMapNode.sizeRoom - new Vector2Int(3,3);
          _myCollider.isTrigger = true;
      }
      
@@ -35,9 +37,16 @@ public abstract class RoomPopulate : MonoBehaviour
      {
          if (col.CompareTag("Player"))
          {
-             CloseDoors();
+             _roomActive = true;
+             if (entity.Count != 0)
+             {
+                 CloseDoors();
+             }
+             
          }
      }
+
+     
 
      private void CloseDoors()
      {
@@ -46,4 +55,30 @@ public abstract class RoomPopulate : MonoBehaviour
              mapNodeLink.CloseDoor();
          }
      }
+
+     private void Update()
+     {
+
+         
+         if (entity.Count == 0 && _roomActive)
+         {
+             foreach (var mapNodeLink in _myMapNode.linkToOtherNode)
+             {
+                 mapNodeLink.OpenDoor();
+             }
+
+             _roomActive = false;
+         }
+
+         for (int i = entity.Count - 1; i >= 0; i--)
+         {
+             if (entity[i] == null)
+             {
+                 entity.RemoveAt(i);
+                 
+             }
+         }
+     }
+     
+     
 }
