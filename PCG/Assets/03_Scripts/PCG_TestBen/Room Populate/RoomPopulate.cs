@@ -58,8 +58,6 @@ public abstract class RoomPopulate : MonoBehaviour
 
      private void Update()
      {
-
-         
          if (entity.Count == 0 && _roomActive)
          {
              foreach (var mapNodeLink in _myMapNode.linkToOtherNode)
