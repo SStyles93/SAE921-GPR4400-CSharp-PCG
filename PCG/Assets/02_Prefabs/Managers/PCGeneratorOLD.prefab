@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6873637083800037608}
   - component: {fileID: 6873637083800037611}
   - component: {fileID: 3147446735744166515}
+  - component: {fileID: 5510540679733338952}
   - component: {fileID: 6873637083800037609}
   m_Layer: 0
   m_Name: PCGeneratorOLD
@@ -56,6 +57,7 @@ MonoBehaviour:
   _paintGround: {fileID: 6873637083800037617}
   _GizmosDrawPcg: {fileID: 6873637083800037611}
   _rootRoad: {fileID: 6873637083800037608}
+  _pcgPopulate: {fileID: 0}
 --- !u!114 &6873637083800037612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,6 +142,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxBossRoom: 1
   deltaBossRoom: 4
+  prefabTank: {fileID: 5510540679733338952}
+--- !u!114 &5510540679733338952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6873637083800037616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 594ebeb388823194a83dfbf45847c6c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jar: {fileID: 9124914033602171479, guid: f420d20eccaaca542a98dd869b790929, type: 3}
+  Door: {fileID: 0}
 --- !u!114 &6873637083800037609
 MonoBehaviour:
   m_ObjectHideFlags: 0

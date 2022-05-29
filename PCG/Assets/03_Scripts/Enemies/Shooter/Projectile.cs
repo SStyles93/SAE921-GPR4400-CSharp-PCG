@@ -54,17 +54,16 @@ namespace Enemy
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            //Uses the Trigger to hit
-            if (!collision.gameObject.CompareTag("Enemy"))
+            if (collision.gameObject.CompareTag("Untagged") && collision.GetComponent<CompositeCollider2D>() != null)
             {
-                _canMove = false;
-                if (collision.gameObject.CompareTag("Player"))
-                {
-                    collision.GetComponent<PlayerStats>()?.TakeDamage(_damage);
-                    collision.gameObject.GetComponent<Rigidbody2D>().AddForce((collision.gameObject.transform.position -
-                    gameObject.transform.position) * 100.0f, ForceMode2D.Impulse);
-                }
-                
+                Destroy(this.gameObject);
+            }
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                collision.GetComponent<PlayerStats>()?.TakeDamage(_damage);
+                collision.gameObject.GetComponent<Rigidbody2D>().AddForce((collision.gameObject.transform.position -
+                gameObject.transform.position) * 100.0f, ForceMode2D.Impulse);
+                Destroy(this.gameObject);
             }
         }
     }

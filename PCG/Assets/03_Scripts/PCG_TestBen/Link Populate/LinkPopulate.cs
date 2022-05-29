@@ -5,7 +5,7 @@ using UnityEngine;
 
 public abstract class LinkPopulate : MonoBehaviour
 {
-    protected PrefabTank _prefabTank = new PrefabTank();
+    protected PrefabTank _prefabTank /*= new PrefabTank()*/;
     public abstract void PcgPopulate();
 
     protected List<GameObject> _entity = new List<GameObject>();

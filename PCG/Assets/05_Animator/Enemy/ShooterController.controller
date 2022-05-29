@@ -14,12 +14,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: Attack
     m_EventTreshold: 0
-  - m_ConditionMode: 4
-    m_ConditionEvent: yPosition
-    m_EventTreshold: 0.7
-  - m_ConditionMode: 3
-    m_ConditionEvent: yPosition
-    m_EventTreshold: -0.7
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -1189464888807553739}
   m_Solo: 0
@@ -230,12 +224,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: Attack
     m_EventTreshold: 0
-  - m_ConditionMode: 4
-    m_ConditionEvent: yPosition
-    m_EventTreshold: 0.7
-  - m_ConditionMode: 3
-    m_ConditionEvent: yPosition
-    m_EventTreshold: -0.7
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -7917642476972825529}
   m_Solo: 0
