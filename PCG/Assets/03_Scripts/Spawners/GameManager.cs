@@ -5,8 +5,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private Managers.SceneManagement _sceneManagement;
-    [SerializeField] private EnemySpawner _enemySpawner;
-    [SerializeField] private PlayerSpawner _playerSpawner;
+    [SerializeField] private Spawner _enemySpawner;
+    [SerializeField] private PlayerManager _playerSpawner;
 
     private bool _hasWon = false;
     private bool _hasLost = false;
@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
         if (_playerSpawner.Player.GetComponent<Player.PlayerStats>().IsDead)
         {
             if(!_hasLost)
-                Lose();
+                Loss();
         }
     }
 
@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
         _sceneManagement.FadeOut = true;
         _hasWon = true;
     }
-    private void Lose()
+    private void Loss()
     {
         Debug.Log("Lost !");
         //Reset scene

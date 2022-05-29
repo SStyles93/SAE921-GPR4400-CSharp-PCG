@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySpawner : MonoBehaviour
+public class Spawner : MonoBehaviour
 {
     //Reference scripts
     [Header("Reference Scripts")]
@@ -21,6 +21,10 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject _enemyPrefab2;
     [SerializeField] private int _minSpawnAmountEnemy2 = 0;
     [SerializeField] private int _maxSpawnAmountEnemy2 = 10;
+    [Header("Jar")]
+    [SerializeField] private GameObject _jarPrefab;
+    [SerializeField] private int _minSpawnAmountJar = 0;
+    [SerializeField] private int _maxSpawnAmountJar = 10;
 
     //Spawning variables
     [Header("Spawning Details")]
@@ -36,24 +40,37 @@ public class EnemySpawner : MonoBehaviour
 
         for (int i = 0; i < _mapScript.mapNodes.Count; i++)
         {
-            //Spawning for enemies
+            //Spawning for Enemies
             if (_mapScript.mapNodes[i].roomType == PcgPopulate.RoomType.MonsterRoom)
             {
-                GameObject ennemy = SpawnEnemy(_enemyPrefab1,
-                    _mapScript.mapNodes[i].transform.position,
-                    Random.Range(_minSpawnAmountEnemy1, _maxSpawnAmountEnemy1));
-                _trackedEnemies.Add(ennemy);
-                _mapScript.mapNodes[i].RoomPopulate.entity.Add(ennemy);
+                for (int spawnAmount = 0; spawnAmount < Random.Range(_minSpawnAmountEnemy1, _maxSpawnAmountEnemy1); spawnAmount++)
+                {
+                    GameObject ennemy = SpawnEntity(_enemyPrefab1,
+                    _mapScript.mapNodes[i].transform.position);
+                    _trackedEnemies.Add(ennemy);
+                    _mapScript.mapNodes[i].RoomPopulate.entity.Add(ennemy);
+                }
             }
-            //Spawning for boss
+            //Spawning for Bosses
             if (_mapScript.mapNodes[i].roomType == PcgPopulate.RoomType.BossRoom)
             {
-                GameObject Boss = SpawnEnemy(_enemyPrefab2,
-                    _mapScript.mapNodes[i].transform.position,
-                    Random.Range(_minSpawnAmountEnemy2, _maxSpawnAmountEnemy2));
-                _trackedBosses.Add(Boss);
-                _mapScript.mapNodes[i].RoomPopulate.entity.Add(Boss);
-                
+                for (int spawnAmount = 0; spawnAmount < Random.Range(_minSpawnAmountEnemy2, _maxSpawnAmountEnemy2); spawnAmount++)
+                {
+                    GameObject Boss = SpawnEntity(_enemyPrefab2,
+                    _mapScript.mapNodes[i].transform.position);
+                    _trackedBosses.Add(Boss);
+                    _mapScript.mapNodes[i].RoomPopulate.entity.Add(Boss);
+                }
+            }
+            //Spawing for Jars
+            if (_mapScript.mapNodes[i].roomType == PcgPopulate.RoomType.CrateRoom)
+            {
+                for (int spawnAmount = 0; spawnAmount < Random.Range(_minSpawnAmountJar, _maxSpawnAmountJar); spawnAmount++)
+                {
+                    GameObject Jar = SpawnEntity(_jarPrefab,
+                    _mapScript.mapNodes[i].transform.position);
+                    _mapScript.mapNodes[i].RoomPopulate.entity.Add(Jar);
+                }
             }
         }
     }
@@ -67,16 +84,11 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    public GameObject SpawnEnemy(GameObject enemyPrefab, Vector3 spawnPosition, int numbersOfEnemiesToSpawn)
+    public GameObject SpawnEntity(GameObject entityPrefab, Vector3 spawnPosition)
     {
-        for (int i = 0; i < numbersOfEnemiesToSpawn; i++)
-        {
-                return Instantiate(enemyPrefab,
-                spawnPosition + new Vector3(Random.Range(-spawnRange, spawnRange),Random.Range(-spawnRange, spawnRange), 0.0f),
-                Quaternion.identity);
-        }
-
-        return null;
+        return Instantiate(entityPrefab,
+        spawnPosition + new Vector3(Random.Range(-spawnRange, spawnRange),Random.Range(-spawnRange, spawnRange), 0.0f),
+        Quaternion.identity);        
     }
 
     /// <summary>

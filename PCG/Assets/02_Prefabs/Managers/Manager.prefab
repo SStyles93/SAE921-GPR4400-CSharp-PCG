@@ -255,13 +255,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5708183116942012860}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5bdb359a6565a54abf31d36e0d31b25, type: 3}
+  m_Script: {fileID: 11500000, guid: 64a65f5fd99600a44874431d3b3de7bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _sceneManagement: {fileID: 990298312193303415}
   _enemySpawner: {fileID: 5708183116942012857}
   _playerPrefab: {fileID: 2619042568326500037, guid: cd5baccafdea2974793c30694ff5392c, type: 3}
-  _spawnPosition: {x: -20, y: -20, z: 0}
+  _spawnPosition: {x: 0, y: 0, z: 0}
   _player: {fileID: 0}
 --- !u!114 &5708183116942012857
 MonoBehaviour:
@@ -272,7 +272,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5708183116942012860}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6370b55468458204c9e67fae2e6ff521, type: 3}
+  m_Script: {fileID: 11500000, guid: 75ace2ea15358484f81055fa3c422ca1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _pcgRoom: {fileID: 0}
@@ -284,9 +284,12 @@ MonoBehaviour:
   _maxSpawnAmountEnemy1: 2
   _enemyPrefab2: {fileID: 8495529115230520538, guid: 07ac3be2cf2ea95448de6d4db1b267eb, type: 3}
   _minSpawnAmountEnemy2: 1
-  _maxSpawnAmountEnemy2: 1
+  _maxSpawnAmountEnemy2: 2
+  _jarPrefab: {fileID: 9124914033602171479, guid: f420d20eccaaca542a98dd869b790929, type: 3}
+  _minSpawnAmountJar: 0
+  _maxSpawnAmountJar: 5
   spawnPositions: []
-  spawnRange: 2
+  spawnRange: 1
 --- !u!1001 &5708183116381473991
 PrefabInstance:
   m_ObjectHideFlags: 0

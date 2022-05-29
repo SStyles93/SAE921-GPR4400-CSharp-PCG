@@ -7,7 +7,7 @@ public class PCGInGame : MonoBehaviour
     
     [SerializeField] private PCGControlePanel pcgControlePanel;
     [SerializeField] AstarPath _aStar;
-    [SerializeField] PlayerSpawner _playerSpawner;
+    [SerializeField] PlayerManager _playerSpawner;
 
     private MapNode _spawningNode;
 

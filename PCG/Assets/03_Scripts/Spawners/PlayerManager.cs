@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using Player;
 
-public class PlayerSpawner : MonoBehaviour
+public class PlayerManager : MonoBehaviour
 {
     [SerializeField] private Managers.SceneManagement _sceneManagement;
-    [SerializeField] private EnemySpawner _enemySpawner;
+    [SerializeField] private Spawner _enemySpawner;
 
     [SerializeField] private GameObject _playerPrefab;
     [SerializeField] private Vector3 _spawnPosition;
@@ -14,7 +14,7 @@ public class PlayerSpawner : MonoBehaviour
     [SerializeField] private GameObject _player;
 
     public Vector3 SpawnPosition { get => _spawnPosition; set => _spawnPosition = value; }
-    public GameObject Player { get => _player; set => _player = value; }
+    public GameObject Player { get => _player; private set => _player = value; }
 
     void Start()
     {

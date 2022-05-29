@@ -20,10 +20,10 @@ public class MapNode : MonoBehaviour
    public PcgPopulate.RoomType roomType;
    [SerializeField] private RoomPopulate _roomPopulate;
 
+    //Properties
+    public RoomPopulate RoomPopulate => _roomPopulate;
 
-   public RoomPopulate RoomPopulate => _roomPopulate;
-      
-   MapNode()
+    MapNode()
    {
       linkToOtherNode = new List<MapNodeLink>();
       rootPos = 0;
@@ -46,32 +46,27 @@ public class MapNode : MonoBehaviour
          {
             case PcgPopulate.RoomType.BossRoom:
                gameObject.AddComponent(typeof(BossRoomPopulate));
-               _roomPopulate = GetComponent<RoomPopulate>();
-               _roomPopulate.SetPrefabTank(populate.prefabTank);
-               _roomPopulate.SetMapNode(this);
                break;
+               
             case PcgPopulate.RoomType.MonsterRoom:
                gameObject.AddComponent(typeof(MonsterRoomPopulate));
-               _roomPopulate = GetComponent<RoomPopulate>();
-               _roomPopulate.SetPrefabTank(populate.prefabTank);
-               _roomPopulate.SetMapNode(this);
                break;
+               
             case PcgPopulate.RoomType.CrateRoom:
                gameObject.AddComponent(typeof(CrateRoomPopulate));
-               _roomPopulate = GetComponent<RoomPopulate>();
-               _roomPopulate.SetPrefabTank(populate.prefabTank);
-               _roomPopulate.SetMapNode(this);
                break;
+               
             case PcgPopulate.RoomType.PlayerBase:
                gameObject.AddComponent(typeof(PlayerBasePopulate));
-               _roomPopulate = GetComponent<RoomPopulate>();
-               _roomPopulate.SetPrefabTank(populate.prefabTank);
-               _roomPopulate.SetMapNode(this);
                break;
+               
             default:
                break;
          }
-      }
+            _roomPopulate = GetComponent<RoomPopulate>();
+            _roomPopulate.SetPrefabTank(populate.PrefabTank);
+            _roomPopulate.SetMapNode(this);
+        }
       else if (rootPos >= rootLenght|| lastLenght>=rootPos )
       {
          //do nothing and finish this never append in a good behavior.

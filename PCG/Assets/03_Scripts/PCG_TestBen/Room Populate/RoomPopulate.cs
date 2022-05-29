@@ -6,27 +6,25 @@ using UnityEngine;
 
 public abstract class RoomPopulate : MonoBehaviour
 {
-     protected PrefabTank _prefabTank;
+    protected PrefabTank _prefabTank;
 
-     public List<GameObject> entity = new List<GameObject>();
+    public List<GameObject> entity = new List<GameObject>();
 
-     private MapNode _myMapNode;
-     protected BoxCollider2D _myCollider;
-     protected bool _roomActive = false;
+    protected MapNode _myMapNode;
+    protected BoxCollider2D _roomCollider;
+    protected bool _roomActive = false;
 
      public virtual void PcgPopulate()
      {
-         _myCollider = gameObject.AddComponent<BoxCollider2D>();
+        _roomCollider = gameObject.AddComponent<BoxCollider2D>();
+        _roomCollider.size = _myMapNode.sizeRoom - new Vector2Int(3,3);
+        _roomCollider.isTrigger = true;
+     }
 
-         _myCollider.size = _myMapNode.sizeRoom - new Vector2Int(3,3);
-         _myCollider.isTrigger = true;
-     }
-     
-    
-     public void SetPrefabTank(PrefabTank prefabTank)
-     {
-          _prefabTank = prefabTank;
-     }
+    public void SetPrefabTank(PrefabTank prefabTank)
+    {
+        _prefabTank = prefabTank;
+    }
 
      public void SetMapNode(MapNode mapNode)
      {
