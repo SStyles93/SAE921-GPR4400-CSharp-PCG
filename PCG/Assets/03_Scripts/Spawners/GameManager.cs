@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private Managers.SceneManagement _sceneManagement;
-    [SerializeField] private Spawner _enemySpawner;
+    [SerializeField] private EntityManager _enemySpawner;
     [SerializeField] private PlayerManager _playerSpawner;
 
     private bool _hasWon = false;

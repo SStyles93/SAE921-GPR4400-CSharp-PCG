@@ -45,28 +45,38 @@ public class MapNode : MonoBehaviour
          switch (roomType)
          {
             case PcgPopulate.RoomType.BossRoom:
-               gameObject.AddComponent(typeof(BossRoomPopulate));
-               break;
+                    gameObject.AddComponent(typeof(BossRoomPopulate));
+                    _roomPopulate = GetComponent<RoomPopulate>();
+                    _roomPopulate.SetPrefabTank(populate.PrefabTank);
+                    _roomPopulate.SetMapNode(this);
+                    break;
                
             case PcgPopulate.RoomType.MonsterRoom:
-               gameObject.AddComponent(typeof(MonsterRoomPopulate));
-               break;
+                    gameObject.AddComponent(typeof(MonsterRoomPopulate));
+                    _roomPopulate = GetComponent<RoomPopulate>();
+                    _roomPopulate.SetPrefabTank(populate.PrefabTank);
+                    _roomPopulate.SetMapNode(this);
+                    break;
                
             case PcgPopulate.RoomType.CrateRoom:
-               gameObject.AddComponent(typeof(CrateRoomPopulate));
-               break;
+                    gameObject.AddComponent(typeof(CrateRoomPopulate));
+                    _roomPopulate = GetComponent<RoomPopulate>();
+                    _roomPopulate.SetSpawningValues(1f, 1, 5);
+                    _roomPopulate.SetPrefabTank(populate.PrefabTank);
+                    _roomPopulate.SetMapNode(this);
+                    break;
                
             case PcgPopulate.RoomType.PlayerBase:
-               gameObject.AddComponent(typeof(PlayerBasePopulate));
-               break;
+                    gameObject.AddComponent(typeof(PlayerBasePopulate));
+                    _roomPopulate = GetComponent<RoomPopulate>();
+                    _roomPopulate.SetPrefabTank(populate.PrefabTank);
+                    _roomPopulate.SetMapNode(this);
+                    break;
                
             default:
-               break;
+                    break;
          }
-            _roomPopulate = GetComponent<RoomPopulate>();
-            _roomPopulate.SetPrefabTank(populate.PrefabTank);
-            _roomPopulate.SetMapNode(this);
-        }
+      }
       else if (rootPos >= rootLenght|| lastLenght>=rootPos )
       {
          //do nothing and finish this never append in a good behavior.

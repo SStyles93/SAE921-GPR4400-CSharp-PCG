@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
+public class EntityManager : MonoBehaviour
 {
     //Reference scripts
     [Header("Reference Scripts")]
@@ -62,30 +62,30 @@ public class Spawner : MonoBehaviour
                     _mapScript.mapNodes[i].RoomPopulate.entity.Add(Boss);
                 }
             }
-            //Spawing for Jars
-            if (_mapScript.mapNodes[i].roomType == PcgPopulate.RoomType.CrateRoom)
-            {
-                //Checks for the lowest size value
-                if(_mapScript.mapNodes[i].sizeRoom.x > _mapScript.mapNodes[i].sizeRoom.y)
-                {
-                    //and used it(divided by 4) as the spawn range
-                    _spawnRange = _mapScript.mapNodes[i].sizeRoom.y / 4.0f;
-                }
-                else
-                {
-                    _spawnRange = _mapScript.mapNodes[i].sizeRoom.x / 4.0f;
-                }
+            ////Spawing for Jars
+            //if (_mapScript.mapNodes[i].roomType == PcgPopulate.RoomType.CrateRoom)
+            //{
+            //    //Checks for the lowest size value
+            //    if(_mapScript.mapNodes[i].sizeRoom.x > _mapScript.mapNodes[i].sizeRoom.y)
+            //    {
+            //        //and used it(divided by 4) as the spawn range
+            //        _spawnRange = _mapScript.mapNodes[i].sizeRoom.y / 4.0f;
+            //    }
+            //    else
+            //    {
+            //        _spawnRange = _mapScript.mapNodes[i].sizeRoom.x / 4.0f;
+            //    }
 
                     
                 
 
-                for (int spawnAmount = 0; spawnAmount < Random.Range(_minSpawnAmountJar, _maxSpawnAmountJar); spawnAmount++)
-                {
-                    GameObject Jar = SpawnEntity(_jarPrefab,
-                    _mapScript.mapNodes[i].transform.position);
-                    _mapScript.mapNodes[i].RoomPopulate.entity.Add(Jar);
-                }
-            }
+            //    for (int spawnAmount = 0; spawnAmount < Random.Range(_minSpawnAmountJar, _maxSpawnAmountJar); spawnAmount++)
+            //    {
+            //        GameObject Jar = SpawnEntity(_jarPrefab,
+            //        _mapScript.mapNodes[i].transform.position);
+            //        _mapScript.mapNodes[i].RoomPopulate.entity.Add(Jar);
+            //    }
+            //}
         }
     }
 

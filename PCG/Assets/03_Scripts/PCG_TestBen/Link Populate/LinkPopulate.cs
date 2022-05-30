@@ -5,7 +5,7 @@ using UnityEngine;
 
 public abstract class LinkPopulate : MonoBehaviour
 {
-    protected PrefabTank _prefabTank /*= new PrefabTank()*/;
+    protected PrefabLibrary _prefabTank /*= new PrefabTank()*/;
     public abstract void PcgPopulate();
 
     protected List<GameObject> _entity = new List<GameObject>();
@@ -16,7 +16,7 @@ public abstract class LinkPopulate : MonoBehaviour
         _entity.Add(Instantiate(_prefabTank.Door, transform.position, quaternion.identity));
     }
     
-    public virtual void SetPrefabTank(PrefabTank prefabTank)
+    public virtual void SetPrefabTank(PrefabLibrary prefabTank)
     {
         _prefabTank = prefabTank;
     }

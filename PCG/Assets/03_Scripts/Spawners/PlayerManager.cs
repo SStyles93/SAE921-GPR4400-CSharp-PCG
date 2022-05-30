@@ -6,7 +6,7 @@ using Player;
 public class PlayerManager : MonoBehaviour
 {
     [SerializeField] private Managers.SceneManagement _sceneManagement;
-    [SerializeField] private Spawner _enemySpawner;
+    [SerializeField] private EntityManager _enemySpawner;
 
     [SerializeField] private GameObject _playerPrefab;
     [SerializeField] private Vector3 _spawnPosition;

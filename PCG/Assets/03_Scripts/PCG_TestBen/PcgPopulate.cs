@@ -39,11 +39,11 @@ public class PcgPopulate : MonoBehaviour
     [Tooltip("where the bossRoom is generated if the number is big, the boss room is more away of the playerBase")]
     [SerializeField] private int deltaBossRoom = 4;
     [Tooltip("this is the script that contain all access to prefab that use the populate")]
-    [SerializeField] private PrefabTank _prefabTank;
+    [SerializeField] private PrefabLibrary _prefabTank;
 
     private MapScript _map;
 
-    public PrefabTank PrefabTank { get => _prefabTank; set => _prefabTank = value; }
+    public PrefabLibrary PrefabTank { get => _prefabTank; set => _prefabTank = value; }
 
     public void SetMap(MapScript mapScript)
     {
