@@ -281,15 +281,15 @@ MonoBehaviour:
   _trackedBosses: []
   _enemyPrefab1: {fileID: 769978088285160711, guid: c05b1a1daf33e5742a51c474a72de992, type: 3}
   _minSpawnAmountEnemy1: 1
-  _maxSpawnAmountEnemy1: 2
+  _maxSpawnAmountEnemy1: 5
   _enemyPrefab2: {fileID: 8495529115230520538, guid: 07ac3be2cf2ea95448de6d4db1b267eb, type: 3}
   _minSpawnAmountEnemy2: 1
   _maxSpawnAmountEnemy2: 2
   _jarPrefab: {fileID: 9124914033602171479, guid: f420d20eccaaca542a98dd869b790929, type: 3}
-  _minSpawnAmountJar: 0
-  _maxSpawnAmountJar: 5
+  _minSpawnAmountJar: 2
+  _maxSpawnAmountJar: 10
   spawnPositions: []
-  spawnRange: 1
+  _spawnRange: 1
 --- !u!1001 &5708183116381473991
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -97,6 +97,15 @@ namespace Player
         }
 
         /// <summary>
+        /// Regenerates a given amount of healht
+        /// </summary>
+        /// <param name="value">The value to increase health with</param>
+        public void RegainHealth(float value)
+        {
+            _health += value;
+        }
+
+        /// <summary>
         /// Disables all actions from player and makes him invulerable
         /// </summary>
         public void DisablePlayersActions()

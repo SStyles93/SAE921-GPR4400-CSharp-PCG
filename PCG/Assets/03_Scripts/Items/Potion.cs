@@ -4,20 +4,10 @@ using UnityEngine;
 
 public class Potion : LootableItem
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] private float _healthValue = 10f;
 
     public override void OnPickUp()
     {
-        Debug.Log("potion picked up");
+        _player.GetComponent<Player.PlayerStats>().RegainHealth(_healthValue);
     }
 }

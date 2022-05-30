@@ -29,7 +29,7 @@ public class Spawner : MonoBehaviour
     //Spawning variables
     [Header("Spawning Details")]
     [SerializeField] private List<Vector3> spawnPositions;
-    [SerializeField] private float spawnRange = 1.0f;
+    [SerializeField] private float _spawnRange = 1.0f;
 
     public List<GameObject> TrackedEnemies { get => _trackedEnemies; set => _trackedEnemies = value; }
     public List<GameObject> TrackedBosses { get => _trackedBosses; set => _trackedBosses = value; }
@@ -65,6 +65,20 @@ public class Spawner : MonoBehaviour
             //Spawing for Jars
             if (_mapScript.mapNodes[i].roomType == PcgPopulate.RoomType.CrateRoom)
             {
+                //Checks for the lowest size value
+                if(_mapScript.mapNodes[i].sizeRoom.x > _mapScript.mapNodes[i].sizeRoom.y)
+                {
+                    //and used it(divided by 4) as the spawn range
+                    _spawnRange = _mapScript.mapNodes[i].sizeRoom.y / 4.0f;
+                }
+                else
+                {
+                    _spawnRange = _mapScript.mapNodes[i].sizeRoom.x / 4.0f;
+                }
+
+                    
+                
+
                 for (int spawnAmount = 0; spawnAmount < Random.Range(_minSpawnAmountJar, _maxSpawnAmountJar); spawnAmount++)
                 {
                     GameObject Jar = SpawnEntity(_jarPrefab,
@@ -87,7 +101,7 @@ public class Spawner : MonoBehaviour
     public GameObject SpawnEntity(GameObject entityPrefab, Vector3 spawnPosition)
     {
         return Instantiate(entityPrefab,
-        spawnPosition + new Vector3(Random.Range(-spawnRange, spawnRange),Random.Range(-spawnRange, spawnRange), 0.0f),
+        spawnPosition + new Vector3(Random.Range(-_spawnRange, _spawnRange),Random.Range(-_spawnRange, _spawnRange), 0.0f),
         Quaternion.identity);        
     }
 
