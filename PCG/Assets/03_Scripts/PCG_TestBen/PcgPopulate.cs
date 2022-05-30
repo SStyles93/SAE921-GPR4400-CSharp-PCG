@@ -40,10 +40,12 @@ public class PcgPopulate : MonoBehaviour
     [SerializeField] private int deltaBossRoom = 4;
     [Tooltip("this is the script that contain all access to prefab that use the populate")]
     [SerializeField] private PrefabLibrary _prefabTank;
+    [SerializeField] private GameManager _gameManager;
 
     private MapScript _map;
 
     public PrefabLibrary PrefabTank { get => _prefabTank; set => _prefabTank = value; }
+    public GameManager GameManager { get => _gameManager; set => _gameManager = value; }
 
     public void SetMap(MapScript mapScript)
     {
@@ -54,7 +56,8 @@ public class PcgPopulate : MonoBehaviour
         foreach (var mapNode in _map.mapNodes)
         {
             mapNode.RoomPopulate.PcgPopulate();
-            mapNode.RoomPopulate.SetPrefabTank(_prefabTank);
+            mapNode.RoomPopulate.SetPrefabLibrary(_prefabTank);
+            mapNode.RoomPopulate.SetGameManager(_gameManager);
         }
 
         foreach (var mapNodeLink in _map.maplinks)

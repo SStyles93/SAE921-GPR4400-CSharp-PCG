@@ -188,8 +188,6 @@ GameObject:
   - component: {fileID: 5708183116942012858}
   - component: {fileID: 1032547432861275408}
   - component: {fileID: 990298312193303415}
-  - component: {fileID: 5708183116942012859}
-  - component: {fileID: 5708183116942012857}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -227,8 +225,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sceneManagement: {fileID: 990298312193303415}
-  _enemySpawner: {fileID: 5708183116942012857}
-  _playerSpawner: {fileID: 5708183116942012859}
+  _enemySpawner: {fileID: 0}
+  _playerSpawner: {fileID: 0}
+  _player: {fileID: 2619042568326500037, guid: cd5baccafdea2974793c30694ff5392c, type: 3}
+  _trackedEnemies: []
+  _trackedBosses: []
 --- !u!114 &990298312193303415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,50 +247,6 @@ MonoBehaviour:
   _transitionImage: {fileID: 3674544553672940654}
   _musicAudioSource: {fileID: 0}
   _pauseCanvas: {fileID: 2383034617334609225}
---- !u!114 &5708183116942012859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5708183116942012860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64a65f5fd99600a44874431d3b3de7bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _sceneManagement: {fileID: 990298312193303415}
-  _enemySpawner: {fileID: 5708183116942012857}
-  _playerPrefab: {fileID: 2619042568326500037, guid: cd5baccafdea2974793c30694ff5392c, type: 3}
-  _spawnPosition: {x: 0, y: 0, z: 0}
-  _player: {fileID: 0}
---- !u!114 &5708183116942012857
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5708183116942012860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93247636cfb1f2a4c90becf4564b4635, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _pcgRoom: {fileID: 0}
-  _mapScript: {fileID: 0}
-  _trackedEnemies: []
-  _trackedBosses: []
-  _enemyPrefab1: {fileID: 769978088285160711, guid: c05b1a1daf33e5742a51c474a72de992, type: 3}
-  _minSpawnAmountEnemy1: 0
-  _maxSpawnAmountEnemy1: 10
-  _enemyPrefab2: {fileID: 8495529115230520538, guid: 07ac3be2cf2ea95448de6d4db1b267eb, type: 3}
-  _minSpawnAmountEnemy2: 0
-  _maxSpawnAmountEnemy2: 10
-  _jarPrefab: {fileID: 9124914033602171479, guid: f420d20eccaaca542a98dd869b790929, type: 3}
-  _minSpawnAmountJar: 0
-  _maxSpawnAmountJar: 10
-  spawnPositions: []
-  _spawnRange: 1
 --- !u!1001 &5708183116381473991
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -344,7 +301,7 @@ PrefabInstance:
     - target: {fileID: 7936951226755446313, guid: f66508ec73442a34186e1b97fde432ef, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 5708183116942012859}
+      objectReference: {fileID: 0}
     - target: {fileID: 7936951226755446313, guid: f66508ec73442a34186e1b97fde432ef, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetActive

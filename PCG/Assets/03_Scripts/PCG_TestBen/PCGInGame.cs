@@ -38,16 +38,6 @@ public class PCGInGame : MonoBehaviour
         pcgControlePanel.ClearListFromUnused();
         pcgControlePanel.CallPopulate();
         pcgControlePanel.paintGround();
-
-        //Spawn player
-        foreach (var node in pcgControlePanel.Map.mapNodes)
-        {
-            if(node.roomType == PcgPopulate.RoomType.PlayerBase)
-            {
-                _spawningNode = node;
-            }
-        }
-        _playerSpawner.SpawnPosition = _spawningNode.transform.position;
     }
 
     /// <summary>

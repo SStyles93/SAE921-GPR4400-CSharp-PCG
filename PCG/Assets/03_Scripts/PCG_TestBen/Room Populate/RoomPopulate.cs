@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 public abstract class RoomPopulate : MonoBehaviour
 {
     protected PrefabLibrary _prefabLibrary;
+    protected GameManager _gameManager;
 
     public List<GameObject> entity = new List<GameObject>();
 
@@ -22,16 +23,33 @@ public abstract class RoomPopulate : MonoBehaviour
 
     public virtual void PcgPopulate()
     {
-    _roomCollider = gameObject.AddComponent<BoxCollider2D>();
-    _roomCollider.size = _myMapNode.sizeRoom - new Vector2Int(3,3);
-    _roomCollider.isTrigger = true;
+        _roomCollider = gameObject.AddComponent<BoxCollider2D>();
+        _roomCollider.size = _myMapNode.sizeRoom - new Vector2Int(3,3);
+        _roomCollider.isTrigger = true;
     }
 
-    public void SetPrefabTank(PrefabLibrary prefabTank)
+    /// <summary>
+    /// Sets the Prefab Library
+    /// </summary>
+    /// <param name="prefabLibrary">The Library to be given to the RoomPopulate</param>
+    public void SetPrefabLibrary(PrefabLibrary prefabLibrary)
     {
-        _prefabLibrary = prefabTank;
+        _prefabLibrary = prefabLibrary;
     }
 
+    /// <summary>
+    /// Sets the Game Manager in the RoomPopulate
+    /// </summary>
+    /// <param name="gameManager">The GameManager to be given to RoomPopulate</param>
+    public void SetGameManager(GameManager gameManager)
+    {
+        _gameManager = gameManager;
+    }
+
+    /// <summary>
+    /// Sets the MapNode in the RoomPopulate
+    /// </summary>
+    /// <param name="mapNode">The MapNode to be given to RoomPopulate</param>
      public void SetMapNode(MapNode mapNode)
      {
          _myMapNode = mapNode;
