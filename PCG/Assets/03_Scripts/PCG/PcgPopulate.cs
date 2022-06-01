@@ -90,7 +90,6 @@ public class PcgPopulate : MonoBehaviour
     
     public RoomType GetTypeRoom(int rootLenght)
     {
-        
         if (rootLenght == 1)
         {
             return RoomType.PlayerBase;
@@ -138,6 +137,7 @@ public class PcgPopulate : MonoBehaviour
     public void ClearPopulate()
     {
         _gameManager.ClearLists();
+        _actualBossRoom = 0;
     }
 
     private RoomType GetMonsterRoom(int rootLenght)
