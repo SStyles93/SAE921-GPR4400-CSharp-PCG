@@ -20,6 +20,13 @@ public class MapNode : MonoBehaviour
    public PcgPopulate.RoomType roomType;
    [SerializeField] private RoomPopulate _roomPopulate;
 
+    private int _minEnemySpawnAmount = 1;
+    private int _maxEnemySpawnAmount = 5;
+    private int _minBossSpawnAmount = 1;
+    private int _maxBossSpawnAmount = 1;
+    private int _minCrateSpawnAmount = 1;
+    private int _maxCrateSpawnAmount = 5;
+
     //Properties
     public RoomPopulate RoomPopulate => _roomPopulate;
 
@@ -35,7 +42,31 @@ public class MapNode : MonoBehaviour
       sizeRoom = size;
    }
 
-   public void GrowRoot(int rootLenght,int lastLenght,PcgPopulate populate)
+    /// <summary>
+    /// Sets all spawing values
+    /// </summary>
+    /// <param name="minEnemySpawnAmount"></param>
+    /// <param name="maxEnemySpawnAmount"></param>
+    /// <param name="minBossSpawnAmount"></param>
+    /// <param name="maxBossSpawnAmount"></param>
+    /// <param name="minCrateSpawnAmount"></param>
+    /// <param name="maxCrateSpawnAmount"></param>
+    public void SetSpawningValues(
+        int minEnemySpawnAmount, int maxEnemySpawnAmount,
+        int minBossSpawnAmount, int maxBossSpawnAmount,
+        int minCrateSpawnAmount, int maxCrateSpawnAmount)
+    {
+        _minEnemySpawnAmount = minEnemySpawnAmount;
+        _maxEnemySpawnAmount = maxEnemySpawnAmount;
+
+        _minBossSpawnAmount = minBossSpawnAmount;
+        _maxBossSpawnAmount = maxBossSpawnAmount;
+
+        _minCrateSpawnAmount = minCrateSpawnAmount;
+        _maxBossSpawnAmount = maxBossSpawnAmount;
+    }
+
+   public void GrowRoot(int rootLenght, int lastLenght,PcgPopulate populate)
    {
       if (rootPos == 0)
       {
@@ -49,8 +80,10 @@ public class MapNode : MonoBehaviour
                     _roomPopulate = GetComponent<RoomPopulate>();
                     _roomPopulate.SetPrefabLibrary(populate.PrefabTank);
                     _roomPopulate.SetGameManager(populate.GameManager);
+                    _roomPopulate.SetSpawningValues(_minBossSpawnAmount, _maxBossSpawnAmount);
                     _roomPopulate.SetMapNode(this);
                     break;
+
                
             case PcgPopulate.RoomType.MonsterRoom:
                     gameObject.AddComponent(typeof(MonsterRoomPopulate));
@@ -58,14 +91,16 @@ public class MapNode : MonoBehaviour
                     _roomPopulate.SetPrefabLibrary(populate.PrefabTank);
                     _roomPopulate.SetGameManager(populate.GameManager);
                     _roomPopulate.SetMapNode(this);
+                    _roomPopulate.SetSpawningValues(_minEnemySpawnAmount, _maxEnemySpawnAmount);
                     break;
                
             case PcgPopulate.RoomType.CrateRoom:
                     gameObject.AddComponent(typeof(CrateRoomPopulate));
                     _roomPopulate = GetComponent<RoomPopulate>();
-                    _roomPopulate.SetSpawningValues(1f, 1, 5);
                     _roomPopulate.SetPrefabLibrary(populate.PrefabTank);
+                    _roomPopulate.SetGameManager(populate.GameManager);
                     _roomPopulate.SetMapNode(this);
+                    _roomPopulate.SetSpawningValues(_minCrateSpawnAmount, _maxCrateSpawnAmount);
                     break;
                
             case PcgPopulate.RoomType.PlayerBase:

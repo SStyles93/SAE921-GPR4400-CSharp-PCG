@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _player;
     [SerializeField] private List<GameObject> _trackedEnemies;
     [SerializeField] private List<GameObject> _trackedBosses;
+    [SerializeField] private List<GameObject> _trackedObjects;
 
     private bool _hasWon = false;
     private bool _hasLost = false;
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviour
     public GameObject Player { get => _player; set => _player = value; }
     public List<GameObject> TrackedEnemies { get => _trackedEnemies; set => _trackedEnemies = value; }
     public List<GameObject> TrackedBosses { get => _trackedBosses; set => _trackedBosses = value; }
+    public List<GameObject> TrackedObjects { get => _trackedObjects; set => _trackedObjects = value; }
     public SceneManagement SceneManagement { get => _sceneManagement; private set => _sceneManagement = value; }
 
     // Update is called once per frame
@@ -103,6 +105,37 @@ public class GameManager : MonoBehaviour
         _player.GetComponent<Player.PlayerController>().GameState(true);
         _player.GetComponent<Player.PlayerController>().play = true;
         Time.timeScale = 1.0f;
+    }
+
+    /// <summary>
+    /// Delete all enemies and clear lists
+    /// </summary>
+    public void ClearLists()
+    {
+        //Destroy and clear Enemies
+        foreach(var entity in _trackedEnemies)
+        {
+            DestroyImmediate(entity);
+        }
+        _trackedEnemies.Clear();
+
+        //Destroy and clear Bosses
+        foreach (var entity in _trackedBosses)
+        {
+            DestroyImmediate(entity);
+        }
+        _trackedBosses.Clear();
+
+        //Destroy and clear Objects
+        foreach (var entity in _trackedObjects)
+        {
+            DestroyImmediate(entity);
+        }
+        _trackedObjects.Clear();
+
+        //Destroy and clear Player
+        DestroyImmediate(_player);
+        _player = null;
     }
 
     private void Victory()

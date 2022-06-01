@@ -17,15 +17,29 @@ public abstract class RoomPopulate : MonoBehaviour
     protected bool _roomActive = false;
 
     protected float _spawnRange = 1f;
-    protected float _minSpawnAmount = 0f;
+    protected float _minSpawnAmount = 1f;
     protected float _maxSpawnAmount = 10f;
 
 
     public virtual void PcgPopulate()
     {
-        _roomCollider = gameObject.AddComponent<BoxCollider2D>();
+        if(_roomCollider == null)
+        {
+            _roomCollider = gameObject.AddComponent<BoxCollider2D>();
+        }
         _roomCollider.size = _myMapNode.sizeRoom - new Vector2Int(3,3);
         _roomCollider.isTrigger = true;
+
+        //Checks for the lowest size value
+        if (_myMapNode.sizeRoom.x > _myMapNode.sizeRoom.y)
+        {
+            //and used it(divided by 4) as the spawn range
+            _spawnRange = _myMapNode.sizeRoom.y / 4.0f;
+        }
+        else
+        {
+            _spawnRange = _myMapNode.sizeRoom.x / 4.0f;
+        }
     }
 
     /// <summary>
@@ -59,11 +73,10 @@ public abstract class RoomPopulate : MonoBehaviour
     /// Sets the values for the spawning method
     /// </summary>
     /// <param name="spawnRange">Range of spawn</param>
-    /// <param name="minSpawnAmount">Mininal amount of entities to spawn</param>
+    /// <param name="minSpawnAmount">Minimal amount of entities to spawn</param>
     /// <param name="maxSpawnAmount">Maximal amount of entities to spawn</param>
-    public void SetSpawningValues(float spawnRange, int minSpawnAmount, int maxSpawnAmount)
+    public void SetSpawningValues(int minSpawnAmount, int maxSpawnAmount)
     {
-        _spawnRange = spawnRange;
         _minSpawnAmount = minSpawnAmount;
         _maxSpawnAmount = maxSpawnAmount;
     }

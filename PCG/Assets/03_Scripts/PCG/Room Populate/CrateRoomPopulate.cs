@@ -27,6 +27,7 @@ public class CrateRoomPopulate : RoomPopulate
             GameObject Jar = SpawnEntity(_prefabLibrary.Jar,
             _myMapNode.transform.position);
             _myMapNode.RoomPopulate.entity.Add(Jar);
+            _gameManager.TrackedObjects.Add(Jar);
         }
     }
 

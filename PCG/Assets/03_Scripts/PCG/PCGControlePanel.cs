@@ -60,4 +60,9 @@ public class PCGControlePanel : MonoBehaviour
     {
         _pcgPopulate.CallPcgPopulate();
     }
+
+    public void ClearPopulate()
+    {
+        _pcgPopulate.ClearPopulate();
+    }
 }

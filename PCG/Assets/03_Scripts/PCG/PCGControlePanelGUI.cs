@@ -39,6 +39,10 @@ public class PCGControlePanelGUI : Editor
         {
             myScript.clearGround();
         }
+        if(GUILayout.Button("Clear Population"))
+        {
+            myScript.ClearPopulate();
+        }
         
         
     }
