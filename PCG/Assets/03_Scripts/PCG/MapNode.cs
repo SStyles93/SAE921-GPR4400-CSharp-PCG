@@ -90,8 +90,8 @@ public class MapNode : MonoBehaviour
                     _roomPopulate = GetComponent<RoomPopulate>();
                     _roomPopulate.SetPrefabLibrary(populate.PrefabTank);
                     _roomPopulate.SetGameManager(populate.GameManager);
-                    _roomPopulate.SetMapNode(this);
                     _roomPopulate.SetSpawningValues(_minEnemySpawnAmount, _maxEnemySpawnAmount);
+                    _roomPopulate.SetMapNode(this);
                     break;
                
             case PcgPopulate.RoomType.CrateRoom:
@@ -99,8 +99,8 @@ public class MapNode : MonoBehaviour
                     _roomPopulate = GetComponent<RoomPopulate>();
                     _roomPopulate.SetPrefabLibrary(populate.PrefabTank);
                     _roomPopulate.SetGameManager(populate.GameManager);
-                    _roomPopulate.SetMapNode(this);
                     _roomPopulate.SetSpawningValues(_minCrateSpawnAmount, _maxCrateSpawnAmount);
+                    _roomPopulate.SetMapNode(this);
                     break;
                
             case PcgPopulate.RoomType.PlayerBase:

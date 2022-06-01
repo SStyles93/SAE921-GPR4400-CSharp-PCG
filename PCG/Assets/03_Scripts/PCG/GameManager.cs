@@ -134,7 +134,7 @@ public class GameManager : MonoBehaviour
         _trackedObjects.Clear();
 
         //Destroy and clear Player
-        DestroyImmediate(_player);
+        DestroyImmediate(_player.gameObject);
         _player = null;
     }
 
