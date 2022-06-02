@@ -17,7 +17,7 @@ namespace Player
         [SerializeField] private AudioClip _footStepsClip;
         [SerializeField] private AudioClip _arrowShootClip;
         [SerializeField] private AudioClip[] _attackClips;
-        [SerializeField] private AudioClip _hitClip;
+        [SerializeField] private AudioClip[] _hitClips;
 
 
         private void Awake()
@@ -65,7 +65,7 @@ namespace Player
         /// </summary>
         public void PlayHit()
         {
-            _audioSource.clip = _hitClip;
+            _audioSource.clip = _hitClips[Random.Range(0, _hitClips.Length)];
             _audioSource.pitch = 3.0f;
             _audioSource.Play();
         }
