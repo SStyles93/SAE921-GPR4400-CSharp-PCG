@@ -139,16 +139,21 @@ public class GameManager : MonoBehaviour
         _player = null;
     }
 
+    /// <summary>
+    /// Launches the Victory
+    /// </summary>
     private void Victory()
     {
-        //Set victory
-        Debug.Log("Victory !");
         //Sets the scene index to 2 (end menu)
         _sceneManagement.SceneIndex = 2;
         //Launches the fade out to the scene
         _sceneManagement.FadeOut = true;
         _hasWon = true;
     }
+
+    /// <summary>
+    /// Launches the Loss
+    /// </summary>
     private void Loss()
     {
         Debug.Log("Lost !");

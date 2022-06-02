@@ -11,6 +11,9 @@ public class Jar : DestroyableItem
     [SerializeField] private GameObject _bossCoin;
     private bool _hasBossCoin = false;
 
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _audioClip;
+
     public bool IsDestroyed { get => _isDestroyed; set => _isDestroyed = value; }
 
     /// <summary>
@@ -20,6 +23,10 @@ public class Jar : DestroyableItem
     {
         //Launch the destroying animation
         _animator.SetBool("Destroy", true);
+
+        //Plays the destroying audio
+        _audioSource.clip = _audioClip;
+        _audioSource.Play();
         
         //Sets the state of the Jar to "Destroyed"
         _isDestroyed = true;

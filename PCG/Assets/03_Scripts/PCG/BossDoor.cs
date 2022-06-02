@@ -17,6 +17,7 @@ public class BossDoor : MonoBehaviour
                 {
                     //Open door
                     Destroy(gameObject);
+                    collision.GetComponent<PlayerInventory>().DecreaseBossCoinCount();
                 }
                 else
                 {

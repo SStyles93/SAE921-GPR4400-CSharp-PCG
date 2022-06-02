@@ -9,5 +9,7 @@ public class Potion : LootableItem
     public override void OnPickUp()
     {
         _player.GetComponent<Player.PlayerStats>().RegainHealth(_healthValue);
+        _audioSource.clip = _audioClip;
+        _audioSource.Play();
     }
 }

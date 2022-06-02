@@ -11,6 +11,10 @@ public class PlayerInventory : MonoBehaviour
     public void IncreaseBossCoinCount()
     {
         _bossCoinCount++;
-        Debug.Log($"Player has {_bossCoinCount} boss coin");
+    }
+
+    public void DecreaseBossCoinCount()
+    {
+        _bossCoinCount--;
     }
 }
