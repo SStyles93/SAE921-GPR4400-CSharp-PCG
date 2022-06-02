@@ -6,6 +6,7 @@ public class PrefabLibrary : MonoBehaviour
 {
     public GameObject player;
     public GameObject Door;
+    public GameObject UnlockedDoor;
     public GameObject BossDoor;
     public GameObject Jar;
     public GameObject Chaser;

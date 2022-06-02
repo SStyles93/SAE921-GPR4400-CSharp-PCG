@@ -26,7 +26,13 @@ public class MapNodeLink : MonoBehaviour
     private void Start()
     {
         if(doorType == PcgPopulate.LinkType.BlockedByBossDoor)
-         Instantiate(_linkPopulate.GetPrefabTank().BossDoor, transform.position, Quaternion.identity);
+        {
+            Instantiate(_linkPopulate.GetPrefabTank().BossDoor, transform.position, Quaternion.identity);
+        }
+        else
+        {
+            Instantiate(_linkPopulate.GetPrefabTank().UnlockedDoor, transform.position, Quaternion.identity);
+        }
     }
 
     public void SetPopulate(LinkPopulate newPopulate)

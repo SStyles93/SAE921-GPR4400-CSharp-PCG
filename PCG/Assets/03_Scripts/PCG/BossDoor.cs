@@ -5,20 +5,29 @@ using UnityEngine;
 public class BossDoor : MonoBehaviour
 {
     [SerializeField] private Canvas _messageCanvas;
+    [SerializeField] private bool _bossDoor;
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            if(collision.GetComponent<PlayerInventory>()?.BossCoinCount > 0)
+            if (_bossDoor)
             {
-                //Open door
-                Destroy(gameObject);
+                if (collision.GetComponent<PlayerInventory>()?.BossCoinCount > 0)
+                {
+                    //Open door
+                    Destroy(gameObject);
+                }
+                else
+                {
+                    //Activate warning message
+                    _messageCanvas.gameObject.SetActive(true);
+                }
             }
             else
             {
-                //Activate warning message
-                _messageCanvas.gameObject.SetActive(true);
+                //Open door
+                Destroy(gameObject);
             }
         }
     }

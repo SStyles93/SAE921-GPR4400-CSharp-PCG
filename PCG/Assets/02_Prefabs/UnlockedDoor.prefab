@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 386366374498218487}
   - component: {fileID: 4617657999538381013}
   m_Layer: 7
-  m_Name: BossDoor
+  m_Name: UnlockedDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,8 +78,8 @@ SpriteRenderer:
   m_SortingLayerID: 942989145
   m_SortingLayer: 1
   m_SortingOrder: 1
-  m_Sprite: {fileID: -467268465, guid: 84d3770d264ccdf4a834dd9763eaa976, type: 3}
-  m_Color: {r: 1, g: 0.5518868, b: 0.5518868, a: 1}
+  m_Sprite: {fileID: -665638038, guid: 84d3770d264ccdf4a834dd9763eaa976, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _messageCanvas: {fileID: 8086279682332105841}
-  _bossDoor: 1
+  _bossDoor: 0
 --- !u!58 &4617657999538381013
 CircleCollider2D:
   m_ObjectHideFlags: 0
