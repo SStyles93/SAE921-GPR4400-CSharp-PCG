@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 namespace Player
 {
@@ -13,6 +14,7 @@ namespace Player
         [SerializeField] private PlayerController _playerController;
         [SerializeField] private PlayerStats _playerStats;
         [SerializeField] private PlayerActions _playerActions;
+        [SerializeField] private PlayerInventory _playerInventory;
 
         //Reference Components
         [Header("Player Health UI")]
@@ -21,6 +23,7 @@ namespace Player
         [SerializeField] private Image _healthFill;
         [SerializeField] private Image _actionImage;
         [SerializeField] private Image _actionBtnImage;
+        [SerializeField] private TMP_Text _coinText;
 
         [Header("Player Actions UI")]
         [SerializeField] private Color _blockedColor = Color.gray;
@@ -34,6 +37,7 @@ namespace Player
             _playerStats = GetComponentInParent<PlayerStats>();
             _playerController = GetComponentInParent<PlayerController>();
             _playerActions = GetComponentInParent<PlayerActions>();
+            _playerInventory = GetComponentInParent<PlayerInventory>();
 
             _healthSlider = GetComponentInChildren<Slider>();
         }
@@ -49,6 +53,7 @@ namespace Player
             UpdateHealthBar();
             UpdateButtonUi();
             UpdateButtonsUiColor();
+            UpdateCoinText();
         }
 
         /// <summary>
@@ -95,6 +100,11 @@ namespace Player
                     break;
             }
 
+        }
+
+        private void UpdateCoinText()
+        {
+            _coinText.text = $"X {_playerInventory.BossCoinCount}";
         }
     }
 }

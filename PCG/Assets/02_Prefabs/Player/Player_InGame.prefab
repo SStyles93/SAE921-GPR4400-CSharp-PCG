@@ -725,6 +725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe3ea72242717e42957c3f37e2f9ebb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _bossCoinCount: 0
 --- !u!1 &4417441624734864690
 GameObject:
   m_ObjectHideFlags: 0
@@ -817,6 +818,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 2619042568326500032}
     m_Modifications:
     - target: {fileID: 1906562759, guid: a75d57fe39288f44582a1446da93c53c, type: 3}
+      propertyPath: _coinText
+      value: 
+      objectReference: {fileID: 899597483104830596}
+    - target: {fileID: 1906562759, guid: a75d57fe39288f44582a1446da93c53c, type: 3}
       propertyPath: _playerStats
       value: 
       objectReference: {fileID: 6725792000420809198}
@@ -824,6 +829,10 @@ PrefabInstance:
       propertyPath: _playerActions
       value: 
       objectReference: {fileID: 1709225247}
+    - target: {fileID: 1906562759, guid: a75d57fe39288f44582a1446da93c53c, type: 3}
+      propertyPath: _playerInventory
+      value: 
+      objectReference: {fileID: 9068536167693610067}
     - target: {fileID: 1906562759, guid: a75d57fe39288f44582a1446da93c53c, type: 3}
       propertyPath: _playerController
       value: 
@@ -926,6 +935,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a75d57fe39288f44582a1446da93c53c, type: 3}
+--- !u!114 &899597483104830596 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9088460256345294494, guid: a75d57fe39288f44582a1446da93c53c, type: 3}
+  m_PrefabInstance: {fileID: 8240656402381210138}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &7094814932705012366 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1164578256989448340, guid: a75d57fe39288f44582a1446da93c53c, type: 3}
