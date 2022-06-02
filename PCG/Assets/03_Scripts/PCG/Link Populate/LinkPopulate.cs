@@ -21,6 +21,11 @@ public abstract class LinkPopulate : MonoBehaviour
         _prefabTank = prefabTank;
     }
 
+    public virtual PrefabLibrary GetPrefabTank()
+    {
+        return _prefabTank;
+    }
+
     public virtual void OpenDoor()
     {
         for (int i = _entity.Count - 1; i >= 0; i--)

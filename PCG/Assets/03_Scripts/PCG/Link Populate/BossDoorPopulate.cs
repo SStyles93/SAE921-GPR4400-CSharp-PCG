@@ -6,6 +6,6 @@ public class BossDoorPopulate :  LinkPopulate
 {
     public override void PcgPopulate()
     {
-        _entity.Add(Instantiate(_prefabTank.BossDoor, transform.position, Quaternion.identity));
+        Instantiate(_prefabTank.BossDoor, transform.position, Quaternion.identity);
     }
 }

@@ -27,7 +27,7 @@ public class Jar : DestroyableItem
         if (_hasBossCoin)
         {
             //coin is always added after, so this spawns the last element (so, the BossCoin)
-            Instantiate(_loots[_loots.Count], transform.position, Quaternion.identity);
+            Instantiate(_loots[_loots.Count-1], transform.position, Quaternion.identity);
         }
         else
         {

@@ -23,6 +23,11 @@ public class MapNodeLink : MonoBehaviour
         rootPathing = false;
     }
 
+    private void Start()
+    {
+        if(doorType == PcgPopulate.LinkType.BlockedByBossDoor)
+         Instantiate(_linkPopulate.GetPrefabTank().BossDoor, transform.position, Quaternion.identity);
+    }
 
     public void SetPopulate(LinkPopulate newPopulate)
     {

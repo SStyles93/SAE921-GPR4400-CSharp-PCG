@@ -168,21 +168,27 @@ public class MapNode : MonoBehaviour
                             nodeLink.gameObject.AddComponent(typeof(DoorPopulate));
                             nodeLink.SetPopulate(nodeLink.GetComponent<LinkPopulate>());
                             break;
+
                         default:
                             break;
                     }
 
                   targetNode.GrowRoot(rootLenght,rootPos,populate);
-                        //if (targetNode.roomType == PcgPopulate.RoomType.BossRoom)
-                        //{
-                        //    targetNode.linkToOtherNode[0].doorType = PcgPopulate.LinkType.BlockedByBossDoor;
-                        //    DestroyImmediate(targetNode.linkToOtherNode[0].GetComponent<LinkPopulate>());
-                        //    targetNode.linkToOtherNode[0].gameObject.AddComponent(typeof(BossDoorPopulate));
-                        //    targetNode.linkToOtherNode[0].SetPopulate(targetNode.linkToOtherNode[0].GetComponent<LinkPopulate>());
-                        //    targetNode.GrowRoot(rootLenght, rootPos, populate);
-                        //}
+
+                        if (targetNode.roomType == PcgPopulate.RoomType.BossRoom)
+                        {
+                            foreach (var link in targetNode.linkToOtherNode)
+                            {
+
+                                link.doorType = PcgPopulate.LinkType.BlockedByBossDoor;
+                                DestroyImmediate(link.GetComponent<LinkPopulate>());
+
+                                link.gameObject.AddComponent(typeof(BossDoorPopulate));
+                                link.SetPopulate(link.GetComponent<LinkPopulate>());
+                            }
+                        }
                     }
-               else
+                    else
                {
                   nodeLink.alreadyCheck = true;
                }

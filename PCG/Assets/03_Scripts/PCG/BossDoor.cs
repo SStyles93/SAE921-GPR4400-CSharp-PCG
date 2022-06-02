@@ -18,13 +18,13 @@ public class BossDoor : MonoBehaviour
             else
             {
                 //Activate warning message
-                _messageCanvas.enabled = true;
+                _messageCanvas.gameObject.SetActive(true);
             }
         }
     }
     public void OnTriggerExit2D(Collider2D collision)
     {
         //Disactivate warning message
-        _messageCanvas.enabled = false;
+        _messageCanvas.gameObject.SetActive(false);
     }
 }

@@ -103,7 +103,6 @@ public abstract class RoomPopulate : MonoBehaviour
              {
                  CloseDoors();
              }
-             
          }
      }
 

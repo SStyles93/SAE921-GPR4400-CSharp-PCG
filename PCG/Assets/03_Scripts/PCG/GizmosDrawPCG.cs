@@ -25,20 +25,25 @@ public class GizmosDrawPCG : MonoBehaviour
         Gizmos.color = Color.green;
         foreach (var linkNode in mapScript.maplinks)
         {
-            Gizmos.DrawLine(linkNode.firstMapNode.transform.position,linkNode.secondMapNode.transform.position);
+            if(linkNode.firstMapNode != null && linkNode.secondMapNode != null)
+                Gizmos.DrawLine(linkNode.firstMapNode.transform.position,linkNode.secondMapNode.transform.position);
         }
         
         foreach (var linkNode in mapScript.maplinks)
         {
-            if (linkNode.rootPathing)
+            if (linkNode.firstMapNode != null && linkNode.secondMapNode != null)
             {
-                Gizmos.color = Color.yellow;
-                Gizmos.DrawLine(linkNode.transform.position, linkNode.firstMapNode.transform.position);
-                Gizmos.color = Color.red;
-                Gizmos.DrawLine(linkNode.transform.position, linkNode.secondMapNode.transform.position);
-                Gizmos.color = Color.cyan;
-                Gizmos.DrawWireCube(linkNode.transform.position, new Vector3(1, 1));
+                if (linkNode.rootPathing)
+                {
+                    Gizmos.color = Color.yellow;
+                    Gizmos.DrawLine(linkNode.transform.position, linkNode.firstMapNode.transform.position);
+                    Gizmos.color = Color.red;
+                    Gizmos.DrawLine(linkNode.transform.position, linkNode.secondMapNode.transform.position);
+                    Gizmos.color = Color.cyan;
+                    Gizmos.DrawWireCube(linkNode.transform.position, new Vector3(1, 1));
+                }
             }
+                
         }
     }
 }
