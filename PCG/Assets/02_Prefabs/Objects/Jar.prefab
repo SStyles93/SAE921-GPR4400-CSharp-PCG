@@ -147,6 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 5222889776543287833}
   _loots:
-  - {fileID: 113019722042286917, guid: b64100e14852cce409e892d395078fdb, type: 3}
   - {fileID: 9061799253664941976, guid: 80f74cbb0a324244583b31b96592f7d8, type: 3}
   - {fileID: 3065888164323990574, guid: e0e66a1a4d533d9409df5e92110b26ca, type: 3}
+  _isDestroyed: 0
+  _bossCoin: {fileID: 113019722042286917, guid: b64100e14852cce409e892d395078fdb, type: 3}

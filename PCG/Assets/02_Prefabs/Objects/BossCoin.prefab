@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2587334247545000028}
   - component: {fileID: 3518498713034511442}
   m_Layer: 0
-  m_Name: Coin
+  m_Name: BossCoin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

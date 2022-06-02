@@ -13,7 +13,7 @@ public abstract class LinkPopulate : MonoBehaviour
 
     public virtual void CloseDoor()
     {
-        _entity.Add(Instantiate(_prefabTank.Door, transform.position, quaternion.identity));
+        _entity.Add(Instantiate(_prefabTank.Door, transform.position, Quaternion.identity));
     }
     
     public virtual void SetPrefabTank(PrefabLibrary prefabTank)

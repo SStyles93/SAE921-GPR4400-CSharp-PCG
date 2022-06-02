@@ -141,7 +141,7 @@ public class MapNode : MonoBehaviour
 
             if (nodeLink.alreadyCheck && nodeLink.rootPathing)
             {
-               targetNode.GrowRoot(rootLenght,rootPos,populate);
+               targetNode.GrowRoot(rootLenght, rootPos, populate);
             }
 
             if (nodeLink.alreadyCheck == false)
@@ -151,25 +151,28 @@ public class MapNode : MonoBehaviour
                   nodeLink.alreadyCheck = true;
                   nodeLink.rootPathing = true;
                   nodeLink.doorType = populate.GetTypeLink(rootLenght);
-                  switch (nodeLink.doorType)
-                  {
-                     case PcgPopulate.LinkType.FreeAccesses:
-                        nodeLink.gameObject.AddComponent(typeof(FreeAccessPopulate));
-                        nodeLink.SetPopulate(nodeLink.GetComponent<LinkPopulate>());
-                        break;
-                     case PcgPopulate.LinkType.BlockedByCrate:
-                        nodeLink.gameObject.AddComponent(typeof(BlockedByCratePopulate));
-                        nodeLink.SetPopulate(nodeLink.GetComponent<LinkPopulate>());
-                        break;
-                     case PcgPopulate.LinkType.BlockedByDoor:
-                        nodeLink.gameObject.AddComponent(typeof(DoorPopulate));
-                        nodeLink.SetPopulate(nodeLink.GetComponent<LinkPopulate>());
-                        break;
-                     default:
-                        break;
-                  }
-                  
-                  targetNode.GrowRoot(rootLenght,rootPos,populate);
+
+                    switch (nodeLink.doorType)
+                    {
+                        case PcgPopulate.LinkType.FreeAccesses:
+                            nodeLink.gameObject.AddComponent(typeof(FreeAccessPopulate));
+                            nodeLink.SetPopulate(nodeLink.GetComponent<LinkPopulate>());
+                            break;
+
+                        case PcgPopulate.LinkType.BlockedByCrate:
+                            nodeLink.gameObject.AddComponent(typeof(BlockedByCratePopulate));
+                            nodeLink.SetPopulate(nodeLink.GetComponent<LinkPopulate>());
+                            break;
+
+                        case PcgPopulate.LinkType.BlockedByDoor:
+                            nodeLink.gameObject.AddComponent(typeof(DoorPopulate));
+                            nodeLink.SetPopulate(nodeLink.GetComponent<LinkPopulate>());
+                            break;
+                        default:
+                            break;
+                    }
+
+                  targetNode.GrowRoot(rootLenght,rootPos,populate);  
                }
                else
                {

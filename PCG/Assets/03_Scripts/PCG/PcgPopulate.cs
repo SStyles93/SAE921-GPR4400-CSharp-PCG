@@ -24,7 +24,8 @@ public class PcgPopulate : MonoBehaviour
         None,//Node by default
         FreeAccesses,
         BlockedByCrate,
-        BlockedByDoor
+        BlockedByDoor,
+        BlockedByBossDoor,
     }
     
     
@@ -86,6 +87,9 @@ public class PcgPopulate : MonoBehaviour
         {
             mapNodeLink._linkPopulate.SetPrefabTank(_prefabTank);
         }
+
+        //Adds a BossCoin on a random Jar
+        _gameManager.TrackedObjects[Random.Range(0, _gameManager.TrackedObjects.Count)].GetComponent<Jar>().AddBossCoin();
     }
     
     public RoomType GetTypeRoom(int rootLenght)
@@ -119,7 +123,7 @@ public class PcgPopulate : MonoBehaviour
     public LinkType GetTypeLink(int rootLenght)
     {
         float rdmValue = Random.value;
-        
+
         if (rdmValue< 0.3)
         {
             return LinkType.BlockedByCrate;

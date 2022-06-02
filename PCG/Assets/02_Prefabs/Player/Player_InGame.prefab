@@ -443,6 +443,7 @@ GameObject:
   - component: {fileID: 1709225247}
   - component: {fileID: 6725792000420809198}
   - component: {fileID: 724596884701300023}
+  - component: {fileID: 9068536167693610067}
   m_Layer: 6
   m_Name: Player_InGame
   m_TagString: Player
@@ -712,6 +713,18 @@ MonoBehaviour:
   _arrowShootClip: {fileID: 0}
   _attackClip: {fileID: 0}
   _hitClip: {fileID: 8300000, guid: c05c8cd9d532b2d47a33f0d8298a097b, type: 3}
+--- !u!114 &9068536167693610067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2619042568326500037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fe3ea72242717e42957c3f37e2f9ebb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4417441624734864690
 GameObject:
   m_ObjectHideFlags: 0
