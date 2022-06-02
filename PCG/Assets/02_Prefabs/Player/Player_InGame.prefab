@@ -711,7 +711,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _footStepsClip: {fileID: 0}
   _arrowShootClip: {fileID: 0}
-  _attackClip: {fileID: 0}
+  _attackClips:
+  - {fileID: 8300000, guid: 4b605994627da2f4399d822e128c676f, type: 3}
+  - {fileID: 8300000, guid: 78b53ee87721e7c42a2e1ec6c9ab60a2, type: 3}
   _hitClip: {fileID: 8300000, guid: c05c8cd9d532b2d47a33f0d8298a097b, type: 3}
 --- !u!114 &9068536167693610067
 MonoBehaviour:

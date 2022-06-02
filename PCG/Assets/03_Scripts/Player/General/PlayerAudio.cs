@@ -16,7 +16,7 @@ namespace Player
         [Header("Audio Clips")]
         [SerializeField] private AudioClip _footStepsClip;
         [SerializeField] private AudioClip _arrowShootClip;
-        [SerializeField] private AudioClip _attackClip;
+        [SerializeField] private AudioClip[] _attackClips;
         [SerializeField] private AudioClip _hitClip;
 
 
@@ -42,7 +42,7 @@ namespace Player
             //HeadButt
             if (_playerController.Action1)
             {
-                PlayClip(_attackClip);
+                PlayClip(_attackClips[Random.Range(0, _attackClips.Length)]);
             }
         }
 
